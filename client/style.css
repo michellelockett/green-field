@@ -58,7 +58,7 @@ img.logo {
   margin-top: 1em;
 }
 
-#mainArticle { 
+#books { 
   grid-area: article;   
   background-color: white;   
   margin-right: 4em;
@@ -110,7 +110,7 @@ img.logo {
 }
 
 @media all and (max-width: 800px) {
-  body { 
+  .main { 
     grid-template-areas: 
       "header"
       "nav"
