@@ -1,7 +1,5 @@
-<select id="dropdownSort">
-  <option>Sort By</option>
-  <option>Title</option>
-  <option>Dewey Decimal</option>
+<select ng-change="$ctrl.change(selected)" ng-options="item for item in $ctrl.items" ng-model="selected" id="dropdownSort">
+  <option value="">Sort By</option>
 </select>
 
 <button ng-click="$ctrl.toggle()" class="button" id="toggleView">Toggle View</button>

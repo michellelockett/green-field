@@ -1,4 +1,5 @@
- <div id="contentsDewey">
+
+<div ng-show="$ctrl.sort === 'dewey'" id="contentsDewey">
       <h4>All Books</h4>
       <hr>
       <h4>000</h4>
@@ -30,4 +31,24 @@
       <hr>
       <h4>900</h4>
       <h4 class="classification">Geography and History</h4>
- </div>
+</div>
+
+<div ng-show="$ctrl.sort === 'title'" id="contentsTitle">
+      <h4>All Books</h4>
+      <hr>
+      <h4>A-C</h4>
+      <hr>
+      <h4>D-F</h4>
+      <hr>
+      <h4>G-I</h4>
+      <hr>
+      <h4>J-L</h4>
+      <hr>
+      <h4>M-O</h4>
+      <hr>
+      <h4>P-R</h4>
+      <hr>
+      <h4>S-U</h4>
+      <hr>
+      <h4>V-Z</h4>
+</div>
