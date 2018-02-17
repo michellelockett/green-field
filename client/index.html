@@ -8,8 +8,8 @@
 </head>
 
 <body> 
-  <div ng-app="BookApp">
-     <app class="main"></app>
+  <div ng-app="BookApp" ng-controller="mainCtrl as ctrl">
+     <app class="main" books=$ctrl.books></app>
   </div>
 
   <script src="./src/index.js"></script>  
@@ -18,6 +18,10 @@
   <script src="./components/options.js"></script>
   <script src="./components/contentIndex.js"></script>
   <script src="./components/bookList.js"></script>
+  <script src="./src/fakeBookData.js"></script>
+  <script src="./components/bookCoverList.js"></script>
+  <script src="./components/bookCover.js"></script>
+  <script src="./components/bookListItem.js"></script>
 
 </body>
 </html>

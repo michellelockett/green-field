@@ -1,17 +1,21 @@
 
-
   <!-- logo, stock image for now just for sizing -->
   <header id="pageHeader">
     <img class="logo" src="https://static.pexels.com/photos/5834/nature-grass-leaf-green.jpg">
   </header>
+
   <!--main navbar-->
   <navbar id="mainNav"></navbar>
+
   <!--options navbar for sorting view -->
-  <options id="options"></options>
+  <options ng-click="console.log($ctrl.books)" id="options"></options>
+
   <!--sidebar to display table of contents-->
   <content-index id="contents"></content-index>
+
   <!--main view for bookshelf and wishlist-->
-  <book-list id="books"></book-list>
+  <book-list id="bookList" ng-show="$ctrl.view === 'list'" books=$ctrl.books></book-list>
+  <book-cover-list ng-show="$ctrl.view === 'cover'" id="bookCovers" books=$ctrl.books></book-cover-list>
 
 
 
