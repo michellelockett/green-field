@@ -1,24 +1,14 @@
-<article id="mainArticle">
-  <h1 class="header"> MY BOOKSHELF </h1>
-  <div class="wrapper scrollable">
-    <div>
-      <img class="book" src="https://images-na.ssl-images-amazon.com/images/I/51L10EnuJbL._SX295_BO1,204,203,200_.jpg">
-    </div>
-    
-    <div >
-      <img class="book" src="https://images-na.ssl-images-amazon.com/images/I/416MZVezL3L._SX301_BO1,204,203,200_.jpg">
-    </div>
+<h1>My Bookshelf List</h1>
 
-    <div>
-      <img class="book" src="https://images-na.ssl-images-amazon.com/images/I/512HYLXNcEL.jpg">
-    </div>
-
-    <div>
-      <img class="book" src="https://images-na.ssl-images-amazon.com/images/I/71UC9wXVesL.jpg">
-    </div>
-
-    <div>
-      <img class="book" src="https://images-na.ssl-images-amazon.com/images/I/71Ey4i9xkEL.jpg">
-    </div>
-  </div>
-</article>
+<table class="books" id="bookList">
+  <tr id="tableHeaders">
+    <th> title </th>
+    <th> author </th>
+    <th> dewey decimal number </th>
+  </tr>
+  <tr ng-repeat="book in $ctrl.books">
+    <td>{{book.title}}</td>
+    <td>{{book.primaryauthor}}</td>
+    <td>{{book.ddc.code[0]}}
+  </tr>
+</table>

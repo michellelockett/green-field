@@ -58,12 +58,36 @@ img.logo {
   margin-top: 1em;
 }
 
-#books { 
-  grid-area: article;   
-  background-color: white;   
+#bookCovers { 
+  grid-area: article;     
   margin-right: 4em;
   text-align: center;
 }
+
+#bookList {
+  grid-area: article;
+  margin-right: 4em;
+}
+
+table {
+  width: 90%;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+table, th, td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
 
 #mainNav { 
   grid-area: nav;
@@ -74,7 +98,6 @@ img.logo {
   align-items: flex-end;
   margin-top: 2em;
   margin-right: 4em;
-  /*border-radius: 35px;*/
 }
 
 #options {
@@ -96,8 +119,7 @@ img.logo {
   margin-left: 4em;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   padding-left: 10px;
 }
 
