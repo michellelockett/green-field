@@ -135,6 +135,10 @@ table tr:nth-child(even) {
   margin-left: 10px;
 }
 
+.header {
+  text-align: center;
+}
+
 @media all and (max-width: 800px) {
   .main { 
     grid-template-areas: 

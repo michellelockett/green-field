@@ -1,6 +1,7 @@
 angular.module('BookApp').component('bookCoverList', {
   templateUrl: './templates/bookCoverList.html',
   bindings: {
-    books: '<'
+    books: '<',
+    type: '<'
   }
 });

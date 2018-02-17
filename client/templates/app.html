@@ -14,8 +14,8 @@
   <content-index print="$ctrl.print" sort="$ctrl.sortBy" id="contents"></content-index>
 
   <!--main view for bookshelf and wishlist, conditionally rendered based on user chosen view type-->
-  <book-list id="bookList" ng-show="$ctrl.view === 'list'" books=$ctrl.currentBooks></book-list>
-  <book-cover-list ng-show="$ctrl.view === 'cover'" id="bookCovers" books=$ctrl.currentBooks></book-cover-list>
+  <book-list type="$ctrl.currentBookType" id="bookList" ng-show="$ctrl.view === 'list'" books=$ctrl.currentBooks></book-list>
+  <book-cover-list type="$ctrl.currentBookType" ng-show="$ctrl.view === 'cover'" id="bookCovers" books=$ctrl.currentBooks></book-cover-list>
 
 
 

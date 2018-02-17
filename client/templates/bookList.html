@@ -1,14 +1,17 @@
-<h1>My Bookshelf List</h1>
+<article>
+  <h1 ng-show="$ctrl.type === 'bookshelf'" class="header">MY BOOKSHELF</h1>
+  <h1 ng-show="$ctrl.type === 'wishlist'" class="header">MY WISHLIST</h1>
 
-<table class="books" id="bookList">
-  <tr id="tableHeaders">
-    <th> title </th>
-    <th> author </th>
-    <th> dewey decimal number </th>
-  </tr>
-  <tr ng-repeat="book in $ctrl.books">
-    <td>{{book.title}}</td>
-    <td>{{book.primaryauthor}}</td>
-    <td>{{book.ddc.code[0]}}
-  </tr>
-</table>
+  <table class="books" id="bookList">
+    <tr id="tableHeaders">
+      <th> title </th>
+      <th> author </th>
+      <th> dewey decimal number </th>
+    </tr>
+    <tr ng-repeat="book in $ctrl.books">
+      <td>{{book.title}}</td>
+      <td>{{book.primaryauthor}}</td>
+      <td>{{book.ddc.code[0]}}</td>
+    </tr>
+  </table>
+</article>
