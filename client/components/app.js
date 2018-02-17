@@ -4,6 +4,10 @@ angular.module('BookApp').component('app', {
     this.$onInit = () => {
       this.books = window.books;
       this.view = 'list';
-    }
+    };
+
+    this.toggleView = () => {
+      this.view = this.view === 'cover' ? 'list' : 'cover';
+    };
   }
 });
