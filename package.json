@@ -18,8 +18,7 @@
   "homepage": "https://github.com/michellelockett/green-field#readme",
   "dependencies": {
     "angular": "^1.6.9",
-    "live-server": "^1.2.0",
-    "sequelize": "^4.33.4"
+    "live-server": "^1.2.0"
   },
   "jshintConfig": {
     "esversion": "6"
