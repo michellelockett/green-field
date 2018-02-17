@@ -8,12 +8,12 @@
   <navbar id="mainNav"></navbar>
 
   <!--options navbar for sorting view -->
-  <options toggle="$ctrl.toggleView" id="options"></options>
+  <options items="$ctrl.sortOptions" change="$ctrl.changeSort" toggle="$ctrl.toggleView" id="options"></options>
 
   <!--sidebar to display table of contents-->
-  <content-index id="contents"></content-index>
+  <content-index print="$ctrl.print" sort="$ctrl.sortBy" id="contents"></content-index>
 
-  <!--main view for bookshelf and wishlist-->
+  <!--main view for bookshelf and wishlist, conditionally rendered based on user chosen view type-->
   <book-list id="bookList" ng-show="$ctrl.view === 'list'" books=$ctrl.books></book-list>
   <book-cover-list ng-show="$ctrl.view === 'cover'" id="bookCovers" books=$ctrl.books></book-cover-list>
 
