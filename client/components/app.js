@@ -11,6 +11,7 @@ angular.module('BookApp').component('app', {
       this.wishlist = ['chicken', 'cheesecake'];
       this.bookshelf = window.books;
       this.currentBooks = this.bookshelf;
+      this.currentBookType = 'bookshelf';
       this.getBookshelf();
       this.getWishlist();
     };
@@ -18,6 +19,13 @@ angular.module('BookApp').component('app', {
     //allows user to view books based on book covers or in list format
     this.toggleView = () => {
       this.view = this.view === 'cover' ? 'list' : 'cover';
+    };
+    
+    //changes which booktype we are to show
+    this.toggleBookType = (selected) => {  
+      if (selected !== this.currentBookType) {
+        this.currentBookType = selected;    
+      }
     };
     
     //when the user chooses a method to sort by, it updates state of parent component.  
@@ -33,14 +41,16 @@ angular.module('BookApp').component('app', {
     };
     
     //change the current book selection to either wishlist or bookshelf
-    this.toggleBooks = (selection) => {
-      console.log(selection);
+    this.toggleBooks = (selection) => {    
       if (selection === 'wishlist' && this.currentBooks !== this.wishlist) {
         this.currentBooks = this.wishlist;
+        console.log('changed to wishlist');
       } else if (selection === 'bookshelf' && this.currentBooks !== this.bookshelf) {
         this.currentBooks = this.bookshelf;
-      }   
-      console.log(this.currentBooks);
+        console.log('changed to bookshelf');
+      }  
+
+      this.toggleBookType(selection);    
     };
 
     //helper function to pass along to see that data bindings are working properly in child components
