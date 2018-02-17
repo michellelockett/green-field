@@ -131,6 +131,10 @@ table tr:nth-child(even) {
   grid-auto-rows: minmax(100px, auto);
 }
 
+#contentsDewey, #contentsTitle {
+  margin-left: 10px;
+}
+
 @media all and (max-width: 800px) {
   .main { 
     grid-template-areas: 
