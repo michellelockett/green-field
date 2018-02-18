@@ -14,16 +14,14 @@ angular.module('BookApp').component('app', {
       this.currentBookType = 'bookshelf';
       this.getBookshelf();
       this.getWishlist();
-      console.log(this.bookshelf.length, "bookshelf");
-      console.log(this.wishlist.length, "wishlist");
     };
     
-    //allows user to view books based on book covers or in list format
+    //allows user to view books by format (list vs. cover)
     this.toggleView = () => {
       this.view = this.view === 'cover' ? 'list' : 'cover';
     };
     
-    //changes which booktype we are to show
+    //changes which booktype we are to show (bookshelf vs. wishlist)
     this.toggleBookType = (selected) => {  
       if (selected !== this.currentBookType) {
         this.currentBookType = selected;    
@@ -52,6 +50,12 @@ angular.module('BookApp').component('app', {
         console.log('changed to bookshelf');
       }  
 
+      if (this.sortBy === 'dewey') {
+        this.sortByDewey();
+      } else {
+        this.sortByTitle();
+      }
+
       this.toggleBookType(selection);    
     };
 
@@ -61,19 +65,48 @@ angular.module('BookApp').component('app', {
       console.log(optional);
     };
 
-    this.sortByDewey = () => {
-      //sorts this.books to be ordered by DDN
-      //how we implement will depend on format that we store data we get from APIs
+    //sorts this.currentBooks to be ordered by DDN
+
+    this.sortByDewey = () => {      
+      this.currentBooks = this.currentBooks.sort((a, b) => {
+        if (a.ddc.fullNumber < b.ddc.fullNumber) {
+          return -1;
+        }
+        if (a.ddc.fullNumber > b.ddc.fullNumber){
+          return 1;
+        }
+        return 0;
+      });     
     };
 
-    this.sortByTitle = () => {
-      //sorts this.books to be ordered by title
-      //how we implement will depend on format that we store data we get from APIs
+    //sorts this.currentBooks to be ordered by title
+
+    this.sortByTitle = () => {    
+      this.currentBooks = this.currentBooks.sort( (a, b) => {
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      });
+    };
+
+     //filter this.allBooks to show only books that are owned and assign to this.bookshelf
+    this.getBookshelf = () => {      
+      this.bookshelf = this.allBooks.filter(book => book.owned === true);
+    };
+
+    //filter this.allBooks to show only books that are not owned and assign to this.wishlist
+    this.getWishlist = () => {     
+      this.wishlist = this.allBooks.filter(book => book.owned === false);
     };
     
     //optional - if we want to break the books into categores (000, 100) before passing them down?
     //or maybe we do that logic in the contentIndex component
     this.sortDeweyIntoCategories = () => {
+
 
     };
 
@@ -82,15 +115,6 @@ angular.module('BookApp').component('app', {
     this.sortTitleIntoCategories = () => {
 
     };
-
-    this.getBookshelf = () => {
-      //filter this.allBooks to show only books that are owned and assign to this.bookshelf
-      this.bookshelf = this.allBooks.filter(book => book.owned === true);
-    };
-
-    this.getWishlist = () => {
-      //filter this.allBooks to show only books that are not owned and assign to this.wishlist
-      this.wishlist = this.allBooks.filter(book => book.owned === false);
-    };
+   
   }
 });
