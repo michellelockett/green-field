@@ -10,8 +10,8 @@
     </tr>
     <tr ng-repeat="book in $ctrl.books">
       <td>{{book.title}}</td>
-      <td>{{book.primaryauthor}}</td>
-      <td>{{book.ddc.code[0]}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.ddc.fullNumber}}</td>
     </tr>
   </table>
 </article>

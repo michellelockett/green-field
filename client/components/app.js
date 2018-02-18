@@ -4,16 +4,18 @@ angular.module('BookApp').component('app', {
     this.$onInit = () => {
       //this will be an API call to our server for the books of the logged in user. For now using fake data
       //need to get all books onInit, then call the bookshelf and wishlist functions
-      this.allBooks = window.books;
+      this.allBooks = window.formattedBooks;
       this.view = 'list';
       this.sortBy = 'dewey';
       this.sortOptions = ['Dewey Decimal', 'Title'];
-      this.wishlist = ['chicken', 'cheesecake'];
-      this.bookshelf = window.books;
+      this.wishlist = [];
+      this.bookshelf = [];
       this.currentBooks = this.bookshelf;
       this.currentBookType = 'bookshelf';
       this.getBookshelf();
       this.getWishlist();
+      console.log(this.bookshelf.length, "bookshelf");
+      console.log(this.wishlist.length, "wishlist");
     };
     
     //allows user to view books based on book covers or in list format
@@ -83,10 +85,12 @@ angular.module('BookApp').component('app', {
 
     this.getBookshelf = () => {
       //filter this.allBooks to show only books that are owned and assign to this.bookshelf
+      this.bookshelf = this.allBooks.filter(book => book.owned === true);
     };
 
     this.getWishlist = () => {
       //filter this.allBooks to show only books that are not owned and assign to this.wishlist
+      this.wishlist = this.allBooks.filter(book => book.owned === false);
     };
   }
 });
