@@ -18,6 +18,9 @@
   "homepage": "https://github.com/michellelockett/green-field#readme",
   "dependencies": {
     "angular": "^1.6.9",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
     "live-server": "^1.2.0"
   },
   "jshintConfig": {
