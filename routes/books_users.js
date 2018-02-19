@@ -1,36 +1,40 @@
-// routes for books (user-book relationships)
+/** ROUTES FOR BOOK-USER RELATIONSHIP ACTIONS**/
+const express = require('express')
+const router = express.Router()
+const { userController } = require('../controllers/user');
 
-// create a book if doesn't exist
+// CREATE book if it doesn't exist already
 // and a user-book relationship
-app.post('/users/:user_id/books', (req, res) => {
+router.post('/users/:user_id/books', (req, res) => {
   // direct to method in Books controller/model handler
-  res.send('This will return an object containing a status message confirming creation of the specific book and/or user-book relationship.');
+  // userController.postBookUser(req, res);
 });
 
-// read all books associated with a user
-app.get('/users/:user_id/books', (req, res) => {
+// READ all books associated with a given user
+router.get('/users/:user_id/books', (req, res) => {
   // direct to method in Books controller/model handler
-  res.send('This will return an object containing a status message and a list of all books associated with current user');
+  // userController.getUserBooks(req, res);
 });
 
-// read a specific book associated with a user
+// READ a specific book associated with a given user
 // includes user notes, loan status, etc.
-app.get('/users/:user_id/books/:book_id', (req, res) => {
+router.get('/users/:user_id/books/:book_id', (req, res) => {
   // direct to method in Books controller/model handler
-  res.send('This will return an object containing a status message and a specific book associated with user.');
+  // userController.getUserBookId(req, res);
 });
 
-// update a specific book and
-// update user-book relationship information (notes, loan status, etc.)
-app.put('/users/:user_id/books/:book_id', (req, res) => {
+// UPDATE a specific book and user-book
+// relationship information (notes, loan status, etc.)
+router.put('/users/:user_id/books/:book_id', (req, res) => {
   // direct to method in Books controller/model handler
   // passing :id from params
-  res.send('This will return an object containing a status message and updated information for a specific book.');
+  // userController.updateBook(req, res);
 });
 
-// destroy association between user and book
-app.delete('/users/:user_id/books/:book_id', (req, res) => {
+// DESTROY association between user and book
+// but not book itself
+router.delete('/users/:user_id/books/:book_id', (req, res) => {
   // direct to method in Users controller/model handler
   // passing :id from params
-  res.send('This will return an object containing a status message confirming deletion of relationship of user and the specific book.');
+  // userController.deleteBook(req, res);
 });
