@@ -18,10 +18,14 @@
   "homepage": "https://github.com/michellelockett/green-field#readme",
   "dependencies": {
     "angular": "^1.6.9",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
-    "live-server": "^1.2.0"
+    "live-server": "^1.2.0",
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.33.4",
+    "xml2js": "^0.4.19"
   },
   "jshintConfig": {
     "esversion": "6"
