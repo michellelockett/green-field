@@ -1,6 +1,8 @@
 angular.module('BookApp').component('contentIndex', {
   templateUrl: './templates/contentIndex.html',
   bindings: {
-    sort: '<'
+    sort: '<',
+    category: '<',
+    print: '<'
   }
 });

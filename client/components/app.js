@@ -10,10 +10,11 @@ angular.module('BookApp').component('app', {
       this.sortOptions = ['Dewey Decimal', 'Title'];
       this.wishlist = [];
       this.bookshelf = [];
-      this.currentBooks = this.bookshelf;
-      this.currentBookType = 'bookshelf';
+      this.currentBooks = this.wishlist;
+      this.currentBookType = 'wishlist';
       this.getBookshelf();
       this.getWishlist();
+      this.toggleBooks('bookshelf');
     };
     
     //allows user to view books by format (list vs. cover)
@@ -26,6 +27,8 @@ angular.module('BookApp').component('app', {
       if (selected !== this.currentBookType) {
         this.currentBookType = selected;    
       }
+      
+      this.currentBooks = selected === 'bookshelf' ? this.bookshelf : this.wishlist;
     };
     
     //when the user chooses a method to sort by, it updates state of parent component.  
@@ -105,16 +108,29 @@ angular.module('BookApp').component('app', {
     
     //optional - if we want to break the books into categores (000, 100) before passing them down?
     //or maybe we do that logic in the contentIndex component
-    this.sortDeweyIntoCategories = () => {
+    this.sortByCategory = (deweyOrAlpha) => {
+      const alpha = ["ABC", "DEF", "GHI", "JKL", "MNO", "PQR", "STU", "VWXYZ"];
+      const listType = this.currentBookType === 'bookshelf' ? this.bookshelf : this.wishlist;
 
+      if (this.sortBy === 'dewey') {
+        this.currentBooks = listType.filter(book => book.ddc.baseNumber === deweyOrAlpha);
 
-    };
-
-    //optional - if we want to break the books into categoires (A-C) before passing them down?
-    //or maybe we do that logic in the contentIndex component
-    this.sortTitleIntoCategories = () => {
-
-    };
-   
+        if (deweyOrAlpha === 'all') {
+          this.currentBooks = listType;
+          this.sortByDewey();
+        }
+        this.sortByDewey();
+      } else if (deweyOrAlpha === "all") {
+        this.currentBooks = listType;
+        this.sortByTitle();
+      } else {
+        for (var i = 0; i < alpha.length; i++) {
+          if (alpha[i].includes(deweyOrAlpha)) {
+            this.currentBooks = listType.filter(book => alpha[i].includes(book.title[0].toUpperCase()));
+            this.sortByTitle();
+          }
+        }
+      }     
+    };   
   }
 });
