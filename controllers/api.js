@@ -16,7 +16,6 @@ const apiController = {
         if (err) {
           console.log("Error: ", err);
         }
-        // assign precise Dewey Decimal # to book object
 
         /**
         Classify API is inconsistent in number of classifications
@@ -47,10 +46,8 @@ const apiController = {
           });
         };
 
-        // result.classify.recommendations[0].ddc[0].mostPopular[1]['$'].nsfa
-
+        // assign precise Dewey Decimal # to book object
         book.ddc = extractDDC();
-        // console.log(result.classify.recommendations[0].ddc[0].mostPopular);
       });
     })
     .then((jsonData) => {
