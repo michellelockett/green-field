@@ -16,7 +16,6 @@ app.use('*', (req, res, next) => {
 app.use('/static', express.static(path.join(__dirname, 'node_modules', 'angular')));
 app.use(express.static(path.join(__dirname, 'client')));
 
-app.use('/static', userRoutes);
 app.use('/users', userRoutes);
 app.use('/api', apiRoutes);
 

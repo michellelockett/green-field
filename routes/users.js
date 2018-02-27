@@ -16,12 +16,14 @@ router.get('/', (req, res) => {
   // userController.getUsers(req, res);
 });
 
-// // read a specific user
-// app.get('/users/:id', (req, res) => {
-//   // direct to method in Users controller/model handler
-//   // passing :id from params
-//   res.send('This will return an object containing a status message and selected information for a specific user.');
-// });
+// Retrieve the information for a specific user
+// And his/her associated books
+router.get('/:id', (req, res) => {
+  console.log('triggered');
+  // direct to method in Users controller/model handler
+  // passing :id from params
+  userController.getUserWithBooks(req, res);
+});
 
 // // update a specific user
 // app.put('/users/:id', (req, res) => {
