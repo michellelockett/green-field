@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const {userRoutes} = require('./routes/users');
-const {apiRoutes} = require('./routes/api');
 
 const app = express();
 
@@ -17,7 +16,6 @@ app.use('/static', express.static(path.join(__dirname, 'node_modules', 'angular'
 app.use(express.static(path.join(__dirname, 'client')));
 
 app.use('/users', userRoutes);
-app.use('/api', apiRoutes);
 
 app.listen(3000, () => {
   console.log(`Server listening on port 3000`);
