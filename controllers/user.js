@@ -5,8 +5,6 @@ const {BookAuthors} = require('../models/bookAuthors');
 const {BookGenres} = require('../models/bookGenres');
 const {BookUsers} = require('../models/bookUsers');
 
-
-
 const userController = {
   getUsers(req, res) {
     User.findAll()
