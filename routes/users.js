@@ -27,7 +27,6 @@ router.get('/', (req, res) => {
 // Retrieve the information for a specific user
 // And his/her associated books
 router.get('/:id', (req, res) => {
-  console.log('triggered');
   // direct to method in Users controller/model handler
   // passing :id from params
   userController.getUserWithBooks(req, res);

@@ -16,9 +16,6 @@ const userController = {
 
   },
   getUserWithBooks(req, res) {
-
-    console.log('fired');
-
     let userId = req.params.id;
     User.findById(userId, {
       include: [

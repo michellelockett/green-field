@@ -16,16 +16,14 @@ angular.module('BookApp', [])
     getAllBooksForUser(id) {
       return $http({
         method: 'GET',
-        url: `http://localhost:3000/users/${id}/`
+        url: `/users/${id}/`
       })
       .then(function successCallback(response) {
-        console.log(response);
         return response.data.books;
       }, function errorCallback(response) {
         console.log(response);
       })
     },
-
 
     lookupISBN(isbn) {
       $http({

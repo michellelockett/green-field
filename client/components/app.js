@@ -12,9 +12,17 @@ angular.module('BookApp').component('app', {
       this.bookshelf = [];
       this.currentBooks = this.wishlist;
       this.currentBookType = 'wishlist';
-      this.getBookshelf();
-      this.getWishlist();
+      // this.getBookshelf();
+      // this.getWishlist();
       this.toggleBooks('bookshelf');
+
+      conan.getAllBooksForUser(2)
+      .then((books) => {
+        this.allBooks = books;
+        this.getBookshelf();
+        this.getWishlist();
+        this.currentBooks = this.bookshelf;
+      })
     };
 
     //allows user to view books by format (list vs. cover)
@@ -98,12 +106,14 @@ angular.module('BookApp').component('app', {
 
      //filter this.allBooks to show only books that are owned and assign to this.bookshelf
     this.getBookshelf = () => {
-      this.bookshelf = this.allBooks.filter(book => book.owned === true);
+      this.bookshelf = this.allBooks;
+      // this.bookshelf = this.allBooks.filter(book => book.owned === true);
     };
 
     //filter this.allBooks to show only books that are not owned and assign to this.wishlist
     this.getWishlist = () => {
-      this.wishlist = this.allBooks.filter(book => book.owned === false);
+      this.bookshelf = this.allBooks;
+      // this.wishlist = this.allBooks.filter(book => book.owned === false);
     };
 
     //optional - if we want to break the books into categores (000, 100) before passing them down?
