@@ -13,7 +13,8 @@ const Book = db.define('book', {
   	type: Sequelize.STRING
   },
   ISBN: {
-  	type: Sequelize.INTEGER
+  	type: Sequelize.INTEGER,
+    unique: true
   },
   format: {
   	type: Sequelize.STRING
@@ -29,10 +30,25 @@ const Book = db.define('book', {
 
 Book.belongsTo(Classification)
 
-Book.sync()
+Book.sync({force: true})
 .then(() => {
   return Book.create({
-    title: "A cool book"
+    title: "Guide to React"
+  });
+})
+.then(() => {
+  return Book.create({
+    title: "Guide to Angular"
+  });
+})
+.then(() => {
+  return Book.create({
+    title: "Guide to Backbone"
+  });
+})
+.then(() => {
+  return Book.create({
+    title: "Guide to jQuery"
   });
 })
 .catch((err) => {
