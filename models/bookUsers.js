@@ -8,18 +8,18 @@ const BookUsers = db.define('bookUsers', {
 	  type: Sequelize.INTEGER,
 	  primaryKey: true,
 	  autoincrement: true
+	},
+	bookId: {
+	  type: Sequelize.INTEGER
+	},
+	userId: {
+		type: Sequelize.INTEGER
 	}
-	// bookId: {
-	//   type: Sequelize.INTEGER
-	// },
-	// userId: {
-	// 	type: Sequelize.INTEGER
-	// }
 });
 
 BookUsers.sync()
 .catch(err => {
-  console.log('This error!', err);
+	console.log(`An error was encountered while syncing the database: `, err);
 });
 
 Book.belongsToMany(User, {through: BookUsers});
