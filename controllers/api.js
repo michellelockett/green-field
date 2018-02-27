@@ -57,6 +57,7 @@ const apiController = {
     .then((response) => {
       // variable to hold data from first returned book
       // that matches ISBN
+      console.log(response);
       let bookData = response.data.items[0].volumeInfo;
 
       // attach properties to book
@@ -74,7 +75,7 @@ const apiController = {
       res.send(book);
     })
     .catch((err) => {
-      // console.log('getBookData ERROR: ', err);
+      console.log('getBookData ERROR: ', err);
     })
 
   }

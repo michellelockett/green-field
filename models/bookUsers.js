@@ -20,7 +20,7 @@ BookUser.sync({force: true}).then(() => {
 	return User.findById(2);
 }).then((user) => {
 
-	Book.findById(2).then((book) => {
+	Book.findById(1).then((book) => {
     book.addUser(user);
 	});
 
