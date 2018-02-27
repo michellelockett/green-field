@@ -4,9 +4,9 @@ const xml2js = require("xml2js");
 // Require API key(s)
 const { API_KEY } = require("../config/google");
 
-/** 
+/**
 
-READ THIS 
+READ THIS
 
 The process for 'building' a book before saving is complex.
 No single API can return all necessary data.
@@ -24,7 +24,6 @@ const lookupByISBN = isbn => {
 
 const parseXML = response => {
   return new Promise((resolve, reject) => {
-    console.log(response.data);
     xml2js.parseString(response.data, (err, result) => {
       if (err) {
         reject(err);
@@ -39,10 +38,8 @@ const extractDDC = result => {
   let classifications = result.classify.recommendations[0].ddc[0].mostPopular;
   classifications.forEach((item, index) => {
     if (item["$"].nsfa && item["$"].nsfa.includes(".")) {
-      console.log("DDC FOUND!", item["$"].nsfa);
       return item["$"].nsfa;
     } else if (item["$"].sfa && item["$"].sfa.includes(".")) {
-      console.log("DDC FOUND!", item["$"].sfa);
       return item["$"].sfa;
     } else {
       return "unavailable";
@@ -57,7 +54,6 @@ const getBookDetails = isbn => {
 };
 
 const addDetailsToBook = (book, response) => {
-  console.log(response);
   let bookData = response.data.items[0].volumeInfo;
 
   // attach properties to book
