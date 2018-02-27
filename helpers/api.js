@@ -76,7 +76,7 @@ const buildBook = isbn => {
         return parseXML(response);
       })
       .then(result => {
-        book.ddc = extractDDC(result);
+        book.dewey = extractDDC(result);
       })
       .then(() => {
         return getBookDetails(isbn);
