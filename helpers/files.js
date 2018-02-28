@@ -6,12 +6,12 @@ buildBookList()
 
 arguments: array of book objects
 returns: no return
-outputs: writes file to /users/{username}.txt 
+outputs: writes file to /users/{userId}.txt 
 
 **/
-const buildBookList = (books) => {
+const buildBookList = (userId, books) => {
   // create writable stream
-  let stream = fs.createWriteStream(__dirname + 'username.txt');
+  let stream = fs.createWriteStream(__dirname +  `/../users/${userId}.txt`);
 
   stream.write('My Bookshelf\n\n');
 

@@ -25,7 +25,7 @@ const userController = {
     }).then((userBookData) => {
       // Rebuild a user's book list so it is 
       // accessible if/when they request it
-      buildBookList(userBookData.books);
+      buildBookList(userId, userBookData.books);
 
       // Send JSON to client
       res.json(userBookData);
@@ -37,6 +37,12 @@ const userController = {
   },
   getUserBookId(req,res) {
 
+  },
+  getUserBookList(req, res) {
+    // Serve a simple test file
+    // Refactor to serve the file in /users/
+    // with the filename of the current user's ID
+    res.download(`${__dirname}/../users/${req.params.id}.txt`, 'my_books.txt');
   },
   updateBook(req, res) {
 

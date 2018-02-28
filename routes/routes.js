@@ -36,9 +36,12 @@ router.delete('/users/:user_id/books/:book_id', (req, res) => {
 // Retrieve the information for a specific user
 // And his/her associated books
 router.get('/users/:id', (req, res) => {
-  console.log('fired');
   userController.getUserWithBooks(req, res);
 });
+
+router.get('/users/:id/books/list', (req, res) => {
+  userController.getUserBookList(req, res);
+})
 
 /**
 
