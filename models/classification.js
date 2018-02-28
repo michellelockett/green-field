@@ -10,7 +10,6 @@ const Classification = db.define('classfication', {
 
 Classification.sync()
 .catch(err => {
-  console.log('This error!', err);
 })
 
 exports.Classification = Classification;

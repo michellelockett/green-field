@@ -19,7 +19,6 @@ const BookGenres = db.define('bookGenres', {
 
 BookGenres.sync()
 .catch(err => {
-  console.log('This error!', err);
 });
 
 Book.belongsToMany(Genre, { through: BookGenres});

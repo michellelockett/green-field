@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 const db = new Sequelize('conan_dev','root', '', {
   host : "localhost",
   dialect: 'mysql',
-  logging: false
+  logging: false,
 });
 
 exports.db = db;

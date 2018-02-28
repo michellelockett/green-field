@@ -1,12 +1,13 @@
 // Require dependencies
 const axios = require("axios");
 const xml2js = require("xml2js");
+
 // Require API key(s)
 const { API_KEY } = require("../config/google");
 
 /**
 
-READ THIS
+PLEASE READ:
 
 The process for 'building' a book before saving is complex.
 No single API can return all necessary data.
@@ -14,7 +15,6 @@ Likewise, each of the APIs used presents data in a confusing
 manner.
 
 **/
-
 
 const lookupByISBN = isbn => {
   return axios.get(
@@ -56,7 +56,20 @@ const getBookDetails = isbn => {
 const addDetailsToBook = (book, response) => {
   let bookData = response.data.items[0].volumeInfo;
 
+  let formattedAuthors = bookData.authors.map((item, index) => {
+    let splitName = item.split(' ');
+    let firstName = splitName.shift();
+    let lastName = splitName.join(' ');
+    return {
+      firstName,
+      lastName
+    };
+  });
+
+
   // attach properties to book
+  book.authors = formattedAuthors;
+  console.log('FORMATTED AUTHORS', book.authors);
   book.title = bookData.title;
   book.description = bookData.description;
   book.pages = bookData.pageCount;

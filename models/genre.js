@@ -9,7 +9,6 @@ const Genre = db.define('genre', {
 
 Genre.sync()
 .catch(err => {
-  console.log('This error', err)
 })
 
 exports.Genre = Genre;

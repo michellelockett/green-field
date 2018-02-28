@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { userController } = require('../controllers/user');
+const { bookController } = require('../controllers/book');
 const bookRoutes = require('./books');
 
 //routes for users of the book app interacting with the server

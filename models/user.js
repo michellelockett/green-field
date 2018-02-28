@@ -17,38 +17,38 @@ const User = db.define('user', {
   }
 });
 
-// force: true will drop the table if it already exists
-User.sync({force: true}).then(() => {
 
-  return User.create({
-    firstName: 'Jeremiah',
-    lastName: 'Cerda',
-    userName: 'jdog',
-    hash: 'insecurepassword'
-  });
+// // force: true will drop the table if it already exists
+// User.sync({force: true}).then(() => {
 
-}).then(() => {
+//   return User.create({
+//     firstName: 'Jeremiah',
+//     lastName: 'Cerda',
+//     userName: 'jdog',
+//     hash: 'insecurepassword'
+//   });
 
-  return User.create({
-    firstName: 'Michelle',
-    lastName: 'Lockett',
-    userName: 'mdog',
-    hash: 'insecurepassword'
-  });
+// }).then(() => {
 
-}).then(() => {
+//   return User.create({
+//     firstName: 'Michelle',
+//     lastName: 'Lockett',
+//     userName: 'mdog',
+//     hash: 'insecurepassword'
+//   });
 
-  return User.create({
-    firstName: 'Chris',
-    lastName: 'Poole',
-    userName: 'cdog',
-    hash: 'insecurepassword'
-  });
+// }).then(() => {
 
-}).catch((err) => {
+//   return User.create({
+//     firstName: 'Chris',
+//     lastName: 'Poole',
+//     userName: 'cdog',
+//     hash: 'insecurepassword'
+//   });
 
-  console.log(`An error was encountered while seeding the database: `, err);
+// }).catch((err) => {
 
-});
 
-exports.User = User;
+// });
+
+module.exports = User;

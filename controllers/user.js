@@ -1,6 +1,5 @@
-const {User} = require('../models/user');
-const {Book} = require('../models/book');
-const {BookUsers} = require('../models/bookUsers');
+const {User, Book, BookUsers} = require('../models/index');
+
 
 const userController = {
   getUsers(req, res) {
