@@ -29,43 +29,47 @@ Book.belongsToMany(Author, { through: BookAuthor });
 Author.belongsToMany(Book, { through: BookAuthor });
 
 // Sync entire database (must be performed after associations created)
-db
-  .sync({ force: true })
-  .then(() => {
-    return Book.create(
-      {
-        title: 'Test',
-        users: [{ id: 2 }, { id: 3 }],
-        authors: [
-          {
-            firstName: 'me',
-            lastName: 'you'
-          },
-
-          {
-            firstName: 'you',
-            lastName: 'you'
-          }
-        ]
-      },
-      {
-        include: [
-          {
-            model: Author,
-            as: 'authors'
-          },
-          {
-            model: User,
-            as: 'users'
-          }
-        ]
-      }
-    );
-  })
-  .then(book => {})
-  .catch(err => {
-    console.log(err);
+db.sync({ force: true })
+.then(() => {
+  return Book.create({
+    "isbn": 9780143124870,
+    "title": "A Tale for the Time Being",
+    "published": 2013,
+    "description": "A novelist on a remote island in the Pacific is linked to a bullied and depressed Tokyo teenager after discovering a Hello Kitty lunchbox that washed ashore.",
+    "pages": 422,
+    "format": "BOOK",
+    "cover": "http://books.google.com/books/content?id=4XfuMQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
   });
+})
+.then((book) => {
+  return User.create({
+    firstName: 'Jeremiah',
+    lastName: 'Cerda',
+    userName: 'jdog',
+    hash: 'insecurepassword'
+  });
+
+}).then(() => {
+
+  return User.create({
+    firstName: 'Michelle',
+    lastName: 'Lockett',
+    userName: 'mdog',
+    hash: 'insecurepassword'
+  });
+
+}).then(() => {
+
+  return User.create({
+    firstName: 'Chris',
+    lastName: 'Poole',
+    userName: 'cdog',
+    hash: 'insecurepassword'
+  });
+})
+.catch(err => {
+  console.log(err);
+});
 
 exports.Author = Author;
 exports.Book = Book;
