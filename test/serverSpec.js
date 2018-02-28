@@ -15,6 +15,7 @@ describe(`Conan server`, (done) => {
   it(`should respond to GET request to /users/:id by returning that user's information`, (done) => {
     axios.get('http://localhost:3000/users/2')
     .then((response) => {
+      expect(response.data).to.be.a('array');
       expect(response.status).to.be(200);
       done();
     })
