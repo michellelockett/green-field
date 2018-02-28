@@ -35,10 +35,7 @@ db
     return Book.create(
       {
         title: 'Test',
-        users: [
-        {id: 2},
-        {id: 3}
-        ],
+        users: [{ id: 2 }, { id: 3 }],
         authors: [
           {
             firstName: 'me',
@@ -65,9 +62,7 @@ db
       }
     );
   })
-  .then(book => {
-    console.log(book);
-  })
+  .then(book => {})
   .catch(err => {
     console.log(err);
   });
