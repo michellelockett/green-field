@@ -1,6 +1,6 @@
 angular.module('BookApp').component('app', {
   templateUrl: "./templates/app.html",
-  controller: function() {
+  controller: function(conan) {
     this.$onInit = () => {
       //this will be an API call to our server for the books of the logged in user. For now using fake data
       //need to get all books onInit, then call the bookshelf and wishlist functions
@@ -12,26 +12,34 @@ angular.module('BookApp').component('app', {
       this.bookshelf = [];
       this.currentBooks = this.wishlist;
       this.currentBookType = 'wishlist';
-      this.getBookshelf();
-      this.getWishlist();
+      // this.getBookshelf();
+      // this.getWishlist();
       this.toggleBooks('bookshelf');
+
+      conan.getAllBooksForUser(2)
+      .then((books) => {
+        this.allBooks = books;
+        this.getBookshelf();
+        this.getWishlist();
+        this.currentBooks = this.bookshelf;
+      })
     };
-    
+
     //allows user to view books by format (list vs. cover)
     this.toggleView = () => {
       this.view = this.view === 'cover' ? 'list' : 'cover';
     };
-    
+
     //changes which booktype we are to show (bookshelf vs. wishlist)
-    this.toggleBookType = (selected) => {  
+    this.toggleBookType = (selected) => {
       if (selected !== this.currentBookType) {
-        this.currentBookType = selected;    
+        this.currentBookType = selected;
       }
-      
+
       this.currentBooks = selected === 'bookshelf' ? this.bookshelf : this.wishlist;
     };
-    
-    //when the user chooses a method to sort by, it updates state of parent component.  
+
+    //when the user chooses a method to sort by, it updates state of parent component.
     //later, we could add genre, or author, but adding those sort options to this.sortOptions
     //and checking for that selection below
     this.changeSort = (selected) => {
@@ -42,16 +50,16 @@ angular.module('BookApp').component('app', {
         this.sortByDewey();
       }
     };
-    
+
     //change the current book selection to either wishlist or bookshelf
-    this.toggleBooks = (selection) => {    
+    this.toggleBooks = (selection) => {
       if (selection === 'wishlist' && this.currentBooks !== this.wishlist) {
         this.currentBooks = this.wishlist;
         console.log('changed to wishlist');
       } else if (selection === 'bookshelf' && this.currentBooks !== this.bookshelf) {
         this.currentBooks = this.bookshelf;
         console.log('changed to bookshelf');
-      }  
+      }
 
       if (this.sortBy === 'dewey') {
         this.sortByDewey();
@@ -59,7 +67,7 @@ angular.module('BookApp').component('app', {
         this.sortByTitle();
       }
 
-      this.toggleBookType(selection);    
+      this.toggleBookType(selection);
     };
 
     //helper function to pass along to see that data bindings are working properly in child components
@@ -70,7 +78,7 @@ angular.module('BookApp').component('app', {
 
     //sorts this.currentBooks to be ordered by DDN
 
-    this.sortByDewey = () => {      
+    this.sortByDewey = () => {
       this.currentBooks = this.currentBooks.sort((a, b) => {
         if (a.ddc.fullNumber < b.ddc.fullNumber) {
           return -1;
@@ -79,12 +87,12 @@ angular.module('BookApp').component('app', {
           return 1;
         }
         return 0;
-      });     
+      });
     };
 
     //sorts this.currentBooks to be ordered by title
 
-    this.sortByTitle = () => {    
+    this.sortByTitle = () => {
       this.currentBooks = this.currentBooks.sort( (a, b) => {
         if (a.title < b.title) {
           return -1;
@@ -97,15 +105,17 @@ angular.module('BookApp').component('app', {
     };
 
      //filter this.allBooks to show only books that are owned and assign to this.bookshelf
-    this.getBookshelf = () => {      
-      this.bookshelf = this.allBooks.filter(book => book.owned === true);
+    this.getBookshelf = () => {
+      this.bookshelf = this.allBooks;
+      // this.bookshelf = this.allBooks.filter(book => book.owned === true);
     };
 
     //filter this.allBooks to show only books that are not owned and assign to this.wishlist
-    this.getWishlist = () => {     
-      this.wishlist = this.allBooks.filter(book => book.owned === false);
+    this.getWishlist = () => {
+      this.bookshelf = this.allBooks;
+      // this.wishlist = this.allBooks.filter(book => book.owned === false);
     };
-    
+
     //optional - if we want to break the books into categores (000, 100) before passing them down?
     //or maybe we do that logic in the contentIndex component
     this.sortByCategory = (deweyOrAlpha) => {
@@ -130,7 +140,7 @@ angular.module('BookApp').component('app', {
             this.sortByTitle();
           }
         }
-      }     
-    };   
+      }
+    };
   }
 });

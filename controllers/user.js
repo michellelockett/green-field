@@ -1,8 +1,5 @@
 const {User} = require('../models/user');
 const {Book} = require('../models/book');
-const {Author} = require('../models/author');
-const {BookAuthors} = require('../models/bookAuthors');
-const {BookGenres} = require('../models/bookGenres');
 const {BookUsers} = require('../models/bookUsers');
 
 const userController = {
@@ -18,7 +15,20 @@ const userController = {
   postBookUser(req,res) {
 
   },
-  getUserBooks(req, res) {
+  getUserWithBooks(req, res) {
+    let userId = req.params.id;
+    User.findById(userId, {
+      include: [
+        {
+          model: Book
+        }
+      ]
+    }).then((userBookData) => {
+      res.json(userBookData);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 
   },
   getUserBookId(req,res) {

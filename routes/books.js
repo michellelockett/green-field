@@ -1,7 +1,7 @@
 /** USER-AGNOSTIC ROUTES FOR BOOKS **/
 /** These are commented out as they may be deprecated in whole or part **/
 
-// // create a book
+// create a book
 // app.post('/books', (req, res) => {
 //   // direct to method in Books controller/model handler
 //   res.send('This will return an object containing a status message confirming creation of the specific book.');

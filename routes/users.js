@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { userController } = require('../controllers/user');
+const bookRoutes = require('./books');
 
 //routes for users of the book app interacting with the server
 
@@ -10,18 +11,26 @@ const { userController } = require('../controllers/user');
 //   res.send('This will return an object containing a status message confirming creation of the specific user.');
 // });
 
+// CREATE book if it doesn't exist already
+// and a user-book relationship
+router.post('/:id/books/isbn/:isbn', (req, res) => {
+  // direct to method in Books controller/model handler
+  bookController.postBook(req, res);
+});
+
 // read all users
 // note: may be deprecated
 router.get('/', (req, res) => {
   // userController.getUsers(req, res);
 });
 
-// // read a specific user
-// app.get('/users/:id', (req, res) => {
-//   // direct to method in Users controller/model handler
-//   // passing :id from params
-//   res.send('This will return an object containing a status message and selected information for a specific user.');
-// });
+// Retrieve the information for a specific user
+// And his/her associated books
+router.get('/:id', (req, res) => {
+  // direct to method in Users controller/model handler
+  // passing :id from params
+  userController.getUserWithBooks(req, res);
+});
 
 // // update a specific user
 // app.put('/users/:id', (req, res) => {

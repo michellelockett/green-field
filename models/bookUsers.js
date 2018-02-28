@@ -3,26 +3,43 @@ const {db} = require('../db/index');
 const {Book} = require('./book');
 const {User} = require('./user');
 
-const BookUsers = db.define('bookUsers', {
-	id: {
-	  type: Sequelize.INTEGER,
-	  primaryKey: true,
-	  autoincrement: true
-	},
-	bookId: {
-	  type: Sequelize.INTEGER
-	},
-	userId: {
-		type: Sequelize.INTEGER
-	}
+const BookUser = db.define('bookUser', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  }
 });
 
-BookUsers.sync()
+Book.belongsToMany(User, {through: BookUser});
+User.belongsToMany(Book, {through: BookUser});
+
+db.sync();
+
+BookUser.sync({force: true}).then(() => {
+
+	return User.findById(2);
+
+}).then((user) => {
+
+	Book.findById(1).then((book) => {
+    book.addUser(user);
+	});
+
+  Book.findById(1).then((book) => {
+    book.addUser(user);
+  });
+
+  Book.findById(1).then((book) => {
+    book.addUser(user);
+  });
+
+})
 .catch(err => {
+
 	console.log(`An error was encountered while syncing the database: `, err);
+
 });
 
-Book.belongsToMany(User, {through: BookUsers});
-User.belongsToMany(Book, {through: BookUsers});
 
-exports.BookUsers = BookUsers;
+exports.BookUser = BookUser;

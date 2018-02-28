@@ -2,12 +2,13 @@
 const express = require('express')
 const router = express.Router()
 const { userController } = require('../controllers/user');
+const { bookController } = require('../controllers/book');
 
 // CREATE book if it doesn't exist already
 // and a user-book relationship
-router.post('/users/:user_id/books', (req, res) => {
+router.post('/users/:user_id/books/isbn/:isbn', (req, res) => {
   // direct to method in Books controller/model handler
-  // userController.postBookUser(req, res);
+  bookController.postBook(req, res);
 });
 
 // READ all books associated with a given user
