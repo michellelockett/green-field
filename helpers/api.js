@@ -36,15 +36,19 @@ const parseXML = response => {
 
 const extractDDC = result => {
   let classifications = result.classify.recommendations[0].ddc[0].mostPopular;
+
+  let dewey = null;
+
   classifications.forEach((item, index) => {
     if (item["$"].nsfa && item["$"].nsfa.includes(".")) {
-      return item["$"].nsfa;
+      dewey = item["$"].nsfa;
     } else if (item["$"].sfa && item["$"].sfa.includes(".")) {
-      return item["$"].sfa;
-    } else {
-      return "unavailable";
+      dewey = item["$"].sfa;
     }
   });
+
+  return dewey;
+
 };
 
 const getBookDetails = isbn => {
@@ -68,11 +72,12 @@ const addDetailsToBook = (book, response) => {
 
 
   // attach properties to book
+  console.log(bookData);
   book.authors = formattedAuthors;
-  console.log('FORMATTED AUTHORS', book.authors);
   book.title = bookData.title;
   book.description = bookData.description;
   book.pages = bookData.pageCount;
+  book.published = bookData.publishedDate.substr(0, 4);
   book.format = bookData.printType;
   book.cover = bookData.imageLinks.thumbnail;
 
