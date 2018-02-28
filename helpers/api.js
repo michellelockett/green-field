@@ -14,6 +14,9 @@ No single API can return all necessary data.
 Likewise, each of the APIs used presents data in a confusing
 manner.
 
+All of the below functions are helper functions that are used in
+buildBook(), at the end of this file.
+
 **/
 
 const lookupByISBN = isbn => {
@@ -80,7 +83,7 @@ const addDetailsToBook = (book, response) => {
   book.published = bookData.publishedDate.substr(0, 4);
   book.format = bookData.printType;
   book.cover = bookData.imageLinks.thumbnail;
-
+  // book.categories = bookData.categories;
   return book;
 };
 
