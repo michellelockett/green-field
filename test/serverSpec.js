@@ -13,6 +13,10 @@ describe(`Mocha and Chai`, () => {
 describe(`Conan server`, () => {
 
   it(`should respond to POST request to /users by creating a new user`, (done) => {
+    axios.get('/users/2')
+    .then((response) => {
+      expect(response.status).to.be(200);
+    })
 
     done();
   });
