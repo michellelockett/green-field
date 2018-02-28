@@ -10,9 +10,5 @@ const Author = db.define('author', {
   }
 });
 
-Author.sync()
-.catch((err) => {
-  console.log('This error!', err);
-});
 
-exports.Author = Author;
+module.exports = Author;

@@ -1,6 +1,5 @@
-const {User} = require('../models/user');
-const {Book} = require('../models/book');
-const {BookUsers} = require('../models/bookUsers');
+const {User, Book, BookUsers} = require('../models/index');
+const buildBookList = require('../helpers/files');
 
 const userController = {
   getUsers(req, res) {
@@ -24,6 +23,11 @@ const userController = {
         }
       ]
     }).then((userBookData) => {
+      // Rebuild a user's book list so it is 
+      // accessible if/when they request it
+      buildBookList(userId, userBookData.books);
+
+      // Send JSON to client
       res.json(userBookData);
     })
     .catch((err) => {
@@ -34,6 +38,12 @@ const userController = {
   getUserBookId(req,res) {
 
   },
+  getUserBookList(req, res) {
+    // Serve a simple test file
+    // Refactor to serve the file in /users/
+    // with the filename of the current user's ID
+    res.download(`${__dirname}/../users/${req.params.id}.txt`, 'my_books.txt');
+  },
   updateBook(req, res) {
 
   },
@@ -42,4 +52,4 @@ const userController = {
   }
 };
 
-exports.userController = userController;
+module.exports = userController;

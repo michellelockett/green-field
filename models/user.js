@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const {db} = require("../db/index");
+const { db } = require('../db/index');
 
 const User = db.define('user', {
   firstName: {
@@ -8,7 +8,7 @@ const User = db.define('user', {
   lastName: {
     type: Sequelize.STRING
   },
-  userName : {
+  userName: {
     type: Sequelize.STRING,
     unique: true
   },
@@ -17,7 +17,7 @@ const User = db.define('user', {
   }
 });
 
-// force: true will drop the table if it already exists
+// // force: true will drop the table if it already exists
 User.sync({force: true}).then(() => {
 
   return User.create({
@@ -47,8 +47,6 @@ User.sync({force: true}).then(() => {
 
 }).catch((err) => {
 
-  console.log(`An error was encountered while seeding the database: `, err);
-
 });
 
-exports.User = User;
+module.exports = User;
