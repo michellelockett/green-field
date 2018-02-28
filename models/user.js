@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const {db} = require("../db/index");
+const { db } = require('../db/index');
 
 const User = db.define('user', {
   firstName: {
@@ -8,7 +8,7 @@ const User = db.define('user', {
   lastName: {
     type: Sequelize.STRING
   },
-  userName : {
+  userName: {
     type: Sequelize.STRING,
     unique: true
   },
@@ -16,7 +16,6 @@ const User = db.define('user', {
     type: Sequelize.STRING
   }
 });
-
 
 // // force: true will drop the table if it already exists
 // User.sync({force: true}).then(() => {
@@ -47,7 +46,6 @@ const User = db.define('user', {
 //   });
 
 // }).catch((err) => {
-
 
 // });
 

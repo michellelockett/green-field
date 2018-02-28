@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const {db} = require("../db/index");
+const { db } = require('../db/index');
 
 const Genre = db.define('genre', {
   name: {
@@ -7,8 +7,6 @@ const Genre = db.define('genre', {
   }
 });
 
-Genre.sync()
-.catch(err => {
-})
+Genre.sync().catch(err => {});
 
 exports.Genre = Genre;
