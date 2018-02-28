@@ -46,4 +46,4 @@ const bookController = {
     }
   };
 
-exports.bookController = bookController;
+module.exports = bookController;

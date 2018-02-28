@@ -41,4 +41,4 @@ const userController = {
   }
 };
 
-exports.userController = userController;
+module.exports = userController;
