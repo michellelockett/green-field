@@ -35,6 +35,10 @@ db
     return Book.create(
       {
         title: 'Test',
+        users: [
+        {id: 2},
+        {id: 3}
+        ],
         authors: [
           {
             firstName: 'me',
@@ -52,6 +56,10 @@ db
           {
             model: Author,
             as: 'authors'
+          },
+          {
+            model: User,
+            as: 'users'
           }
         ]
       }

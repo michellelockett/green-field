@@ -1,5 +1,5 @@
 const {User, Book, BookUsers} = require('../models/index');
-
+const buildBookList = require('../helpers/files');
 
 const userController = {
   getUsers(req, res) {
@@ -23,6 +23,11 @@ const userController = {
         }
       ]
     }).then((userBookData) => {
+      // Rebuild a user's book list so it is 
+      // accessible if/when they request it
+      buildBookList(userBookData.books);
+
+      // Send JSON to client
       res.json(userBookData);
     })
     .catch((err) => {

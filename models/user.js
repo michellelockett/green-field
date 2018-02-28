@@ -18,35 +18,35 @@ const User = db.define('user', {
 });
 
 // // force: true will drop the table if it already exists
-// User.sync({force: true}).then(() => {
+User.sync({force: true}).then(() => {
 
-//   return User.create({
-//     firstName: 'Jeremiah',
-//     lastName: 'Cerda',
-//     userName: 'jdog',
-//     hash: 'insecurepassword'
-//   });
+  return User.create({
+    firstName: 'Jeremiah',
+    lastName: 'Cerda',
+    userName: 'jdog',
+    hash: 'insecurepassword'
+  });
 
-// }).then(() => {
+}).then(() => {
 
-//   return User.create({
-//     firstName: 'Michelle',
-//     lastName: 'Lockett',
-//     userName: 'mdog',
-//     hash: 'insecurepassword'
-//   });
+  return User.create({
+    firstName: 'Michelle',
+    lastName: 'Lockett',
+    userName: 'mdog',
+    hash: 'insecurepassword'
+  });
 
-// }).then(() => {
+}).then(() => {
 
-//   return User.create({
-//     firstName: 'Chris',
-//     lastName: 'Poole',
-//     userName: 'cdog',
-//     hash: 'insecurepassword'
-//   });
+  return User.create({
+    firstName: 'Chris',
+    lastName: 'Poole',
+    userName: 'cdog',
+    hash: 'insecurepassword'
+  });
 
-// }).catch((err) => {
+}).catch((err) => {
 
-// });
+});
 
 module.exports = User;

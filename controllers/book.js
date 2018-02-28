@@ -23,7 +23,7 @@ const bookController = {
           .then((book) => {
 
             Book.create(book, {
-              include: [ Author]
+              include: [ Author ]
             }).then((book) => {
 
               User.findById(req.params.id).then((user) => {
