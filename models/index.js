@@ -39,8 +39,8 @@ let testUser3 = null;
 db.sync({ force: true })
 .then(() => {
   return Book.create({
-    "isbn": 9780143124870,
-    "dewey": 800.21,
+    "isbn": "9780143124870",
+    "dewey": "800.21",
     "title": "A Tale for the Time Being",
     "published": 2013,
     "description": "A novelist on a remote island in the Pacific is linked to a bullied and depressed Tokyo teenager after discovering a Hello Kitty lunchbox that washed ashore.",
@@ -58,8 +58,8 @@ db.sync({ force: true })
   testBook1 = book;
 
   return Book.create({
-    "isbn": 9780671704278,
-    "dewey": 801.24,
+    "isbn": "9780671704278",
+    "dewey": "801.24",
     "title": "Technical Manual",
     "published": 1991,
     "description": "The Star Trek: The Next Generation® Technical Manual, written by Rick Sternbach and Michael Okuda, the technical advisors to Star Trek: The Next Generation, provides a comprehensive schematization of a Galaxy-class starship. From the bridge to the shuttlebays, from the transporter room to crews' quarters, this book provides a never-before-seen glimpse at the inner, intricate workings of the most incredible starship ever conceived. Full of diagrams, technical schematics, and ship's plans, the Star Trek: The Next Generation Technical Manual also takes a detailed look at the principles behind Star Trek®'s awesome technology -- from phasers to warp drive to the incredible holodeck.",

@@ -9,8 +9,8 @@ const Book = db.define('book', {
   dewey: {
   	type: Sequelize.STRING
   },
-  ISBN: {
-  	type: Sequelize.INTEGER,
+  isbn: {
+  	type: Sequelize.STRING,
   },
   format: {
   	type: Sequelize.STRING
@@ -20,6 +20,9 @@ const Book = db.define('book', {
   },
   published: {
   	type: Sequelize.INTEGER
+  },
+  pages: {
+    type: Sequelize.INTEGER
   }
 });
 
