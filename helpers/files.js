@@ -1,12 +1,12 @@
 // Require dependencies
 const fs = require('fs');
 
-/** 
+/**
 buildBookList()
 
 arguments: array of book objects
 returns: no return
-outputs: writes file to /users/{userId}.txt 
+outputs: writes file to /users/{userId}.txt
 
 **/
 const buildBookList = (userId, books) => {
@@ -15,7 +15,7 @@ const buildBookList = (userId, books) => {
 
   stream.write('My Bookshelf\n\n');
 
-  userBookData.books.forEach((item, index) => {
+  books.forEach((book, index) => {
     stream.write(`${book.title} (DDC: ${book.dewey}) \n`);
     stream.write(`${book.authors}\n\n`);
   });

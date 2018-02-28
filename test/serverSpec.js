@@ -10,15 +10,22 @@ describe(`Mocha and Chai`, () => {
 });
 
 
-describe(`Conan server`, () => {
+describe(`Conan server`, (done) => {
 
-  it(`should respond to POST request to /users by creating a new user`, (done) => {
-    axios.get('/users/2')
+  it(`should respond to GET request to /users/:id by returning that user's information`, (done) => {
+    axios.get('http://localhost:3000/users/2')
     .then((response) => {
       expect(response.status).to.be(200);
+      done();
+    })
+    .then(() => {
+
+    })
+    .catch((err) => {
+      console.log(err);
+      done();
     })
 
-    done();
   });
 
 });
