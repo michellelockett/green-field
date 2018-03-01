@@ -14,7 +14,7 @@ angular.module('BookApp').component('app', {
       this.currentBookType = 'wishlist';
       this.toggleBooks('bookshelf');
 
-      // this.allBooks.forEach(book => conan.postBook(2, book.isbn, conan.getAllBooksForUser));
+      //this.allBooks.forEach(book => conan.postBook(2, book.isbn, conan.getAllBooksForUser));
       conan.getAllBooksForUser(2)
       .then((books) => {
         this.allBooks = books;
