@@ -27,6 +27,8 @@
     "live-server": "^1.2.0",
     "mocha": "^5.0.1",
     "mysql2": "^1.5.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^4.33.4",
     "xml2js": "^0.4.19"
   },
