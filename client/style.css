@@ -12,11 +12,6 @@
   grid-gap: 5px;
 }
 
-input {
-  width: 40%;
-  height: 40%;
-}
-
 select {
  height: 30%;
 }
@@ -67,6 +62,13 @@ img.logo {
 #bookList {
   grid-area: article;
   margin-right: 4em;
+}
+
+#searchbar {
+  margin-left: 1em;
+  margin-bottom: 1em;
+  width: 40%;
+  height: 100%;
 }
 
 table {
