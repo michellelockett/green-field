@@ -10,6 +10,9 @@ const BookUser = db.define('bookUser', {
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true
+  },
+  owned: {
+    type: Sequelize.BOOLEAN
   }
 });
 

@@ -16,7 +16,7 @@ const bookController = {
           // If book already exists in database,
           // just create an association between book & user
           User.findById(req.params.id).then((user) => {
-            book.addUser(user);
+            book.addUser(user, { through: { owned: req.params.owned}});
             res.json(book);
           });
 
@@ -31,7 +31,7 @@ const bookController = {
             }).then((book) => {
 
               User.findById(req.params.id).then((user) => {
-                book.addUser(user);
+                book.addUser(user, { through: { owned: req.params.owned}});
                 res.json(book);
               });
 
