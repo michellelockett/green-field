@@ -11,7 +11,7 @@ outputs: writes file to /users/{userId}.txt
 **/
 const buildBookList = (userId, books) => {
   // create writable stream
-  let stream = fs.createWriteStream(__dirname +  `/../users/${userId}.txt`);
+  let stream = fs.createWriteStream(__dirname +  `/../userFiles/${userId}.txt`);
 
   stream.write('My Bookshelf\n\n');
 

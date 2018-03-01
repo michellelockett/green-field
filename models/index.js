@@ -126,3 +126,4 @@ exports.Book = Book;
 exports.User = User;
 exports.BookUser = BookUser;
 exports.BookAuthor = BookAuthor;
+exports.db = db;
