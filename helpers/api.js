@@ -1,9 +1,9 @@
 // Require dependencies
-const axios = require("axios");
-const xml2js = require("xml2js");
+const axios = require('axios');
+const xml2js = require('xml2js');
 
 // Require API key(s)
-const { API_KEY } = require("../config/google");
+const { API_KEY } = require('../config/google');
 
 /**
 
@@ -38,20 +38,30 @@ const parseXML = response => {
 };
 
 const extractDDC = result => {
-  let classifications = result.classify.recommendations[0].ddc[0].mostPopular;
+  return new Promise((resolve, reject) => {
+    if (
+      result.classify.recommendations &&
+      result.classify.recommendations &&
+      result.classify.recommendations[0].ddc
+    ) {
+      let classifications =
+        result.classify.recommendations[0].ddc[0].mostPopular;
 
-  let dewey = null;
-
-  classifications.forEach((item, index) => {
-    if (item["$"].nsfa && item["$"].nsfa.includes(".")) {
-      dewey = item["$"].nsfa;
-    } else if (item["$"].sfa && item["$"].sfa.includes(".")) {
-      dewey = item["$"].sfa;
+      classifications.forEach((item, index) => {
+        if (item['$'].nsfa && item['$'].nsfa.includes('.')) {
+          resolve(item['$'].nsfa);
+        } else if (item['$'].sfa && item['$'].sfa.includes('.')) {
+          resolve(item['$'].sfa);
+        } else {
+          resolve(null);
+        }
+      });
     }
+
+    resolve(null);
+
+    reject();
   });
-
-  return dewey;
-
 };
 
 const getBookDetails = isbn => {
@@ -61,32 +71,47 @@ const getBookDetails = isbn => {
 };
 
 const addDetailsToBook = (book, response) => {
-  let bookData = response.data.items[0].volumeInfo;
+  let bookData = null;
 
-  let formattedAuthors = bookData.authors.map((item, index) => {
-    let splitName = item.split(' ');
-    let firstName = splitName.shift();
-    let lastName = splitName.join(' ');
-    return {
-      firstName,
-      lastName
-    };
-  });
+  if (
+    response.data.items &&
+    response.data.items[0] &&
+    response.data.items[0].volumeInfo
+  ) {
+    bookData = response.data.items[0].volumeInfo;
+    let formattedAuthors = null;
+    if (bookData && bookData.authors) {
+      formattedAuthors = bookData.authors.map((item, index) => {
+        let splitName = item.split(' ');
+        let firstName = splitName.shift();
+        let lastName = splitName.join(' ');
+        return {
+          firstName,
+          lastName
+        };
+      });
+    }
+    // attach properties to book
+    book.found = true;
+    book.authors = formattedAuthors;
+    book.title = bookData.title;
+    book.description = bookData.description;
+    book.pages = bookData.pageCount;
 
+    if (bookData.publishedDate) {
+      book.published = bookData.publishedDate.substr(0, 4);
+    }
+    book.format = bookData.printType;
 
-  // attach properties to book
-  book.authors = formattedAuthors;
-  book.title = bookData.title;
-  book.description = bookData.description;
-  book.pages = bookData.pageCount;
-  book.published = bookData.publishedDate.substr(0, 4);
-  book.format = bookData.printType;
+    if (bookData['imageLinks'] && bookData['imageLinks']['thumbnail']) {
+      book.cover = bookData.imageLinks.thumbnail;
+    }
 
-  if (bookData['imageLinks'] && bookData['imageLinks']['thumbnail']) {
-    book.cover = bookData.imageLinks.thumbnail;
+    book.categories = bookData.categories;
+  } else {
+    book.found = false;
   }
 
-  book.categories = bookData.categories;
   return book;
 };
 
@@ -100,7 +125,9 @@ const buildBook = isbn => {
         return parseXML(response);
       })
       .then(result => {
-        book.dewey = extractDDC(result);
+        extractDDC(result).then(ddc => {
+          book.dewey = ddc;
+        });
       })
       .then(() => {
         return getBookDetails(isbn);
