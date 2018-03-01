@@ -48,9 +48,9 @@ const extractDDC = result => {
         result.classify.recommendations[0].ddc[0].mostPopular;
 
       classifications.forEach((item, index) => {
-        if (item['$'].nsfa && item['$'].nsfa.includes('.')) {
+        if (item['$'].nsfa) {
           resolve(item['$'].nsfa);
-        } else if (item['$'].sfa && item['$'].sfa.includes('.')) {
+        } else if (item['$'].sfa) {
           resolve(item['$'].sfa);
         } else {
           resolve(null);
