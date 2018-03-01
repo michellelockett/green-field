@@ -10,7 +10,7 @@ angular.module('BookApp', [])
         return response.data;
       }, function errorCallback(response) {
         console.log(response);
-      })
+      });
     },
 
     getAllBooksForUser(id) {
@@ -22,7 +22,18 @@ angular.module('BookApp', [])
         return response.data.books;
       }, function errorCallback(response) {
         console.log(response);
+      });
+    },
+
+    postBook(userId, ISBN, callback) {
+      return $http({
+        method: 'POST',
+        url: `/users/${userId}/books/isbn/${ISBN}`
       })
+      .then(function successCallback(response) {
+        callback(userId);
+        console.log(response.data);
+      });
     },
 
     lookupISBN(isbn) {
