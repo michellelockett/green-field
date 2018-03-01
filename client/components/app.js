@@ -79,10 +79,10 @@ angular.module('BookApp').component('app', {
 
     this.sortByDewey = () => {
       this.currentBooks = this.currentBooks.sort((a, b) => {
-        if (a.ddc.fullNumber < b.ddc.fullNumber) {
+        if (a.dewey < b.dewey) {
           return -1;
         }
-        if (a.ddc.fullNumber > b.ddc.fullNumber){
+        if (a.dewey > b.dewey){
           return 1;
         }
         return 0;
@@ -122,7 +122,7 @@ angular.module('BookApp').component('app', {
       const listType = this.currentBookType === 'bookshelf' ? this.bookshelf : this.wishlist;
 
       if (this.sortBy === 'dewey') {
-        this.currentBooks = listType.filter(book => book.ddc.baseNumber === deweyOrAlpha);
+        this.currentBooks = listType.filter(book => Math.floor(parseInt(book.dewey)/100)*100 === deweyOrAlpha);
 
         if (deweyOrAlpha === 'all') {
           this.currentBooks = listType;
