@@ -3,16 +3,20 @@ const buildBook = require('../helpers/api');
 
 const bookController = {
   postBook(req,res) {
-
     // see if book already exists in database
     // and if so, just add association
-    Book.findOne({where: {isbn: req.params.isbn}})
+    Book.find({
+      where: {
+        isbn: req.params.isbn,
+      },
+      include: Author
+    })
       .then((book) => {
         if (book) {
           // If book already exists in database,
           // just create an association between book & user
           User.findById(req.params.id).then((user) => {
-            book.addUser(user);
+            book.addUser(user, { through: { owned: req.params.owned}});
             res.json(book);
           });
 
@@ -27,7 +31,7 @@ const bookController = {
             }).then((book) => {
 
               User.findById(req.params.id).then((user) => {
-                book.addUser(user);
+                book.addUser(user, { through: { owned: req.params.owned}});
                 res.json(book);
               });
 

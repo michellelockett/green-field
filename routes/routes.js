@@ -17,10 +17,18 @@ will be implemented at the bottom of this file as needed).
 **/
 
 // CREATE A BOOK AND ASSOCIATE TO CURRENT USER
+// stub for route featuring boolean 'owned' values
+router.post('/users/:id/books/isbn/:isbn/:owned', (req, res) => {
+  // direct to method in Books controller/model handler
+  bookController.postBook(req, res);
+});
+
+// CREATE A BOOK AND ASSOCIATE TO CURRENT USER
 router.post('/users/:id/books/isbn/:isbn', (req, res) => {
   // direct to method in Books controller/model handler
   bookController.postBook(req, res);
 });
+
 
 // READ ALL BOOKS ASSOCIATED WITH CURRENT USER
 router.get('/users/:user_id/books', (req, res) => {
