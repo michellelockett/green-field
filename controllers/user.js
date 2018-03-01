@@ -23,7 +23,7 @@ const userController = {
         }
       ]
     }).then((userBookData) => {
-      // Rebuild a user's book list so it is 
+      // Rebuild a user's book list so it is
       // accessible if/when they request it
       buildBookList(userId, userBookData.books);
 

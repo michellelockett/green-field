@@ -21,7 +21,7 @@ buildBook(), at the end of this file.
 
 const lookupByISBN = isbn => {
   return axios.get(
-    `http://classify.oclc.org/classify2/Classify?oclc=57358293&summary=true`
+    `http://classify.oclc.org/classify2/Classify?isbn=${isbn}&summary=true`
   );
 };
 
@@ -75,15 +75,18 @@ const addDetailsToBook = (book, response) => {
 
 
   // attach properties to book
-  console.log(bookData);
   book.authors = formattedAuthors;
   book.title = bookData.title;
   book.description = bookData.description;
   book.pages = bookData.pageCount;
   book.published = bookData.publishedDate.substr(0, 4);
   book.format = bookData.printType;
-  book.cover = bookData.imageLinks.thumbnail;
-  // book.categories = bookData.categories;
+
+  if (bookData['imageLinks'] && bookData['imageLinks']['thumbnail']) {
+    book.cover = bookData.imageLinks.thumbnail;
+  }
+
+  book.categories = bookData.categories;
   return book;
 };
 
