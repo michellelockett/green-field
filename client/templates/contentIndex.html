@@ -1,33 +1,54 @@
- <div id="contentsDewey">
-      <h4>All Books</h4>
+
+<div ng-show="$ctrl.sort === 'dewey'" id="contentsDewey">
+      <h4 ng-click=$ctrl.category('all')>All Books</h4>
       <hr>
-      <h4>000</h4>
+      <h4 ng-click=$ctrl.category(000)>000</h4>
       <h4 class="classification">Generalities</h4>
       <hr>
-      <h4>100<h4>
+      <h4 ng-click=$ctrl.category(100)>100<h4>
       <h4 class="classification">Philosophy and Psychology</h4>
       <hr>
-      <h4>200</h4>
+      <h4 ng-click=$ctrl.category(200)>200</h4>
       <h4 class="classification">Religion</h4>
       <hr>
-      <h4>300</h4>
+      <h4 ng-click=$ctrl.category(300)>300</h4>
       <h4 class="classification">Social Sciences</h4>
       <hr>
-      <h4>400</h4>
+      <h4 ng-click=$ctrl.category(400)>400</h4>
       <h4 class="classification">Language</h4>
       <hr>
-      <h4>500</h4>
+      <h4 ng-click=$ctrl.category(500)>500</h4>
       <h4 class="classification">Natural Science and Mathematics</h4>
       <hr>
-      <h4>600<h4>
+      <h4 ng-click=$ctrl.category(600)>600<h4>
       <h4 class="classification">Technology</h4>
       <hr>
-      <h4>700</h4>
+      <h4 ng-click=$ctrl.category(700)>700</h4>
       <h4 class="classification">The arts</h4>
       <hr>
-      <h4>800</h4>
+      <h4 ng-click=$ctrl.category(800)>800</h4>
       <h4 class="classification">Literature</h4>
       <hr>
-      <h4>900</h4>
+      <h4 ng-click=$ctrl.category(900)>900</h4>
       <h4 class="classification">Geography and History</h4>
- </div>
+</div>
+
+<div ng-show="$ctrl.sort === 'title'" id="contentsTitle">
+      <h4 ng-click=$ctrl.category('all')>All Books</h4>
+      <hr>
+      <h4 ng-click="$ctrl.category('A')">A-C</h4>
+      <hr>
+      <h4 ng-click="$ctrl.category('D')">D-F</h4>
+      <hr>
+      <h4 ng-click="$ctrl.category('G')">G-I</h4>
+      <hr>
+      <h4 ng-click="$ctrl.category('J')">J-L</h4>
+      <hr>
+      <h4 ng-click="$ctrl.category('M')">M-O</h4>
+      <hr>
+      <h4 ng-click="$ctrl.category('P')">P-R</h4>
+      <hr>
+      <h4 ng-click="$ctrl.category('S')">S-U</h4>
+      <hr>
+      <h4 ng-click="$ctrl.category('V')">V-Z</h4>
+</div>

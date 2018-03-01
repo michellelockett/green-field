@@ -1,3 +1,11 @@
+# config
+config/*
+client/config/*
+
+# hidden mac files
+.DS_Store
+.ds_store
+
 # Logs
 logs
 *.log

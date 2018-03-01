@@ -1,14 +1,20 @@
-<h1>My Bookshelf List</h1>
+<article>
+  <br>
+  <h1 ng-show="$ctrl.type === 'bookshelf'" class="header">MY BOOKSHELF <input placeholder= "Search books" ng-model="search" id="searchbar"></h1>
+  <h1 ng-show="$ctrl.type === 'wishlist'" class="header">MY WISHLIST <input placeholder= "Search books" ng-model="search" id="searchbar"></h1>
 
-<table class="books" id="bookList">
-  <tr id="tableHeaders">
-    <th> title </th>
-    <th> author </th>
-    <th> dewey decimal number </th>
-  </tr>
-  <tr ng-repeat="book in $ctrl.books">
-    <td>{{book.title}}</td>
-    <td>{{book.primaryauthor}}</td>
-    <td>{{book.ddc.code[0]}}
-  </tr>
-</table>
+  <br>
+
+  <table class="books" id="bookList">
+    <tr id="tableHeaders">
+      <th> TITLE </th>
+      <th> AUTHOR </th>
+      <th> DEWEY DECIMAL NUMBER </th>
+    </tr>
+    <tr ng-repeat="book in $ctrl.books | filter:search" >
+      <td>{{book.title}}</td>
+      <td>{{book.format}}</td>
+      <td>{{book.dewey}}</td>
+    </tr>
+  </table>
+</article>

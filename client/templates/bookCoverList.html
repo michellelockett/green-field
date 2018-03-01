@@ -1,8 +1,11 @@
 <article>
-  <h1 class="header"> MY BOOKSHELF </h1>
+  <h1 ng-show="$ctrl.type === 'bookshelf'" class="header"> MY BOOKSHELF <input placeholder= "Search books" ng-model="search" id="searchbar"></h1>
+  <h1 ng-show="$ctrl.type === 'wishlist'" class="header"> MY WISHLIST <input placeholder= "Search books" ng-model="search" id="searchbar"></h1>
   <div class="wrapper scrollable">
-    <div ng-repeat="i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
-      <img class="book" src="https://images-na.ssl-images-amazon.com/images/I/51L10EnuJbL._SX295_BO1,204,203,200_.jpg">
+    <div ng-repeat="book in $ctrl.books">
+
+      <img class="book" ng-src="{{book.cover}}">
+
     </div>
   </div>
 </article>
