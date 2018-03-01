@@ -12,17 +12,16 @@ angular.module('BookApp').component('app', {
       this.bookshelf = [];
       this.currentBooks = this.wishlist;
       this.currentBookType = 'wishlist';
-      // this.getBookshelf();
-      // this.getWishlist();
       this.toggleBooks('bookshelf');
 
+      // this.allBooks.forEach(book => conan.postBook(2, book.isbn, conan.getAllBooksForUser));
       conan.getAllBooksForUser(2)
       .then((books) => {
         this.allBooks = books;
         this.getBookshelf();
         this.getWishlist();
         this.currentBooks = this.bookshelf;
-      })
+      });
     };
 
     //allows user to view books by format (list vs. cover)

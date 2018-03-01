@@ -5,11 +5,11 @@ const books = window.books;
 
 for (var book in books) { 
 
-  if (books[book].ddc) {   
+  if (books[book].ddc && books[book].originalisbn) {   
     formattedBooks.push({
       title: books[book].title,
       author: books[book].primaryauthor,
-      isnb: books[book].originalisbn || "N/A",
+      isbn: books[book].originalisbn,
       ddc: {
         baseNumber: Math.floor(parseInt(books[book].ddc.code[0])/100)*100,
         fullNumber: books[book].ddc.code[0],
@@ -35,5 +35,7 @@ for (var i=0; i < formattedBooks.length; i++) {
     formattedBooks[i].loaned = false;
   }
 }
+
+console.log(formattedBooks);
 
 window.formattedBooks = formattedBooks;
