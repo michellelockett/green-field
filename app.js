@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const routes = require('./routes/routes');
+const userController = require('./controllers/user');
 
 const app = express();
 
@@ -27,15 +28,38 @@ app.use(session({ secret: "conanTheLibrarian",
                   savedUninitialized: true,
                   resave: true 
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.get('/success', (req, res) => {
+  res.send({ authenticated: true, userId: req.user.id});
+});
 
+app.get('/error', (req, res) => {
+  res.send({ authenticated: false });
+});
 
+app.post('/signup', (req, res) => {
+  userController.signup(req, res); 
+});
+
+app.post('/login', passport.authenticate('local', {successRedirect: '/success', failureRedirect: '/error'}), (req, res) => {
+  
+});
+
+app.all("*", function(req, res, next){
+  console.log("IN APP>ALL: ", req.user.id);
+  if (!req.user) 
+    res.redirect('/error');
+  else
+    next();
+});
 
 app.use('/', routes);
 
 app.listen(3000, () => {
   console.log(`Server listening on port 3000`);
 });
+
 
