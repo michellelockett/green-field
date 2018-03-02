@@ -51,7 +51,6 @@ const userController = {
   comparePassword(password, hash, callback) {
     bcrypt.compare(password, hash)
           .then(response => {
-            console.log(response);
             if (response) {
               callback(null, response);
             } else {
