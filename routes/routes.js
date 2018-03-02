@@ -6,6 +6,11 @@ const router = express.Router();
 const userController = require('../controllers/user');
 const bookController = require('../controllers/book');
 
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
+
+
 /**
 
 USER - BOOK ROUTES
@@ -58,12 +63,57 @@ PURE USER ROUTES
 **/
 
 router.post('/signup', (req, res) => {
-  userController.signup(req, res);
-  
+  userController.signup(req, res); 
 });
 
-router.post('/login', (req, res) => {
-  userController.login(req, res);
+//configure passport
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    userController.getUserByUsername(username, (err, user) => {
+      console.log(user.dataValues);
+      if (err) {
+        console.log("error: ", err);
+      }
+      if (!user) {
+        return done(null, false, {message: 'Unknown User'});
+      }
+
+      console.log('from line 82: ', password, user.dataValues.hash);
+
+      userController.comparePassword(password, user.dataValues.hash, (err, isMatch) => {
+        console.log(isMatch);
+        if (err) {
+          console.log(err);
+        }
+
+        if (isMatch) {
+          return done(null, user);
+        } else {
+          return done(null, false, {message: 'Invalid Password'});
+        }
+
+      });
+    });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  userController.getUserById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+router.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login'}), (req, res) => {
+  res.send("SUCESSFUL LOZGINZZZ");
+});
+
+router.get('/login', (req, res) => {
+  res.send('LOGIN PAGE');
 });
 
 router.get('/users', (req, res) => {
