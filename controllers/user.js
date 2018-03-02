@@ -1,5 +1,9 @@
-const {User, Book, BookUsers} = require('../models/index');
+const { User, Book, BookUsers } = require('../models/index');
 const buildBookList = require('../helpers/files');
+const bcrypt = require('bcryptjs');
+const { check, validationResult } = require('express-validator/check');
+const { matchedData, sanitize } = require('express-validator/filter');
+
 
 const userController = {
   getUsers(req, res) {
@@ -16,22 +20,49 @@ const userController = {
   },
 
   login(req, res) {
-    console.log(req.body);
-    res.send("You are in the login route");
+
+    const username = req.body.username;
+    const password = req.body.password;
+
+    User.find({ where: { username: username}})
+        .then((user) => {
+          bcrypt.compare(password, user.hash)
+                .then(response => {
+                  if (response) {
+                    res.send("you have permission to be logged in");
+                  } else {
+                    res.send("forbidden");
+                  }
+                });
+        });
   },
 
   signup(req, res) {
-    console.log(req.body);
-    // const password = req.body.password;
+    const password = req.body.password;
+    const newUser = User.build({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      userName: req.body.username
+    });
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(password, salt, function(err, hash) {
+        if (hash) {
+          newUser.hash = hash;
+        }
 
-    // const newUser = User.build({
-    //   firstName: req.body.firstName,
-    //   lastName: req.body.lastName,
-    //   userName: req.body.userName
-    // });
-
-    res.send("You are in the signup route");
-
+        User.find({ where: { username: req.body.username }})
+            .then((user) => {
+              if (user) { 
+                res.send('This user already exists');
+              } else {
+                newUser.save()
+                       .then((user) => {
+                         res.send({name: user.firstName + ' ' + user.lastName, id: user.id});
+                      });
+              }
+        });
+      });      
+    });
   },
 
   getUserWithBooks(req, res) {
