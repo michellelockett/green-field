@@ -49,13 +49,22 @@ router.get('/users/:id', (req, res) => {
 
 router.get('/users/:id/books/list', (req, res) => {
   userController.getUserBookList(req, res);
-})
+});
 
 /**
 
 PURE USER ROUTES
 
 **/
+
+router.post('/signup', (req, res) => {
+  userController.signup(req, res);
+  
+});
+
+router.post('/login', (req, res) => {
+  userController.login(req, res);
+});
 
 router.get('/users', (req, res) => {
   userController.getUsers(req, res);

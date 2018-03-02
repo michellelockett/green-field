@@ -1,5 +1,9 @@
-const {User, Book, BookUsers} = require('../models/index');
+const { User, Book, BookUsers } = require('../models/index');
 const buildBookList = require('../helpers/files');
+const bcrypt = require('bcryptjs');
+const { check, validationResult } = require('express-validator/check');
+const { matchedData, sanitize } = require('express-validator/filter');
+
 
 const userController = {
   createNewUser(req, res) {
@@ -50,6 +54,53 @@ const userController = {
   // trying to use add methods that should be available with the belongsToMany associations
   //User.addBook(Book, {where: {id: req.params.id} } )
   },
+
+  login(req, res) {
+
+    const username = req.body.username;
+    const password = req.body.password;
+
+    User.find({ where: { username: username}})
+        .then((user) => {
+          bcrypt.compare(password, user.hash)
+                .then(response => {
+                  if (response) {
+                    res.send("you have permission to be logged in");
+                  } else {
+                    res.send("forbidden");
+                  }
+                });
+        });
+  },
+
+  signup(req, res) {
+    const password = req.body.password;
+    const newUser = User.build({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      userName: req.body.username
+    });
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(password, salt, function(err, hash) {
+        if (hash) {
+          newUser.hash = hash;
+        }
+
+        User.find({ where: { username: req.body.username }})
+            .then((user) => {
+              if (user) { 
+                res.send('This user already exists');
+              } else {
+                newUser.save()
+                       .then((user) => {
+                         res.send({name: user.firstName + ' ' + user.lastName, id: user.id});
+                      });
+              }
+        });
+      });      
+    });
+  },
+
   getUserWithBooks(req, res) {
     let userId = req.params.id;
     User.findById(userId, {
@@ -68,7 +119,7 @@ const userController = {
     })
     .catch((err) => {
       console.log(err);
-    })
+    });
 
   },
   getUserBookId(req,res) {
