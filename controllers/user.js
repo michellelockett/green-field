@@ -12,8 +12,8 @@ const userController = {
       .spread((user, create) => {
         console.log(user.get({
           plain: true
-        }))
-      })
+        }));
+      });
   },
   getUsers(req, res) {
     User.findAll()
@@ -33,21 +33,49 @@ const userController = {
         console.log(err);
       });
   },
+
+  getUserByUsername(username, callback) {
+    User.find({ where: { userName: username }})
+        .then((user) => callback(null, user));
+  },
+
+  getUserById(id, callback) {
+    User.find({ where: { id: id}})
+        .then(user => {
+          if (user) {
+            callback(null, user);
+          } 
+        });
+  },
+
+  comparePassword(password, hash, callback) {
+    bcrypt.compare(password, hash)
+          .then(response => {
+            console.log(response);
+            if (response) {
+              callback(null, response);
+            } else {
+              callback(response, null);
+            }          
+          })
+          .catch(err => console.log(err));
+  },
+
   updateUserId(req, res) {
   // what exactly was supposed to be updated here
   // currently will update any data passed in put request for specific user id
     User.update({firstName: req.body.firstName, lastName: req.body.lastName, userName: req.body.userName, password: req.body.password}, { where: {id: req.params.id}})
       .then(user => {
-        console.log(user)
-    })
+        console.log(user);
+    });
   }, 
   deleteUser(req, res) {
     User.destroy({where: { id: req.params.id}})
       .then(user => {
-        res.send(user)
+        res.send(user);
       })
       .catch(err => {
-        console.log(err)
+        console.log(err);
       });
   },
   postBookUser(req,res) {
