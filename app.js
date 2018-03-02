@@ -14,11 +14,21 @@ app.use('*', (req, res, next) => {
   next();
 });
 
+//parsing middleware
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
 app.use('/static', express.static(path.join(__dirname, 'node_modules', 'angular')));
 app.use(express.static(path.join(__dirname, 'client')));
-app.use(session({ secret: "conanTheLibrarian" }));
-app.use(passport.initialize());
-app.use(passport.session());
+
+// app.use(session({ secret: "conanTheLibrarian" }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+
+
 
 app.use('/', routes);
 

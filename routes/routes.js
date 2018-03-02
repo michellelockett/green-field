@@ -57,12 +57,17 @@ PURE USER ROUTES
 
 **/
 
-router.get('/users', (req, res) => {
-  userController.getUsers(req, res);
+router.post('/signup', (req, res) => {
+  userController.signup(req, res);
+  
 });
 
 router.post('/login', (req, res) => {
   userController.login(req, res);
+});
+
+router.get('/users', (req, res) => {
+  userController.getUsers(req, res);
 });
 
 // // update a specific user

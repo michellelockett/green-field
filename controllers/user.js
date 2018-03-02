@@ -14,6 +14,26 @@ const userController = {
   postBookUser(req,res) {
 
   },
+
+  login(req, res) {
+    console.log(req.body);
+    res.send("You are in the login route");
+  },
+
+  signup(req, res) {
+    console.log(req.body);
+    // const password = req.body.password;
+
+    // const newUser = User.build({
+    //   firstName: req.body.firstName,
+    //   lastName: req.body.lastName,
+    //   userName: req.body.userName
+    // });
+
+    res.send("You are in the signup route");
+
+  },
+
   getUserWithBooks(req, res) {
     let userId = req.params.id;
     User.findById(userId, {
@@ -32,7 +52,7 @@ const userController = {
     })
     .catch((err) => {
       console.log(err);
-    })
+    });
 
   },
   getUserBookId(req,res) {
