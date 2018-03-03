@@ -150,6 +150,7 @@ const userController = {
         // Rebuild a user's book list so it is
         // accessible if/when they request it
         buildBookList(userId, userBookData.books);
+        res.json(userBookData);
     })
 
     .catch((err) => {
@@ -157,17 +158,19 @@ const userController = {
     });
 
   },
-  getUserBookId(req,res) {
+  // getUserBookId(req,res) {
 
-        // Send JSON to client
-        res.json(userBookData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.send("Error");
-      });
-  },
-  getUserBookId(req, res) {},
+  //       // Send JSON to client
+  //       res.json(userBookData);
+      
+  //     .catch(err => {
+  //       console.log(err);
+  //       res.send("Error");
+  //     });
+  // },
+
+  // getUserBookId(req, res) {},
+  
   getUserBookList(req, res) {
     // Serve a simple test file
     // Refactor to serve the file in /users/

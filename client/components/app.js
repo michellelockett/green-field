@@ -28,7 +28,7 @@ angular.module('BookApp').component('app', {
 //         this.getWishlist();
 //         this.currentBooks = this.bookshelf;
 
-      //this.allBooks.forEach(book => conan.postBook(6, book.isbn, conan.getAllBooksForUser));
+      
     };
 
     this.setUsernamePassword = (username, password) => {
@@ -40,23 +40,27 @@ angular.module('BookApp').component('app', {
     this.login = () => {
       conan.login(this.userData.username, this.userData.password)
       .then((response) => {
+
         console.log(response);
         if (response.authenticated) {
           this.loggedIn = true;
           this.userData.userId = response.userId;
-          conan.getAllBooksForUser(this.userData.userId)
-          .then((books) => {
-            console.log("RETRIEVED BOOKS SUCCESSFULLY", books);
-            this.allBooks = books;
-            this.getBookshelf();
-            this.getWishlist();
-            this.currentBooks = this.bookshelf;
-          });
-        } else {
-          this.loggedIn = false;
-          this.userData.userId = null;
-          console.log("LOGIN UNSUCCESSFUL", response);
-        }
+          this.allBooks.forEach(book => conan.postBook(4, book.isbn, conan.getAllBooksForUser, true));
+        //   conan.getAllBooksForUser(this.userData.userId)
+        //   .then((books) => {
+        //     console.log("RETRIEVED BOOKS SUCCESSFULLY", books);
+        //     this.allBooks = books;
+        //     this.getBookshelf();
+        //     this.getWishlist();
+        //     this.currentBooks = this.bookshelf;
+        //     console.log(this.bookshelf);
+        //   });
+        // } else {
+        //   this.loggedIn = false;
+        //   this.userData.userId = null;
+        //   console.log("LOGIN UNSUCCESSFUL", response);
+        // }
+      }
 
       });
     };
@@ -166,7 +170,7 @@ angular.module('BookApp').component('app', {
     //filter this.allBooks to show only books that are not owned and assign to this.wishlist
     this.getWishlist = () => {
       // this.bookshelf = this.allBooks;
-      this.wishlist = this.allBooks.filter(book => book.bookUser.owned === false);
+      this.wishlist = this.allBooks.filter(book => book.bookUser.owned === false || book.bookUser.owned === null);
     };
 
     //optional - if we want to break the books into categores (000, 100) before passing them down?

@@ -16,7 +16,7 @@
   <content-index category="$ctrl.sortByCategory" print="$ctrl.print" sort="$ctrl.sortBy" id="contents"></content-index>
 
   <!--main view for bookshelf and wishlist, conditionally rendered based on user chosen view type-->
-  <login id="loginView" submit="$ctrl.setUsernamePassword" ng-show="$ctrl.loggedIn === false"></login>
+  <login id="loginView" submit="$ctrl.setUsernamePassword" ng-show="!$ctrl.loggedIn"></login>
   <book-list type="$ctrl.currentBookType" 
              id="bookList" 
              set-view=$ctrl.setView 
