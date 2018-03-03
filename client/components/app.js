@@ -33,7 +33,7 @@ angular.module('BookApp').component('app', {
 
       // this.allBooks.forEach(book => conan.postBook(2, book.isbn, conan.getAllBooksForUser));
 
-      
+
     };
 
     this.setUsernamePassword = (username, password) => {
@@ -82,8 +82,23 @@ angular.module('BookApp').component('app', {
            });
     };
 
-    this.addBook = () => {      
+    this.addBook = () => {
       this.postBook();
+    };
+
+    this.updateBook = (id, isbn, book) => {
+      conan.updateBook(id, isbn, book)
+      .then(() => {
+        conan.getAllBooksForUser(this.userData.userId)
+        .then((books) => {
+          this.allBooks = books;
+          this.getBookshelf();
+          this.getWishlist();
+          this.currentBooks = this.bookshelf;
+          this.view = 'list';
+        })
+        .catch(err => console.log(err));
+      })
     };
 
     //allows user to view books by format (list vs. cover)
@@ -172,7 +187,7 @@ angular.module('BookApp').component('app', {
         }
         if (a.title > b.title) {
           return 1;
-        }       
+        }
         return 0;
       });
     };

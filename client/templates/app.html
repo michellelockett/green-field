@@ -17,22 +17,23 @@
 
   <!--main view for bookshelf and wishlist, conditionally rendered based on user chosen view type-->
   <login id="loginView" submit="$ctrl.setUsernamePassword" ng-show="!$ctrl.loggedIn"></login>
-  <book-list type="$ctrl.currentBookType" 
-             id="bookList" 
-             set-view=$ctrl.setView 
-             ng-show="$ctrl.view === 'list' && $ctrl.loggedIn" 
+  <book-list type="$ctrl.currentBookType"
+             id="bookList"
+             set-view=$ctrl.setView
+             ng-show="$ctrl.view === 'list' && $ctrl.loggedIn"
              books=$ctrl.currentBooks>
-            
+
   </book-list>
-  <book-cover-list type="$ctrl.currentBookType" 
-                   ng-show="$ctrl.view === 'cover' && $ctrl.loggedIn" 
-                   id="bookCovers" 
+  <book-cover-list type="$ctrl.currentBookType"
+                   ng-show="$ctrl.view === 'cover' && $ctrl.loggedIn"
+                   id="bookCovers"
                    books=$ctrl.currentBooks>
   </book-cover-list>
   <book-detail
     id="bookDetail"
     ng-show="$ctrl.view === 'detail'"
     user-id="$ctrl.userData.userId"
+    update="$ctrl.updateBook"
     book=$ctrl.selectedBook>
   </book-detail>
 

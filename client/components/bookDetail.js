@@ -25,9 +25,8 @@ angular.module('BookApp').component('bookDetail', {
     };
 
     this.saveEdits = () => {
-      conan.updateBook(this.userId, this.book.isbn, this.book);
-      console.log(this.book);
       this.edit = !this.edit;
+      this.update(this.userId, this.book.isbn, this.book);
     };
 
   },
@@ -35,6 +34,7 @@ angular.module('BookApp').component('bookDetail', {
 
   bindings: {
     book: '<',
-    userId: '<'
+    userId: '<',
+    update: '<'
   }
 });

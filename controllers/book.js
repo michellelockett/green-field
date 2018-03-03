@@ -1,9 +1,9 @@
-const {User, Book, BookUsers, Author} = require('../models/index');
+const {User, Book, BookUser, Author} = require('../models/index');
 const buildBook = require('../helpers/api');
 
 const bookController = {
   postBook(req,res) {
-  
+
     // see if book already exists in database
     // and if so, just add association
     Book.find({
@@ -13,7 +13,7 @@ const bookController = {
       include: Author
     })
       .then((book) => {
-        
+
         if (book) {
           // If book already exists in database,
           // just create an association between book & user
