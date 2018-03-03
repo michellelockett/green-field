@@ -134,6 +134,9 @@ angular.module('BookApp').component('app', {
 
     //change the current book selection to either wishlist or bookshelf
     this.toggleBooks = (selection) => {
+      if (this.view === 'detail') {
+        this.view = 'list';
+      }
       if (selection === 'wishlist' && this.currentBooks !== this.wishlist) {
         this.currentBooks = this.wishlist;
         console.log('changed to wishlist');
