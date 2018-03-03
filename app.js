@@ -51,6 +51,11 @@ app.post('/signup', (req, res) => {
   userController.signup(req, res); 
 });
 
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
 app.post('/login', passport.authenticate('local', {successRedirect: '/success', failureRedirect: '/error'}), (req, res) => {
  
 });

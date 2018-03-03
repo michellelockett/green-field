@@ -1,9 +1,11 @@
 <article>
   <h1>Log in to view your library</h1>
   <form>
-    Username <input ng-model="username">
+    Username 
+    <div><input ng-model="username"></div>
     <br>
-    Password <input ng-model="password">
-    <button ng-click = "$ctrl.submit(username, password)">LOG IN</button>
+    Password 
+    <div><input ng-model="password"></div>
+    <button ng-click = "$ctrl.handleSubmit(username, password)">LOG IN</button>
   </form>
 </article>
