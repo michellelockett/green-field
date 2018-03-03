@@ -65,11 +65,11 @@ router.post('/users/:id/books/isbn/:isbn/:owned', (req, res) => {
   bookController.postBook(req, res);
 });
 
-// CREATE A BOOK AND ASSOCIATE TO CURRENT USER
-router.post('/users/:id/books/isbn/:isbn', (req, res) => {
-  // direct to method in Books controller/model handler
-  bookController.postBook(req, res);
-});
+// // CREATE A BOOK AND ASSOCIATE TO CURRENT USER
+// router.post('/users/:id/books/isbn/:isbn', (req, res) => {
+//   // direct to method in Books controller/model handler
+//   bookController.postBook(req, res);
+// });
 
 
 // READ ALL BOOKS ASSOCIATED WITH CURRENT USER

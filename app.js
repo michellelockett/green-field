@@ -7,13 +7,14 @@ const cors = require('cors');
 const path = require('path');
 const routes = require('./routes/routes');
 const userController = require('./controllers/user');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.urlencoded({
-    extended: false
-}))
-app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({
+//     extended: false
+// }));
+// app.use(bodyParser.json());
 
 
 app.use('*', (req, res, next) => {
@@ -25,6 +26,7 @@ app.use('*', (req, res, next) => {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.use('/static', express.static(path.join(__dirname, 'node_modules', 'angular')));
 app.use(express.static(path.join(__dirname, 'client')));
@@ -38,7 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/success', (req, res) => {
-  res.send({ authenticated: true, userId: req.user.id});
+  res.send({ authenticated: true, userId: req.user.id, sessionId: req.sessionID});
 });
 
 app.get('/error', (req, res) => {
@@ -50,11 +52,10 @@ app.post('/signup', (req, res) => {
 });
 
 app.post('/login', passport.authenticate('local', {successRedirect: '/success', failureRedirect: '/error'}), (req, res) => {
-  
+ 
 });
 
 app.all("*", function(req, res, next){
-  // console.log("IN APP>ALL: ", req.user.id);
   if (!req.user) 
     res.redirect('/error');
   else
