@@ -25,6 +25,7 @@ will be implemented at the bottom of this file as needed).
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
+    console.log(username, password);
     userController.getUserByUsername(username, (err, user) => {
       if (err) {
         console.log("error: ", err);
