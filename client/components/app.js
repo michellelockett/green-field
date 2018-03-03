@@ -15,6 +15,16 @@ angular.module('BookApp').component('app', {
       this.currentBooks = this.wishlist;
       this.currentBookType = 'wishlist';
       this.toggleBooks('bookshelf');
+      this.postBook = conan.postBook;
+
+
+      // this.allBooks.forEach(book => conan.postBook(2, book.isbn, conan.getAllBooksForUser));
+//       conan.getAllBooksForUser(1)
+//       .then((books) => {
+//         this.allBooks = books;
+//         this.getBookshelf();
+//         this.getWishlist();
+//         this.currentBooks = this.bookshelf;
 
       //this.allBooks.forEach(book => conan.postBook(6, book.isbn, conan.getAllBooksForUser));
     };
@@ -46,6 +56,11 @@ angular.module('BookApp').component('app', {
           console.log("LOGIN UNSUCCESSFUL", response);
         }
       });
+    };
+
+    this.addBook = () => {
+      
+      this.postBook()
     };
 
     //allows user to view books by format (list vs. cover)
