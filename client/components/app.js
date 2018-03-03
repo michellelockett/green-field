@@ -72,6 +72,16 @@ angular.module('BookApp').component('app', {
       });
     };
 
+    this.logout = () => {
+      console.log("LOGGING OUT");
+      conan.logout()
+           .then(() => {
+             localStorage.clear();
+             this.loggedIn = null;
+             this.userData = {};
+           });
+    };
+
     this.addBook = () => {      
       this.postBook();
     };

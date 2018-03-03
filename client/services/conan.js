@@ -28,6 +28,13 @@ angular.module('BookApp', [])
       });
     },
 
+    logout() {
+      return $http({
+        method: 'GET',
+        url: `http://localhost:3000/logout`
+      });
+    },
+
     getAllBooks() {
       return $http({
         method: 'GET',
