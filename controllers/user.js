@@ -1,9 +1,9 @@
-const { User, Book, BookUsers } = require('../models/index');
+
+const { User, Book, Author, BookUsers } = require('../models/index');
 const buildBookList = require('../helpers/files');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator/check');
 const { matchedData, sanitize } = require('express-validator/filter');
-
 
 const userController = {
   createNewUser(req, res) {
@@ -17,13 +17,16 @@ const userController = {
   },
   getUsers(req, res) {
     User.findAll()
-      .then((users) => {
+      .then(users => {
         res.send(users);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(err => {
+        res.send("Error");
       });
   },
+
+  postBookUser(req, res) {},
+
   getUsersId(req, res) {
     User.findAll({where: { id : req.params.id}})
       .then((user) => {
@@ -133,17 +136,22 @@ const userController = {
     User.findById(userId, {
       include: [
         {
-          model: Book
+          model: Book,
+          include: [
+            {
+              model: Author
+            }
+          ]
         }
       ]
-    }).then((userBookData) => {
-      // Rebuild a user's book list so it is
-      // accessible if/when they request it
-      buildBookList(userId, userBookData.books);
-
-      // Send JSON to client
-      res.json(userBookData);
     })
+
+      .then(userBookData => {
+        // Rebuild a user's book list so it is
+        // accessible if/when they request it
+        buildBookList(userId, userBookData.books);
+    })
+
     .catch((err) => {
       console.log(err);
     });
@@ -151,19 +159,54 @@ const userController = {
   },
   getUserBookId(req,res) {
 
+        // Send JSON to client
+        res.json(userBookData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.send("Error");
+      });
   },
+  getUserBookId(req, res) {},
   getUserBookList(req, res) {
     // Serve a simple test file
     // Refactor to serve the file in /users/
     // with the filename of the current user's ID
-    res.download(`${__dirname}/../users/${req.params.id}.txt`, 'my_books.txt');
+    res.download(`${__dirname}/../users/${req.params.id}.txt`, "my_books.txt");
   },
-  updateBook(req, res) {
-
+  updateUserBook(req, res) {
+    Book.update(
+      {
+        dewey: req.body.dewey
+      },
+      {
+        where: {
+          isbn: req.body.isbn
+        }
+      }
+    )
+      .then(book => {
+        return BookUser.update(
+          {
+            owned: req.body.bookUser.owned,
+            loaned: req.body.bookUser.loaned,
+            notes: req.body.bookUser.notes
+          },
+          {
+            where: {
+              id: req.body.bookUser.id
+            }
+          }
+        );
+      })
+      .then(bookUser => {
+        res.send("Hello");
+      })
+      .catch(err => {
+        res.send("Error");
+      });
   },
-  deleteBook(req, res) {
-
-  }
+  deleteBook(req, res) {}
 };
 
 module.exports = userController;

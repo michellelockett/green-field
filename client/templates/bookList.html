@@ -12,7 +12,7 @@
       <th> DEWEY DECIMAL NUMBER </th>
     </tr>
     <tr ng-repeat="book in $ctrl.books | filter:search" >
-      <td>{{book.title}}</td>
+      <td ng-click="$ctrl.setView('detail', book)">{{book.title}}</td>
       <td>{{book.format}}</td>
       <td>{{book.dewey}}</td>
     </tr>

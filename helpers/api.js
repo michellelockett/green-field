@@ -3,7 +3,7 @@ const axios = require('axios');
 const xml2js = require('xml2js');
 
 // Require API key(s)
-const { API_KEY } = require('../config/google');
+const API_KEY = require('../config/google');
 
 /**
 
