@@ -10,6 +10,8 @@
   <!--options navbar for sorting view -->
   <options items="$ctrl.sortOptions" change="$ctrl.changeSort" toggle="$ctrl.toggleView" id="options"></options>
 
+  <add-book add="$ctrl.addBook" id="addBook"></add-book>
+
   <!--sidebar to display table of contents-->
   <content-index category="$ctrl.sortByCategory" print="$ctrl.print" sort="$ctrl.sortBy" id="contents"></content-index>
 
