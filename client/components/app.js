@@ -18,6 +18,8 @@ angular.module('BookApp').component('app', {
       this.postBook = conan.postBook;
 
 
+
+
       // this.allBooks.forEach(book => conan.postBook(2, book.isbn, conan.getAllBooksForUser));
 //       conan.getAllBooksForUser(1)
 //       .then((books) => {
@@ -55,6 +57,7 @@ angular.module('BookApp').component('app', {
           this.userData.userId = null;
           console.log("LOGIN UNSUCCESSFUL", response);
         }
+
       });
     };
 
@@ -66,6 +69,11 @@ angular.module('BookApp').component('app', {
     //allows user to view books by format (list vs. cover)
     this.toggleView = () => {
       this.view = this.view === 'cover' ? 'list' : 'cover';
+    };
+
+    this.setView = (view, book) => {
+      this.view = view;
+      this.selectedBook = book ? book: null;
     };
 
     //changes which booktype we are to show (bookshelf vs. wishlist)
@@ -151,14 +159,14 @@ angular.module('BookApp').component('app', {
 
      //filter this.allBooks to show only books that are owned and assign to this.bookshelf
     this.getBookshelf = () => {
-      this.bookshelf = this.allBooks;
-      // this.bookshelf = this.allBooks.filter(book => book.owned === true);
+      // this.bookshelf = this.allBooks;
+      this.bookshelf = this.allBooks.filter(book => book.bookUser.owned === true);
     };
 
     //filter this.allBooks to show only books that are not owned and assign to this.wishlist
     this.getWishlist = () => {
-      this.bookshelf = this.allBooks;
-      // this.wishlist = this.allBooks.filter(book => book.owned === false);
+      // this.bookshelf = this.allBooks;
+      this.wishlist = this.allBooks.filter(book => book.bookUser.owned === false);
     };
 
     //optional - if we want to break the books into categores (000, 100) before passing them down?

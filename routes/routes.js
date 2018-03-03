@@ -9,8 +9,6 @@ const bookController = require('../controllers/book');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
-
-
 /**
 
 USER - BOOK ROUTES
@@ -95,6 +93,11 @@ router.get('/users/:id', (req, res) => {
     res.redirect('/error');
   }
   
+});
+
+
+router.put('/users/:id/books/:isbn', (req, res) => {
+  userController.updateUserBook(req, res);
 });
 
 router.get('/users/:id/books/list', (req, res) => {
