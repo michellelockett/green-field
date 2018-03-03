@@ -1,4 +1,20 @@
 <article>
+  <h1> New to Conan? Sign up here! </h1>
+  <form>
+    First Name
+    <div><input ng-model="newFirstName"></div>
+    <br>
+    Last Name
+    <div><input ng-model="newLastName"></div>
+    <br>
+    Username 
+    <div><input ng-model="newUsername"></div>
+    <br>
+    Password 
+    <div><input ng-model="newPassword"></div>
+    <button ng-click = "$ctrl.handleNewUser(newFirstName, newLastName, newUsername, newPassword)">SIGN UP</button>
+  </form>
+
   <h1>Log in to view your library</h1>
   <form>
     Username 
