@@ -10,19 +10,22 @@
   <!--options navbar for sorting view -->
   <options items="$ctrl.sortOptions" change="$ctrl.changeSort" toggle="$ctrl.toggleView" id="options"></options>
 
+  <add-book add="$ctrl.addBook" id="addBook"></add-book>
+
   <!--sidebar to display table of contents-->
   <content-index category="$ctrl.sortByCategory" print="$ctrl.print" sort="$ctrl.sortBy" id="contents"></content-index>
 
   <!--main view for bookshelf and wishlist, conditionally rendered based on user chosen view type-->
+  <login id="loginView" submit="$ctrl.setUsernamePassword" ng-show="$ctrl.loggedIn === false"></login>
   <book-list type="$ctrl.currentBookType" 
              id="bookList" 
-             ng-show="$ctrl.view === 'list'"
              set-view=$ctrl.setView 
+             ng-show="$ctrl.view === 'list' && $ctrl.loggedIn === true" 
              books=$ctrl.currentBooks>
             
   </book-list>
   <book-cover-list type="$ctrl.currentBookType" 
-                   ng-show="$ctrl.view === 'cover'" 
+                   ng-show="$ctrl.view === 'cover' && $ctrl.loggedIn === true" 
                    id="bookCovers" 
                    books=$ctrl.currentBooks>
   </book-cover-list>

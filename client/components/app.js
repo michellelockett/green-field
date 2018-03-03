@@ -8,25 +8,62 @@ angular.module('BookApp').component('app', {
       this.view = 'list';
       this.sortBy = 'dewey';
       this.sortOptions = ['Dewey Decimal', 'Title'];
+      this.loggedIn = false;
+      this.userData = {};
       this.wishlist = [];
       this.bookshelf = [];
       this.currentBooks = this.wishlist;
       this.currentBookType = 'wishlist';
       this.toggleBooks('bookshelf');
+      this.postBook = conan.postBook;
 
-      // this.allBooks.forEach((book, index) => {
-      //   if (index < 50) {
-      //     conan.postBook(1, book.isbn, conan.getAllBooksForUser)
-          
-      //   }
-      // });
-      conan.getAllBooksForUser(1)
-      .then((books) => {
-        this.allBooks = books;
-        this.getBookshelf();
-        this.getWishlist();
-        this.currentBooks = this.bookshelf;
+
+
+
+      // this.allBooks.forEach(book => conan.postBook(2, book.isbn, conan.getAllBooksForUser));
+//       conan.getAllBooksForUser(1)
+//       .then((books) => {
+//         this.allBooks = books;
+//         this.getBookshelf();
+//         this.getWishlist();
+//         this.currentBooks = this.bookshelf;
+
+      //this.allBooks.forEach(book => conan.postBook(6, book.isbn, conan.getAllBooksForUser));
+    };
+
+    this.setUsernamePassword = (username, password) => {
+      this.userData.username = username;
+      this.userData.password = password;
+      this.login();
+    };
+
+    this.login = () => {
+      conan.login(this.userData.username, this.userData.password)
+      .then((response) => {
+        console.log(response);
+        if (response.authenticated) {
+          this.loggedIn = true;
+          this.userData.userId = response.userId;
+          conan.getAllBooksForUser(this.userData.userId)
+          .then((books) => {
+            console.log("RETRIEVED BOOKS SUCCESSFULLY", books);
+            this.allBooks = books;
+            this.getBookshelf();
+            this.getWishlist();
+            this.currentBooks = this.bookshelf;
+          });
+        } else {
+          this.loggedIn = false;
+          this.userData.userId = null;
+          console.log("LOGIN UNSUCCESSFUL", response);
+        }
+
       });
+    };
+
+    this.addBook = () => {
+      
+      this.postBook()
     };
 
     //allows user to view books by format (list vs. cover)
@@ -89,12 +126,16 @@ angular.module('BookApp').component('app', {
 
     this.sortByDewey = () => {
       this.currentBooks = this.currentBooks.sort((a, b) => {
+        if (!a.dewey) {
+          return 2;
+        }
         if (a.dewey < b.dewey) {
           return -1;
         }
         if (a.dewey > b.dewey){
           return 1;
         }
+
         return 0;
       });
     };
@@ -103,12 +144,15 @@ angular.module('BookApp').component('app', {
 
     this.sortByTitle = () => {
       this.currentBooks = this.currentBooks.sort( (a, b) => {
+        if (a.title === undefined) {
+          return 2;
+        }
         if (a.title < b.title) {
           return -1;
         }
         if (a.title > b.title) {
           return 1;
-        }
+        }       
         return 0;
       });
     };
@@ -145,7 +189,7 @@ angular.module('BookApp').component('app', {
       } else {
         for (var i = 0; i < alpha.length; i++) {
           if (alpha[i].includes(deweyOrAlpha)) {
-            this.currentBooks = listType.filter(book => alpha[i].includes(book.title[0].toUpperCase()));
+            this.currentBooks = listType.filter(book => (book.title && alpha[i].includes(book.title[0].toUpperCase())));
             this.sortByTitle();
           }
         }

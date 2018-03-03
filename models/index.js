@@ -39,7 +39,7 @@ let testUser1 = null;
 let testUser2 = null;
 let testUser3 = null;
 
-db.sync({ force: true })
+db.sync({})
 .then(() => {
   return Book.create({
     "isbn": "9780143124870",

@@ -1,6 +1,33 @@
 angular.module('BookApp', [])
 .factory('conan', ['$http', function($http) {
   return {
+
+    login(username, password) {
+      const data = {
+        username: username,
+        password: password
+      };
+      
+      const encoded = Object.keys(data).map((key) => {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+      }).join('&');
+
+      const url = 'http://localhost:3000/login?' + encoded;
+      // username=cdog3&password=insecurepassword';
+      console.log(url);
+
+      return $http({
+        method: 'POST',       
+        url: url,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      })
+      .then(function successCallback(response) {
+        return response.data;
+      }, function errorCallback(response) {
+        return response.data;
+      });
+    },
+
     getAllBooks() {
       return $http({
         method: 'GET',
