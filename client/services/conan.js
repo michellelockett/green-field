@@ -41,21 +41,23 @@ angular.module('BookApp', [])
     },
 
     getAllBooksForUser(id) {
+      console.log(id, "IN CONAN GET ALL BOOKS FOR USER");
       return $http({
         method: 'GET',
-        url: `/users/${id}/`
+        url: `/users/${id}`
       })
       .then(function successCallback(response) {
+        console.log(response);
         return response.data.books;
       }, function errorCallback(response) {
         console.log(response);
       });
     },
 
-    postBook(userId, ISBN, callback) {
+    postBook(userId, ISBN, callback, isOwned) {
       return $http({
         method: 'POST',
-        url: `/users/${userId}/books/isbn/${ISBN}/true`
+        url: `/users/${userId}/books/isbn/${ISBN}/${isOwned}`
       })
       .then(function successCallback(response) {
         callback(userId);

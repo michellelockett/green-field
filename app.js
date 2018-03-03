@@ -42,7 +42,7 @@ app.get('/success', (req, res) => {
 });
 
 app.get('/error', (req, res) => {
-  res.send({ authenticated: false, message: req});
+  res.send({ authenticated: false, message: "NOOOOOOO!"});
 });
 
 app.post('/signup', (req, res) => {
@@ -54,7 +54,7 @@ app.post('/login', passport.authenticate('local', {successRedirect: '/success', 
 });
 
 app.all("*", function(req, res, next){
-  console.log("IN APP>ALL: ", req.user.id);
+  // console.log("IN APP>ALL: ", req.user.id);
   if (!req.user) 
     res.redirect('/error');
   else

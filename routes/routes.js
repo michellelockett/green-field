@@ -86,7 +86,7 @@ router.delete('/users/:user_id/books/:book_id', (req, res) => {
 // Retrieve the information for a specific user
 // And his/her associated books
 router.get('/users/:id', (req, res) => {
-  // console.log("IN ROUTES: ", req.params.id, req.user.id, req.params.id === req.user.id);
+  console.log("IN ROUTES: ", typeof req.params.id, typeof req.user.id, req.params.id === req.user.id.toString());
   if (req.user.id.toString() === req.params.id) {
     userController.getUserWithBooks(req, res);   
   } else {
