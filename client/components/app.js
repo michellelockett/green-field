@@ -15,7 +15,7 @@ angular.module('BookApp').component('app', {
       this.toggleBooks('bookshelf');
 
       // this.allBooks.forEach(book => conan.postBook(2, book.isbn, conan.getAllBooksForUser));
-      conan.getAllBooksForUser(2)
+      conan.getAllBooksForUser(1)
       .then((books) => {
         this.allBooks = books;
         this.getBookshelf();
@@ -23,6 +23,7 @@ angular.module('BookApp').component('app', {
         this.currentBooks = this.bookshelf;
       });
     };
+
 
     //allows user to view books by format (list vs. cover)
     this.toggleView = () => {

@@ -4,6 +4,7 @@
   grid-template-areas: 
     "header nav nav nav"
     "options options options options"
+    "addBook addBook addBook addBook"
     "contentTable article article article";
   grid-template-rows: 100px 100px 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -115,6 +116,19 @@ table tr:nth-child(even) {
   align-items: center;
 }
 
+#addBook {
+  grid-area: addBook;
+  background-color: #5E6572;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 4em;
+  margin-right: 4em;
+  margin-top: 1em;
+  align-items: center;
+}
+
 #contents {
   grid-area: contentTable;
   background-color: lightgrey;
@@ -147,6 +161,7 @@ table tr:nth-child(even) {
       "header"
       "nav"
       "options"
+      "addBook"
       "article"
       "article"
       "article"
@@ -175,6 +190,11 @@ table tr:nth-child(even) {
  }
 
  #options {
+  margin: 0;
+  padding: 5px;
+ }
+
+ #addBook {
   margin: 0;
   padding: 5px;
  }
