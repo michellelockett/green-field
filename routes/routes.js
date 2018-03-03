@@ -6,6 +6,11 @@ const router = express.Router();
 const userController = require('../controllers/user');
 const bookController = require('../controllers/book');
 
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
+
+
 /**
 
 USER - BOOK ROUTES
@@ -15,6 +20,45 @@ These routes relate to users and their relationship to books.
 will be implemented at the bottom of this file as needed).
 
 **/
+
+//configure passport
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    console.log(username, password);
+    userController.getUserByUsername(username, (err, user) => {
+      if (err) {
+        console.log("error: ", err);
+      }
+      if (!user) {
+        return done(null, false, {message: 'Unknown User'});
+      }
+
+      userController.comparePassword(password, user.dataValues.hash, (err, isMatch) => {
+        if (err) {
+          console.log(err);
+        }
+
+        if (isMatch) {
+          return done(null, user);
+        } else {
+          return done(null, false, {message: 'Invalid Password'});
+        }
+
+      });
+    });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  userController.getUserById(id, function(err, user) {
+    done(err, user);
+  });
+});
 
 // CREATE A BOOK AND ASSOCIATE TO CURRENT USER
 // stub for route featuring boolean 'owned' values
@@ -44,12 +88,18 @@ router.delete('/users/:user_id/books/:book_id', (req, res) => {
 // Retrieve the information for a specific user
 // And his/her associated books
 router.get('/users/:id', (req, res) => {
-  userController.getUserWithBooks(req, res);
+  // console.log("IN ROUTES: ", req.params.id, req.user.id, req.params.id === req.user.id);
+  if (req.user.id.toString() === req.params.id) {
+    userController.getUserWithBooks(req, res);   
+  } else {
+    res.redirect('/error');
+  }
+  
 });
 
 router.get('/users/:id/books/list', (req, res) => {
   userController.getUserBookList(req, res);
-})
+});
 
 /**
 
@@ -57,9 +107,14 @@ PURE USER ROUTES
 
 **/
 
-router.get('/users', (req, res) => {
-  userController.getUsers(req, res);
-});
+// router.post('/login', passport.authenticate('local', (req, res) => {
+//   console.log(req);
+//   res.send("SUCESSFUL LOZGINZZZ");
+// }));
+
+// router.get('/users', (req, res) => {
+//   userController.getUsers(req, res);
+// });
 
 // // update a specific user
 // app.put('/users/:id', (req, res) => {

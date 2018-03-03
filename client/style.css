@@ -17,6 +17,12 @@ select {
  height: 30%;
 }
 
+input {
+  height: 40%;
+  width: 35%;
+  margin: 1em;
+}
+
 img.book {
   height: 250px;
   width: 150px;
@@ -63,6 +69,12 @@ img.logo {
 #bookList {
   grid-area: article;
   margin-right: 4em;
+}
+
+#loginView {
+  grid-area: article;
+  margin-top: 4em;
+  text-align: center;
 }
 
 #searchbar {
