@@ -20,19 +20,19 @@
   <book-list type="$ctrl.currentBookType" 
              id="bookList" 
              set-view=$ctrl.setView 
-             ng-show="$ctrl.view === 'list' && $ctrl.loggedIn === true" 
+             ng-show="$ctrl.view === 'list' && $ctrl.loggedIn" 
              books=$ctrl.currentBooks>
             
   </book-list>
   <book-cover-list type="$ctrl.currentBookType" 
-                   ng-show="$ctrl.view === 'cover' && $ctrl.loggedIn === true" 
+                   ng-show="$ctrl.view === 'cover' && $ctrl.loggedIn" 
                    id="bookCovers" 
                    books=$ctrl.currentBooks>
   </book-cover-list>
   <book-detail
     id="bookDetail"
     ng-show="$ctrl.view === 'detail'"
-    user-id=1
+    user-id="$ctrl.userData.userId"
     book=$ctrl.selectedBook>
   </book-detail>
 

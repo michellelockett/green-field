@@ -8,7 +8,7 @@ angular.module('BookApp').component('app', {
       this.view = 'list';
       this.sortBy = 'dewey';
       this.sortOptions = ['Dewey Decimal', 'Title'];
-      this.loggedIn = false;
+      this.loggedIn = localStorage.sessionId;
       this.userData = {};
       this.wishlist = [];
       this.bookshelf = [];
@@ -17,16 +17,21 @@ angular.module('BookApp').component('app', {
       this.toggleBooks('bookshelf');
       this.postBook = conan.postBook;
 
+      console.log(this.loggedIn);
 
+      if (this.loggedIn) {
+        conan.getAllBooksForUser(localStorage.getItem('userId'))
+             .then((books) => {
+              this.allBooks = books;
+              this.getBookshelf();
+              this.getWishlist();
+              this.currentBooks = this.bookshelf;
+             })
+             .catch(err => console.log(err));
+      }
 
 
       // this.allBooks.forEach(book => conan.postBook(2, book.isbn, conan.getAllBooksForUser));
-//       conan.getAllBooksForUser(1)
-//       .then((books) => {
-//         this.allBooks = books;
-//         this.getBookshelf();
-//         this.getWishlist();
-//         this.currentBooks = this.bookshelf;
 
       
     };
@@ -37,6 +42,8 @@ angular.module('BookApp').component('app', {
       this.login();
     };
 
+
+
     this.login = () => {
       conan.login(this.userData.username, this.userData.password)
       .then((response) => {
@@ -45,29 +52,28 @@ angular.module('BookApp').component('app', {
         if (response.authenticated) {
           this.loggedIn = true;
           this.userData.userId = response.userId;
-          this.allBooks.forEach(book => conan.postBook(4, book.isbn, conan.getAllBooksForUser, true));
-        //   conan.getAllBooksForUser(this.userData.userId)
-        //   .then((books) => {
-        //     console.log("RETRIEVED BOOKS SUCCESSFULLY", books);
-        //     this.allBooks = books;
-        //     this.getBookshelf();
-        //     this.getWishlist();
-        //     this.currentBooks = this.bookshelf;
-        //     console.log(this.bookshelf);
-        //   });
-        // } else {
-        //   this.loggedIn = false;
-        //   this.userData.userId = null;
-        //   console.log("LOGIN UNSUCCESSFUL", response);
-        // }
-      }
-
+          localStorage.setItem('sessionId', response.sessionId);
+          localStorage.setItem('userId', response.userId);
+          //this.allBooks.forEach(book => conan.postBook(this.userData.userId, book.isbn, conan.getAllBooksForUser, true));
+          conan.getAllBooksForUser(this.userData.userId)
+          .then((books) => {
+            console.log("RETRIEVED BOOKS SUCCESSFULLY", books);
+            this.allBooks = books;
+            this.getBookshelf();
+            this.getWishlist();
+            this.currentBooks = this.bookshelf;
+            console.log(this.bookshelf);
+          });
+        } else {
+          this.loggedIn = false;
+          this.userData.userId = null;
+          console.log("LOGIN UNSUCCESSFUL", response);
+        }
       });
     };
 
-    this.addBook = () => {
-      
-      this.postBook()
+    this.addBook = () => {      
+      this.postBook();
     };
 
     //allows user to view books by format (list vs. cover)
