@@ -35,6 +35,33 @@ angular.module('BookApp', [])
       });
     },
 
+    signup(firstName, lastName, username, password) {
+      const data = {
+        firstName: firstName,
+        lastName: lastName,
+        username: username,
+        password: password
+      };
+      
+      const encoded = Object.keys(data).map((key) => {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+      }).join('&');
+
+      const url = 'http://localhost:3000/signup';
+
+      return $http({
+        method: 'POST',       
+        url: url,
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        data: encoded
+      })
+      .then(function successCallback(response) {
+        return response.data;
+      }, function errorCallback(response) {
+        return response.data;
+      });
+    },
+
     getAllBooks() {
       return $http({
         method: 'GET',
