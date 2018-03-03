@@ -14,14 +14,15 @@
   <content-index category="$ctrl.sortByCategory" print="$ctrl.print" sort="$ctrl.sortBy" id="contents"></content-index>
 
   <!--main view for bookshelf and wishlist, conditionally rendered based on user chosen view type-->
+  <login id="loginView" submit="$ctrl.setUsernamePassword" ng-show="$ctrl.loggedIn === false"></login>
   <book-list type="$ctrl.currentBookType" 
              id="bookList" 
-             ng-show="$ctrl.view === 'list'" 
+             ng-show="$ctrl.view === 'list' && $ctrl.loggedIn === true" 
              books=$ctrl.currentBooks>
             
   </book-list>
   <book-cover-list type="$ctrl.currentBookType" 
-                   ng-show="$ctrl.view === 'cover'" 
+                   ng-show="$ctrl.view === 'cover' && $ctrl.loggedIn === true" 
                    id="bookCovers" 
                    books=$ctrl.currentBooks>
    </book-cover-list>

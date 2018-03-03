@@ -17,9 +17,8 @@ app.use('*', (req, res, next) => {
 
 //parsing middleware
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
 
 app.use('/static', express.static(path.join(__dirname, 'node_modules', 'angular')));
 app.use(express.static(path.join(__dirname, 'client')));
@@ -37,7 +36,7 @@ app.get('/success', (req, res) => {
 });
 
 app.get('/error', (req, res) => {
-  res.send({ authenticated: false });
+  res.send({ authenticated: false, message: req});
 });
 
 app.post('/signup', (req, res) => {
