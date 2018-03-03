@@ -6,6 +6,12 @@ const path = require('path');
 const routes = require('./routes/routes');
 
 const app = express();
+app.use(cors());
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
+app.use(bodyParser.json())
+
 
 app.use('*', (req, res, next) => {
   console.log(`${req.method} request received for ${req.originalUrl}`);

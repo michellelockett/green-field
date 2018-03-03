@@ -6,6 +6,7 @@ const router = express.Router();
 const userController = require('../controllers/user');
 const bookController = require('../controllers/book');
 
+
 /**
 
 USER - BOOK ROUTES
@@ -47,9 +48,13 @@ router.get('/users/:id', (req, res) => {
   userController.getUserWithBooks(req, res);
 });
 
-router.get('/users/:id/books/list', (req, res) => {
-  userController.getUserBookList(req, res);
-})
+router.put('/users/:id/books/:isbn', (req, res) => {
+  userController.updateUserBook(req, res);
+});
+
+// router.get('/users/:id/books/list', (req, res) => {
+//   userController.getUserBookList(req, res);
+// })
 
 /**
 

@@ -28,11 +28,22 @@ angular.module('BookApp', [])
     postBook(userId, ISBN, callback) {
       return $http({
         method: 'POST',
-        url: `/users/${userId}/books/isbn/${ISBN}`
+        url: `/users/${userId}/books/isbn/${ISBN}/true`
       })
       .then(function successCallback(response) {
         callback(userId);
         console.log(response.data);
+      });
+    },
+
+    updateBook(userId, isbn, book) {
+      let url = `/users/${userId}/books/${isbn}`;
+      
+      return $http.put(url, book)
+      .then(function successCallback(response) {
+        console.log(response);
+      }, function errorCallback(response) {
+        console.log(response);
       });
     },
 

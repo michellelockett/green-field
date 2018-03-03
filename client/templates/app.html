@@ -16,7 +16,8 @@
   <!--main view for bookshelf and wishlist, conditionally rendered based on user chosen view type-->
   <book-list type="$ctrl.currentBookType" 
              id="bookList" 
-             ng-show="$ctrl.view === 'list'" 
+             ng-show="$ctrl.view === 'list'"
+             set-view=$ctrl.setView 
              books=$ctrl.currentBooks>
             
   </book-list>
@@ -24,7 +25,14 @@
                    ng-show="$ctrl.view === 'cover'" 
                    id="bookCovers" 
                    books=$ctrl.currentBooks>
-   </book-cover-list>
+  </book-cover-list>
+  <book-detail
+    id="bookDetail"
+    ng-show="$ctrl.view === 'detail'"
+    user-id=1
+    book=$ctrl.selectedBook>
+  </book-detail>
+
 
 
 
