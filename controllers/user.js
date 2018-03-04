@@ -1,5 +1,4 @@
-
-const { User, Book, Author, BookUsers } = require('../models/index');
+const { User, Book, Author, BookUser } = require('../models/index');
 const buildBookList = require('../helpers/files');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator/check');
@@ -31,7 +30,7 @@ const userController = {
     User.findAll({where: { id : req.params.id}})
       .then((user) => {
         res.send(user);
-      }) 
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -47,7 +46,7 @@ const userController = {
         .then(user => {
           if (user) {
             callback(null, user);
-          } 
+          }
         });
   },
 
@@ -58,7 +57,7 @@ const userController = {
               callback(null, response);
             } else {
               callback(response, null);
-            }          
+            }
           })
           .catch(err => console.log(err));
   },
@@ -70,7 +69,7 @@ const userController = {
       .then(user => {
         console.log(user);
     });
-  }, 
+  },
   deleteUser(req, res) {
     User.destroy({where: { id: req.params.id}})
       .then(user => {
@@ -118,8 +117,13 @@ const userController = {
 
         User.find({ where: { username: req.body.username }})
             .then((user) => {
+
+              if (user) {
+                res.send('This user already exists');
+
               if (user) { 
                 res.send({registered: false, message: 'This username is taken'});
+
               } else {
                 newUser.save()
                        .then((user) => {
@@ -127,7 +131,7 @@ const userController = {
                       });
               }
         });
-      });      
+      });
     });
   },
 
@@ -162,7 +166,7 @@ const userController = {
 
   //       // Send JSON to client
   //       res.json(userBookData);
-      
+
   //     .catch(err => {
   //       console.log(err);
   //       res.send("Error");
@@ -170,7 +174,7 @@ const userController = {
   // },
 
   // getUserBookId(req, res) {},
-  
+
   getUserBookList(req, res) {
     // Serve a simple test file
     // Refactor to serve the file in /users/
