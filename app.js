@@ -63,7 +63,7 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-//Check to make sure the request is coming from a logged in user
+//Check to make sure any other request is coming from a logged in user
 app.all("*", function(req, res, next){
   if (!req.user) 
     res.redirect('/error');

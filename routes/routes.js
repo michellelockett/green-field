@@ -6,6 +6,7 @@ const router = express.Router();
 const userController = require('../controllers/user');
 const bookController = require('../controllers/book');
 
+// Authentication
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
