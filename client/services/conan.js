@@ -81,7 +81,7 @@ angular.module('BookApp', [])
         url: `/users/${id}`
       })
       .then(function successCallback(response) {
-        console.log(response);
+        console.log(response.data.books);
         return response.data.books;
       }, function errorCallback(response) {
         console.log(response);

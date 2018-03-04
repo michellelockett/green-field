@@ -2,8 +2,7 @@ angular.module('BookApp').component('app', {
   templateUrl: "./templates/app.html",
   controller: function(conan) {
     this.$onInit = () => {
-      //this will be an API call to our server for the books of the logged in user. For now using fake data
-      //need to get all books onInit, then call the bookshelf and wishlist functions
+   
       this.allBooks = window.formattedBooks;
       this.view = 'list';
       this.sortBy = 'dewey';
@@ -29,11 +28,7 @@ angular.module('BookApp').component('app', {
              })
              .catch(err => console.log(err));
       }
-
-
       // this.allBooks.forEach(book => conan.postBook(2, book.isbn, conan.getAllBooksForUser));
-
-
     };
 
     this.setUsernamePassword = (username, password) => {
@@ -172,7 +167,7 @@ angular.module('BookApp').component('app', {
 
     this.sortByDewey = () => {
       this.currentBooks = this.currentBooks.sort((a, b) => {
-        if (!a.dewey) {
+        if (a.dewey === null) {
           return 2;
         }
         if (a.dewey < b.dewey) {

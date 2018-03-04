@@ -13,7 +13,7 @@
     </tr>
     <tr ng-repeat="book in $ctrl.books | filter:search" >
       <td ng-click="$ctrl.setView('detail', book)">{{book.title}}</td>
-      <td>{{book.format}}</td>
+      <td>{{book.authors[0].firstName + ' ' + book.authors[0].lastName}}</td>
       <td>{{book.dewey}}</td>
     </tr>
   </table>
