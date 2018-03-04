@@ -44,7 +44,7 @@ app.get('/success', (req, res) => {
 });
 
 app.get('/error', (req, res) => {
-  res.send({ authenticated: false, message: "NOOOOOOO!"});
+  res.send({ authenticated: false});
 });
 
 app.post('/signup', (req, res) => {

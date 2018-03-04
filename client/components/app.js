@@ -17,7 +17,7 @@ angular.module('BookApp').component('app', {
       this.toggleBooks('bookshelf');
       this.postBook = conan.postBook;
 
-      console.log(this.loggedIn);
+      //on init, check to see if there is a stored session id, and if so retrieve books for the logged in user
 
       if (this.loggedIn) {
         conan.getAllBooksForUser(localStorage.getItem('userId'))
@@ -42,7 +42,16 @@ angular.module('BookApp').component('app', {
       this.login();
     };
 
-
+    this.signup = (firstName, lastName, username, password) => {
+      conan.signup(firstName, lastName, username, password)
+           .then((response) => {
+              if (response.registered) {
+                this.setUsernamePassword(username, password);
+              } else {
+                alert(response.message);
+              }
+           });
+    };
 
     this.login = () => {
       conan.login(this.userData.username, this.userData.password)

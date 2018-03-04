@@ -117,12 +117,17 @@ const userController = {
 
         User.find({ where: { username: req.body.username }})
             .then((user) => {
+
               if (user) {
                 res.send('This user already exists');
+
+              if (user) { 
+                res.send({registered: false, message: 'This username is taken'});
+
               } else {
                 newUser.save()
                        .then((user) => {
-                         res.send({name: user.firstName + ' ' + user.lastName, id: user.id});
+                         res.send({registered: true, name: user.firstName + ' ' + user.lastName, id: user.id});
                       });
               }
         });

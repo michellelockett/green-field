@@ -23,7 +23,7 @@ will be implemented at the bottom of this file as needed).
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    console.log(username, password);
+   
     userController.getUserByUsername(username, (err, user) => {
       if (err) {
         console.log("error: ", err);
@@ -86,7 +86,6 @@ router.delete('/users/:user_id/books/:book_id', (req, res) => {
 // Retrieve the information for a specific user
 // And his/her associated books
 router.get('/users/:id', (req, res) => {
-  console.log("IN ROUTES: ", typeof req.params.id, typeof req.user.id, req.params.id === req.user.id.toString());
   if (req.user.id.toString() === req.params.id) {
     userController.getUserWithBooks(req, res);   
   } else {
