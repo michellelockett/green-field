@@ -17,12 +17,6 @@
 
   <!--main view for bookshelf and wishlist, conditionally rendered based on user chosen view type-->
 
-  <login id="loginView" submit="$ctrl.setUsernamePassword" ng-show="!$ctrl.loggedIn"></login>
-  <book-list type="$ctrl.currentBookType"
-             id="bookList"
-             set-view=$ctrl.setView
-             ng-show="$ctrl.view === 'list' && $ctrl.loggedIn"
-
   <login signup="$ctrl.signup" id="loginView" submit="$ctrl.setUsernamePassword" ng-show="!$ctrl.loggedIn"></login>
   <book-list type="$ctrl.currentBookType" 
              id="bookList" 
