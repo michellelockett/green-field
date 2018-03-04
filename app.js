@@ -10,56 +10,60 @@ const userController = require('./controllers/user');
 const cookieParser = require('cookie-parser');
 
 const app = express();
+
+//CORS middleware
 app.use(cors());
-// app.use(bodyParser.urlencoded({
-//     extended: false
-// }));
-// app.use(bodyParser.json());
 
-
+//LOGGING middleware
 app.use('*', (req, res, next) => {
   console.log(`${req.method} request received for ${req.originalUrl}`);
   next();
 });
 
-//parsing middleware
-
+//PARSING middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+//SERVE static files
 app.use('/static', express.static(path.join(__dirname, 'node_modules', 'angular')));
 app.use(express.static(path.join(__dirname, 'client')));
 
+//CONFIGURE session
 app.use(session({ secret: "conanTheLibrarian",
                   savedUninitialized: true,
                   resave: true 
 }));
 
+//INITIALIZE authentication
 app.use(passport.initialize());
 app.use(passport.session());
 
+//HELPER SUCCESS ROUTE FOR CONFIRMING LOGIN
 app.get('/success', (req, res) => {
   res.send({ authenticated: true, userId: req.user.id, sessionId: req.sessionID});
 });
 
+//HELPER ERROR ROUTE FOR PROTECTING ROUTES
 app.get('/error', (req, res) => {
   res.send({ authenticated: false});
 });
 
+//SIGNUP a new user
 app.post('/signup', (req, res) => {
   userController.signup(req, res); 
 });
 
+//LOGIN route, passport authenticated with redirect
+app.post('/login', passport.authenticate('local', {successRedirect: '/success', failureRedirect: '/error'}), (req, res) => {});
+
+//LOGOUT route
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
 
-app.post('/login', passport.authenticate('local', {successRedirect: '/success', failureRedirect: '/error'}), (req, res) => {
- 
-});
-
+//Check to make sure the request is coming from a logged in user
 app.all("*", function(req, res, next){
   if (!req.user) 
     res.redirect('/error');
@@ -67,6 +71,7 @@ app.all("*", function(req, res, next){
     next();
 });
 
+//If a user is logged in, pass the request to the routes
 app.use('/', routes);
 
 app.listen(3000, () => {
