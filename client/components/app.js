@@ -71,7 +71,6 @@ angular.module('BookApp').component('app', {
             this.getBookshelf();
             this.getWishlist();
             this.currentBooks = this.bookshelf;
-            console.log(this.bookshelf);
           });
         } else {
           this.loggedIn = false;
@@ -107,7 +106,7 @@ angular.module('BookApp').component('app', {
           this.view = 'list';
         })
         .catch(err => console.log(err));
-      })
+      });
     };
 
     //allows user to view books by format (list vs. cover)
