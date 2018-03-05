@@ -18,10 +18,10 @@
   <!--main view for bookshelf and wishlist, conditionally rendered based on user chosen view type-->
 
   <login signup="$ctrl.signup" id="loginView" submit="$ctrl.setUsernamePassword" ng-show="!$ctrl.loggedIn"></login>
-  <book-list type="$ctrl.currentBookType" 
-             id="bookList" 
-             set-view=$ctrl.setView 
-             ng-show="$ctrl.view === 'list' && $ctrl.loggedIn" 
+  <book-list type="$ctrl.currentBookType"
+             id="bookList"
+             set-view=$ctrl.setView
+             ng-show="$ctrl.view === 'list' && $ctrl.loggedIn"
              books=$ctrl.currentBooks>
 
   </book-list>
@@ -35,7 +35,10 @@
     ng-show="$ctrl.view === 'detail'"
     user-id="$ctrl.userData.userId"
     update="$ctrl.updateBook"
-    book=$ctrl.selectedBook>
+    book="$ctrl.selectedBook"
+    cancel="$ctrl.cancelEdit"
+    start-edit="$ctrl.startEdit"
+    edit="$ctrl.edit">
   </book-detail>
 
 
