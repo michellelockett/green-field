@@ -13,8 +13,7 @@ angular.module('BookApp').component('app', {
       this.wishlist = [];
       this.bookshelf = [];
       this.currentBooks = this.wishlist;
-      this.currentBookType = 'wishlist';
-      this.toggleBooks('bookshelf');
+      this.currentBookType = 'bookshelf';
       this.postBook = conan.postBook;
       this.edit = false;
       this.add = false;
@@ -29,6 +28,7 @@ angular.module('BookApp').component('app', {
               this.getBookshelf();
               this.getWishlist();
               this.currentBooks = this.bookshelf;
+              this.sortByDewey();
              })
              .catch(err => console.log(err));
       }
@@ -72,6 +72,7 @@ angular.module('BookApp').component('app', {
             this.getBookshelf();
             this.getWishlist();
             this.currentBooks = this.bookshelf;
+            this.sortByDewey();
           });
         } else {
           this.loggedIn = false;
@@ -193,12 +194,6 @@ angular.module('BookApp').component('app', {
         console.log('changed to bookshelf');
       }
 
-      if (this.sortBy === 'dewey') {
-        this.sortByDewey();
-      } else {
-        this.sortByTitle();
-      }
-
       this.toggleBookType(selection);
     };
 
@@ -215,13 +210,12 @@ angular.module('BookApp').component('app', {
         if (a.dewey === null) {
           return 2;
         }
-        if (a.dewey < b.dewey) {
+        if (parseFloat(a.dewey) < parseFloat(b.dewey)) {
           return -1;
         }
-        if (a.dewey > b.dewey){
+        if (parseFloat(a.dewey) > parseFloat(b.dewey)) {
           return 1;
         }
-
         return 0;
       });
     };
