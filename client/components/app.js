@@ -2,7 +2,7 @@ angular.module('BookApp').component('app', {
   templateUrl: "./templates/app.html",
   controller: function(conan) {
     this.$onInit = () => {
-   
+
       this.allBooks = window.formattedBooks;
       this.view = 'list';
       this.sortBy = 'dewey';
@@ -22,7 +22,7 @@ angular.module('BookApp').component('app', {
       //on init, check to see if there is a stored session id, and if so retrieve books for the logged in user
 
       if (this.loggedIn) {
-        
+
         conan.getAllBooksForUser(this.userId)
              .then((books) => {
               this.allBooks = books;
@@ -58,7 +58,7 @@ angular.module('BookApp').component('app', {
         console.log(response, "IN APP.JS LOGIN");
         if (response.authenticated) {
           this.loggedIn = true;
-          
+
           localStorage.setItem('sessionId', response.sessionId);
           localStorage.setItem('userId', response.userId);
 
@@ -179,6 +179,10 @@ angular.module('BookApp').component('app', {
     this.toggleBooks = (selection) => {
       if (this.view === 'detail') {
         this.edit = false;
+        this.view = 'list';
+      }
+
+      if (this.view === 'add') {
         this.view = 'list';
       }
       if (selection === 'wishlist' && this.currentBooks !== this.wishlist) {

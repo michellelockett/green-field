@@ -3,6 +3,7 @@ angular.module('BookApp').component('navbar', {
   bindings: {
     toggle: '<',
     print: '<',
-    logout: '<'
+    logout: '<',
+    logged: '<'
   }
 });
