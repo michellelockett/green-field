@@ -17,6 +17,7 @@ angular.module('BookApp').component('app', {
       this.toggleBooks('bookshelf');
       this.postBook = conan.postBook;
       this.edit = false;
+      this.add = false;
 
       //on init, check to see if there is a stored session id, and if so retrieve books for the logged in user
 
@@ -96,8 +97,28 @@ angular.module('BookApp').component('app', {
            });
     };
 
-    this.addBook = () => {
-      this.postBook();
+    this.toggleAdd = () => {
+      this.view = this.view === 'add' ? 'list' : 'add';
+
+      // this.postBook();
+    };
+
+    this.addBook = (book) => {
+      conan.postBook(this.userData.userId, book.isbn, conan.getAllBooksForUser, book.owned)
+      .then((response) => {
+        // do nothing with response
+        return conan.getAllBooksForUser(this.userData.userId)
+      })
+      .then((books) => {
+        this.allBooks = books;
+        this.getBookshelf();
+        this.getWishlist();
+        this.currentBooks = this.bookshelf;
+        this.selectedBook = books[books.length - 1];
+      })
+      .then(() => {
+        this.view = 'detail';
+      })
     };
 
     this.updateBook = (id, isbn, book) => {

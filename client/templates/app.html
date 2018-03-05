@@ -8,9 +8,8 @@
   <navbar print="$ctrl.print" toggle="$ctrl.toggleBooks" logout="$ctrl.logout" id="mainNav"></navbar>
 
   <!--options navbar for sorting view -->
-  <options items="$ctrl.sortOptions" change="$ctrl.changeSort" toggle="$ctrl.toggleView" id="options"></options>
+  <options items="$ctrl.sortOptions" change="$ctrl.changeSort" toggle="$ctrl.toggleView" id="options" add="$ctrl.add" toggle-add="$ctrl.toggleAdd" view="$ctrl.view" ng-show="$ctrl.loggedIn"></options>
 
-  <add-book add="$ctrl.addBook" id="addBook"></add-book>
 
   <!--sidebar to display table of contents-->
   <content-index category="$ctrl.sortByCategory" print="$ctrl.print" sort="$ctrl.sortBy" id="contents"></content-index>
@@ -40,6 +39,12 @@
     start-edit="$ctrl.startEdit"
     edit="$ctrl.edit">
   </book-detail>
+  <add-book
+    ng-show="$ctrl.view === 'add'"
+    add="$ctrl.addBook"
+    view="$ctrl.view"
+    id="addBook">
+  </add-book>
 
 
 

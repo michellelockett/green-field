@@ -7,7 +7,7 @@ angular.module('BookApp', [])
         username: username,
         password: password
       };
-      
+
       const encoded = Object.keys(data).map((key) => {
         return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
       }).join('&');
@@ -17,7 +17,7 @@ angular.module('BookApp', [])
       console.log(url);
 
       return $http({
-        method: 'POST',       
+        method: 'POST',
         url: url,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       })
@@ -42,7 +42,7 @@ angular.module('BookApp', [])
         username: username,
         password: password
       };
-      
+
       const encoded = Object.keys(data).map((key) => {
         return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
       }).join('&');
@@ -50,7 +50,7 @@ angular.module('BookApp', [])
       const url = 'http://localhost:3000/signup';
 
       return $http({
-        method: 'POST',       
+        method: 'POST',
         url: url,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         data: encoded
@@ -94,14 +94,14 @@ angular.module('BookApp', [])
         url: `/users/${userId}/books/isbn/${ISBN}/${isOwned}`
       })
       .then(function successCallback(response) {
-        callback(userId);
-        console.log(response.data);
+        // console.log(response.data);
+        // callback(userId);
       });
     },
 
     updateBook(userId, isbn, book) {
       let url = `/users/${userId}/books/${isbn}`;
-      
+
       return $http.put(url, book)
       .then(function successCallback(response) {
         console.log(response);

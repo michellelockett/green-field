@@ -3,6 +3,8 @@
 </select>
 
 <button ng-click="$ctrl.toggle()" class="button" id="toggleView">Toggle View</button>
+<button ng-click="$ctrl.toggleAdd()" class="button" ng-show="$ctrl.view === 'add'">Cancel Add</button>
+<button ng-click="$ctrl.toggleAdd()" class="button" ng-show="$ctrl.view !== 'add'">Add Book</button>
 
 <!-- <button class="button" id="addBook">Add Book</button>
  -->
