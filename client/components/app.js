@@ -255,15 +255,14 @@ angular.module('BookApp').component('app', {
       const alpha = ["ABC", "DEF", "GHI", "JKL", "MNO", "PQR", "STU", "VWXYZ"];
       const listType = this.currentBookType === 'bookshelf' ? this.bookshelf : this.wishlist;
 
-      if (this.sortBy === 'dewey') {
-        this.currentBooks = listType.filter(book => Math.floor(parseInt(book.dewey)/100)*100 === deweyOrAlpha);
-
-        if (deweyOrAlpha === 'all') {
-          this.currentBooks = listType;
-          this.sortByDewey();
-        }
+      if (this.sortBy === 'dewey' && deweyOrAlpha === 'all') {
+        this.currentBooks = listType;
         this.sortByDewey();
-      } else if (deweyOrAlpha === "all") {
+      } else if (this.sortBy === 'dewey') {
+        this.currentBooks = listType.filter(book => Math.floor(parseInt(book.dewey)/100)*100 === deweyOrAlpha);
+        this.sortByDewey();
+
+      } else if (this.sortBy === 'title' && deweyOrAlpha === "all") {
         this.currentBooks = listType;
         this.sortByTitle();
       } else {
