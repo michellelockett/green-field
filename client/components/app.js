@@ -8,6 +8,7 @@ angular.module('BookApp').component('app', {
       this.sortBy = 'dewey';
       this.sortOptions = ['Dewey Decimal', 'Title'];
       this.loggedIn = localStorage.sessionId;
+      this.userId = localStorage.userId;
       this.userData = {};
       this.wishlist = [];
       this.bookshelf = [];
@@ -21,7 +22,8 @@ angular.module('BookApp').component('app', {
       //on init, check to see if there is a stored session id, and if so retrieve books for the logged in user
 
       if (this.loggedIn) {
-        conan.getAllBooksForUser(localStorage.getItem('userId'))
+        
+        conan.getAllBooksForUser(this.userId)
              .then((books) => {
               this.allBooks = books;
               this.getBookshelf();
@@ -30,7 +32,7 @@ angular.module('BookApp').component('app', {
              })
              .catch(err => console.log(err));
       }
-      // this.allBooks.forEach(book => conan.postBook(2, book.isbn, conan.getAllBooksForUser));
+      //this.allBooks.forEach(book => conan.postBook(1, book.isbn, conan.getAllBooksForUser, true));
     };
 
     this.setUsernamePassword = (username, password) => {
@@ -53,20 +55,17 @@ angular.module('BookApp').component('app', {
     this.login = () => {
       conan.login(this.userData.username, this.userData.password)
       .then((response) => {
-
-        console.log(response);
+        console.log(response, "IN APP.JS LOGIN");
         if (response.authenticated) {
           this.loggedIn = true;
-          this.userData.userId = response.userId;
+          
           localStorage.setItem('sessionId', response.sessionId);
           localStorage.setItem('userId', response.userId);
-          // this.allBooks.forEach((book, index) => {
-          //   if (index < 10) {
-          //     conan.postBook(this.userData.userId, book.isbn, conan.getAllBooksForUser, true)
 
-          //   }
-          // });
-          conan.getAllBooksForUser(this.userData.userId)
+          this.userId = localStorage.userId;
+          this.sessionId = localStorage.sessionId;
+
+          conan.getAllBooksForUser(this.userId)
           .then((books) => {
             console.log("RETRIEVED BOOKS SUCCESSFULLY", books);
             this.allBooks = books;
@@ -76,7 +75,7 @@ angular.module('BookApp').component('app', {
           });
         } else {
           this.loggedIn = false;
-          this.userData.userId = null;
+          this.userId = null;
           console.log("LOGIN UNSUCCESSFUL", response);
         }
       });
@@ -99,10 +98,11 @@ angular.module('BookApp').component('app', {
     };
 
     this.addBook = (book) => {
-      conan.postBook(this.userData.userId, book.isbn, conan.getAllBooksForUser, book.owned)
+      console.log("IN APP.JS", this.userData);
+      conan.postBook(this.userId, book.isbn, conan.getAllBooksForUser, book.owned)
       .then((response) => {
         // do nothing with response
-        return conan.getAllBooksForUser(this.userData.userId)
+        return conan.getAllBooksForUser(this.userId);
       })
       .then((books) => {
         this.allBooks = books;
@@ -119,7 +119,7 @@ angular.module('BookApp').component('app', {
     this.updateBook = (id, isbn, book) => {
       conan.updateBook(id, isbn, book)
       .then(() => {
-        conan.getAllBooksForUser(this.userData.userId)
+        conan.getAllBooksForUser(this.userId)
         .then((books) => {
           this.allBooks = books;
           this.getBookshelf();

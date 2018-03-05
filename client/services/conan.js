@@ -89,6 +89,7 @@ angular.module('BookApp', [])
     },
 
     postBook(userId, ISBN, callback, isOwned) {
+      console.log(userId, "IN CONAN POST BOOK");
       return $http({
         method: 'POST',
         url: `/users/${userId}/books/isbn/${ISBN}/${isOwned}`
