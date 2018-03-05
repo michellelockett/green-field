@@ -5,7 +5,7 @@
   </header>
 
   <!--main navbar-->
-  <navbar print="$ctrl.print" toggle="$ctrl.toggleBooks" logout="$ctrl.logout" id="mainNav"></navbar>
+  <navbar print="$ctrl.print" toggle="$ctrl.toggleBooks" logout="$ctrl.logout" id="mainNav" logged="$ctrl.loggedIn"></navbar>
 
   <!--options navbar for sorting view -->
   <options items="$ctrl.sortOptions" change="$ctrl.changeSort" toggle="$ctrl.toggleView" id="options" add="$ctrl.add" toggle-add="$ctrl.toggleAdd" view="$ctrl.view" ng-show="$ctrl.loggedIn"></options>
@@ -31,7 +31,7 @@
   </book-cover-list>
   <book-detail
     id="bookDetail"
-    ng-show="$ctrl.view === 'detail'"
+    ng-show="$ctrl.view === 'detail' && $ctrl.loggedIn"
     user-id="$ctrl.userData.userId"
     update="$ctrl.updateBook"
     book="$ctrl.selectedBook"
@@ -40,7 +40,7 @@
     edit="$ctrl.edit">
   </book-detail>
   <add-book
-    ng-show="$ctrl.view === 'add'"
+    ng-show="$ctrl.view === 'add' && $ctrl.loggedIn"
     add="$ctrl.addBook"
     view="$ctrl.view"
     id="addBook">

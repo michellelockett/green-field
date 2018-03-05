@@ -51,3 +51,18 @@ Slaughterhouse-five (DDC: null)
 Breakfast of Champions (DDC: 813.54) 
 [object SequelizeInstance:author]
 
+This is how You Lose Her (DDC: 813.54) 
+[object SequelizeInstance:author]
+
+Dona Flor and Her Two Husbands (DDC: null) 
+[object SequelizeInstance:author]
+
+null (DDC: null) 
+
+
+The House of the Spirits (DDC: 863.64) 
+[object SequelizeInstance:author]
+
+Love in the Time of Cholera (DDC: null) 
+[object SequelizeInstance:author]
+
