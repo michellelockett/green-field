@@ -6,7 +6,7 @@ angular.module('BookApp').component('app', {
       this.allBooks = window.formattedBooks;
       this.view = 'list';
       this.sortBy = 'dewey';
-      this.sortOptions = ['Dewey Decimal', 'Title'];
+      this.sortOptions = ['Dewey Decimal', 'Title', 'Author'];
       this.loggedIn = localStorage.sessionId;
       this.userData = {};
       this.wishlist = [];
@@ -127,12 +127,18 @@ angular.module('BookApp').component('app', {
     //later, we could add genre, or author, but adding those sort options to this.sortOptions
     //and checking for that selection below
     this.changeSort = (selected) => {
-      this.sortBy = selected === 'Title' ? 'title' : 'dewey';
-      if (this.sortBy === 'title') {
+      console.log(selected, "SELECTED");
+      if (selected === 'Title') {
+        this.sortBy = 'title';
         this.sortByTitle();
-      } else {
+      } else if (selected === 'Author') {
+        this.sortBy = 'author';
+        this.sortByAuthor();
+      } else if (selected === 'Dewey Decimal') {
+        this.sortBy = 'dewey';
         this.sortByDewey();
       }
+      console.log(this.sortBy, 'SORT BY ');
     };
 
     //change the current book selection to either wishlist or bookshelf
@@ -195,6 +201,31 @@ angular.module('BookApp').component('app', {
           return 1;
         }
         return 0;
+      });
+    };
+
+    this.sortByAuthor = () => {
+      this.currentBooks = this.currentBooks.sort( (a, b) => {
+
+        if (a.authors.length === 0 || a.authors[0].lastName === null) {
+          return 2;
+        }
+
+        let lastNameA = a.authors[0].lastName.split(' ');
+        let lastNameB = b.authors[0].lastName.split(' ');
+        lastNameA = lastNameA[lastNameA.length - 1];
+        lastNameB = lastNameB[lastNameA.length - 1];
+
+        console.log(lastNameA, lastNameB);
+
+
+        // if (lastNameA.toUpperCase()[0] < lastNameB.toUpperCase()[0]) {
+        //   return -1;
+        // }
+        // if (lastNameA.toUpperCase()[0] > lastNameB.toUpperCase()[0]) {
+        //   return 1;
+        // }
+        // return 0;
       });
     };
 
