@@ -27,6 +27,7 @@ angular.module('BookApp').component('bookDetail', {
     update: '<',
     cancel: '<',
     startEdit: '<',
+    delete: '<',
     edit: '<'
   }
 });

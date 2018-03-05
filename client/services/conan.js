@@ -111,6 +111,18 @@ angular.module('BookApp', [])
       });
     },
 
+    deleteBook(userId, recordId) {
+
+      let url = `users/${userId}/books/${recordId}`;
+
+      return $http.delete(url).then(() => {
+
+      }).catch((err) => {
+        console.log(err);
+      });
+
+    },
+
     lookupISBN(isbn) {
       $http({
         method: 'GET',

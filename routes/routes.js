@@ -78,8 +78,8 @@ router.get('/users/:user_id/books', (req, res) => {
 
 // DESTROY ASSOCIATION BETWEEN USER AND BOOK
 // Book itself will remain in database
-router.delete('/users/:user_id/books/:book_id', (req, res) => {
-  userController.deleteBook(req, res);
+router.delete('/users/:user_id/books/:record_id', (req, res) => {
+  userController.deleteBookFromUser(req, res);
 });
 
 
