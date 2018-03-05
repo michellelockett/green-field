@@ -57,31 +57,29 @@ const userController = {
   },
 
   updateUserBook(req, res) {
-    Book.update(
-      {
-        dewey: req.body.dewey
+
+    Book.update({
+      dewey: req.body.dewey
+    },
+    {
+      where: {
+        isbn: req.body.isbn
+      }
+    }).then(book => {
+      console.log('cats', req.body.bookUser);
+      return BookUser.update({
+        owned: req.body.bookUser.owned,
+        notes: req.body.bookUser.notes,
+        loaned: req.body.bookUser.loaned
       },
       {
         where: {
-          isbn: req.body.isbn
+          id: req.body.bookUser.id
         }
-      }
-    )
-      .then(book => {
-        return BookUser.update(
-          {
-            owned: req.body.bookUser.owned,
-            loaned: req.body.bookUser.loaned,
-            notes: req.body.bookUser.notes
-          },
-          {
-            where: {
-              id: req.body.bookUser.id
-            }
-          }
-        );
+      });
       })
       .then(bookUser => {
+        console.log(bookUser);
         res.send("Hello");
       })
       .catch(err => {
@@ -135,7 +133,7 @@ const userController = {
         User.find({ where: { username: req.body.username }})
             .then((user) => {
 
-              if (user) { 
+              if (user) {
                 res.send({registered: false, message: 'This username is taken'});
 
               } else {

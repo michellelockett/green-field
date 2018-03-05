@@ -1,8 +1,53 @@
 My Bookshelf
 
-Technical Manual (DDC: 801.24) 
-undefined
+Hello, Mariner Moose! (DDC: 222) 
+[object SequelizeInstance:author]
 
-A Tale for the Time Being (DDC: 800.21) 
-undefined
+Cosmos (DDC: 123) 
+[object SequelizeInstance:author]
+
+Fermat's Last Theorem (DDC: 512.74) 
+[object SequelizeInstance:author]
+
+The Channeling Zone (DDC: 133.910973) 
+[object SequelizeInstance:author]
+
+Wavelet Structure and Design (DDC: 501) 
+[object SequelizeInstance:author]
+
+The Origin of Species (DDC: 575.0162) 
+[object SequelizeInstance:author]
+
+The Pocket Bible (DDC: null) 
+[object SequelizeInstance:author],[object SequelizeInstance:author]
+
+QED (DDC: 539.756) 
+[object SequelizeInstance:author]
+
+Dao de Jing (DDC: 299.51482) 
+[object SequelizeInstance:author],[object SequelizeInstance:author],[object SequelizeInstance:author],[object SequelizeInstance:author]
+
+The Elegant Universe (DDC: null) 
+[object SequelizeInstance:author]
+
+Ceremony (DDC: 813.54) 
+[object SequelizeInstance:author]
+
+The Woman on the Train (DDC: null) 
+[object SequelizeInstance:author]
+
+Galápagos (DDC: 813.54) 
+[object SequelizeInstance:author]
+
+The Brief Wondrous Life of Oscar Wao (DDC: 813.54) 
+[object SequelizeInstance:author]
+
+The Big Sleep and Farewell, My Lovely (DDC: null) 
+[object SequelizeInstance:author]
+
+Slaughterhouse-five (DDC: null) 
+[object SequelizeInstance:author]
+
+Breakfast of Champions (DDC: 813.54) 
+[object SequelizeInstance:author]
 

@@ -14,18 +14,7 @@ angular.module('BookApp').component('bookDetail', {
     };
 
 
-    this.toggleEdit = () => {
-      console.log('sss');
-      this.edit = !this.edit;
-    };
-
-    this.cancelEdit = () => {
-      this.book = this.originalState;
-      this.edit = !this.edit;
-    };
-
     this.saveEdits = () => {
-      this.edit = !this.edit;
       this.update(this.userId, this.book.isbn, this.book);
     };
 
@@ -35,6 +24,9 @@ angular.module('BookApp').component('bookDetail', {
   bindings: {
     book: '<',
     userId: '<',
-    update: '<'
+    update: '<',
+    cancel: '<',
+    startEdit: '<',
+    edit: '<'
   }
 });

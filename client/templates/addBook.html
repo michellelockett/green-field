@@ -1,8 +1,29 @@
-<h3>Add a Book</h3>
-<form ng-submit="$ctrl.add()" id="form">
-  ISBN:<br>
-  <input type="Number" name="ISBN" placeholder="Enter ISBN" value='' id='isbn'><br>
-  Owned:<br>
-  <input type="boolean" name="Owned" placeholder="Yes or No" value='' id='owned'><br><br>
-  <input type="submit" value="Submit" id='submit'>
+<h3>Add Book</h3>
+<div class="alert">{{$ctrl.message}}</div>
+<form name="addForm">
+
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">ISBN</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="isbn" name="isbn" placeholder="Enter your book's ISBN without dashes" ng-model="$ctrl.book.isbn">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-25">
+      <label for="country">Owned</label>
+    </div>
+    <div class="col-75">
+      <select id="owned" name="owned" ng-model="$ctrl.book.owned">
+        <option ng-value="true">I own this book</option>
+        <option ng-value="false">This book is in my wishlist</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <input type="submit" value="Submit" ng-click="$ctrl.handleSubmit()">
+  </div>
 </form>

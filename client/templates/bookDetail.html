@@ -1,13 +1,13 @@
 <div class="detail top">
-  <button 
-    class="button" 
-    ng-show="!$ctrl.edit" 
-    ng-click="$ctrl.toggleEdit()">
+  <button
+    class="button"
+    ng-show="!$ctrl.edit"
+    ng-click="$ctrl.startEdit()">
     Edit details
   </button>
-  <button class="button" ng-show="$ctrl.edit" ng-click="$ctrl.cancelEdit()">Cancel</button>
-  <button 
-    class="button" 
+  <button class="button" ng-show="$ctrl.edit" ng-click="$ctrl.cancel()">Cancel</button>
+  <button
+    class="button"
     ng-show="$ctrl.edit"
     ng-click="$ctrl.saveEdits()">
     Save Changes
@@ -40,7 +40,7 @@
   </div>
 
   <div ng-show="$ctrl.edit">
-    
+
       <div class="form-element" ng-show="$ctrl.edit">
           <label> DDC: <input type="text" ng-model="$ctrl.book.dewey"></label>
         </div>
@@ -68,7 +68,7 @@
   <div ng-show="!$ctrl.edit">
     <div class="section-title">Loan Status</div>
     <div ng-show="$ctrl.book.bookUser.loaned">This book has been loaned out to someone.</div>
-    <div ng-show="!$ctrl.book.bookUser.loaned">This book hasn't been loaned.</div>    
+    <div ng-show="!$ctrl.book.bookUser.loaned">This book hasn't been loaned.</div>
   </div>
   <div class="form-element" ng-show="$ctrl.edit">
     <label> Loaned: <select ng-model="$ctrl.book.bookUser.loaned">
@@ -82,9 +82,9 @@
   <div>{{$ctrl.book.isbn}}</div>
 </div>
 <div class="detail alert" ng-show="!$ctrl.book.dewey">
-  <h4>This book is missing a Dewey Decimal Number!</h4> 
+  <h4>This book is missing a Dewey Decimal Number!</h4>
   Conan works best when we know the Dewey Decimal Number for each book. Please help other book lovers by entering the Dewey Decimal Number for this book if you can find it. You can start by clicking <a ng-href="http://classify.oclc.org/classify2/ClassifyDemo?search-standnum-txt={{$ctrl.book.isbn}}&startRec=0">here</a> (note: you'll be taken to a third party website)!
-</div> 
+</div>
 <div class="detail notes">
   <div ng-show="!$ctrl.edit">
     <div ng-show="$ctrl.book.bookUser.notes">
@@ -94,10 +94,10 @@
     <div ng-show="!$ctrl.book.bookUser.notes">
       You haven't saved any notes about this book.
     </div>
-  
+
   </div>
   <div ng-show="$ctrl.edit" class="form-element">
-    <label> 
+    <label>
       Notes:
       <textarea ng-model="$ctrl.book.bookUser.notes"></textarea>
     </label>

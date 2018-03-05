@@ -15,6 +15,8 @@ angular.module('BookApp').component('app', {
       this.currentBookType = 'wishlist';
       this.toggleBooks('bookshelf');
       this.postBook = conan.postBook;
+      this.edit = false;
+      this.add = false;
 
       //on init, check to see if there is a stored session id, and if so retrieve books for the logged in user
 
@@ -58,7 +60,12 @@ angular.module('BookApp').component('app', {
           this.userData.userId = response.userId;
           localStorage.setItem('sessionId', response.sessionId);
           localStorage.setItem('userId', response.userId);
-          //this.allBooks.forEach(book => conan.postBook(this.userData.userId, book.isbn, conan.getAllBooksForUser, true));
+          // this.allBooks.forEach((book, index) => {
+          //   if (index < 10) {
+          //     conan.postBook(this.userData.userId, book.isbn, conan.getAllBooksForUser, true)
+
+          //   }
+          // });
           conan.getAllBooksForUser(this.userData.userId)
           .then((books) => {
             console.log("RETRIEVED BOOKS SUCCESSFULLY", books);
@@ -85,8 +92,28 @@ angular.module('BookApp').component('app', {
            });
     };
 
-    this.addBook = () => {
-      this.postBook();
+    this.toggleAdd = () => {
+      this.view = this.view === 'add' ? 'list' : 'add';
+
+      // this.postBook();
+    };
+
+    this.addBook = (book) => {
+      conan.postBook(this.userData.userId, book.isbn, conan.getAllBooksForUser, book.owned)
+      .then((response) => {
+        // do nothing with response
+        return conan.getAllBooksForUser(this.userData.userId)
+      })
+      .then((books) => {
+        this.allBooks = books;
+        this.getBookshelf();
+        this.getWishlist();
+        this.currentBooks = this.bookshelf;
+        this.selectedBook = books[books.length - 1];
+      })
+      .then(() => {
+        this.view = 'detail';
+      })
     };
 
     this.updateBook = (id, isbn, book) => {
@@ -112,7 +139,20 @@ angular.module('BookApp').component('app', {
     this.setView = (view, book) => {
       this.view = view;
       this.selectedBook = book ? book: null;
+
+      if (this.selectedBook) {
+        this.originalBookState = angular.copy(this.selectedBook);
+      }
     };
+
+    this.cancelEdit = () => {
+      this.edit = false;
+
+    };
+    this.startEdit = () => {
+      this.edit = true;
+    };
+
 
     //changes which booktype we are to show (bookshelf vs. wishlist)
     this.toggleBookType = (selected) => {
@@ -138,6 +178,7 @@ angular.module('BookApp').component('app', {
     //change the current book selection to either wishlist or bookshelf
     this.toggleBooks = (selection) => {
       if (this.view === 'detail') {
+        this.edit = false;
         this.view = 'list';
       }
       if (selection === 'wishlist' && this.currentBooks !== this.wishlist) {

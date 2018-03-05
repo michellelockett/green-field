@@ -13,6 +13,12 @@ const BookUser = db.define('bookUser', {
   },
   owned: {
     type: Sequelize.BOOLEAN
+  },
+  loaned: {
+    type: Sequelize.BOOLEAN
+  },
+  notes: {
+    type: Sequelize.STRING
   }
 });
 
