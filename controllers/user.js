@@ -160,6 +160,18 @@ const userController = {
       .catch(err => {
         console.log(err);
       });
+  },
+
+  deleteBookFromUser(req, res) {
+    BookUser.destroy({
+      where: {
+        id: req.params.record_id
+      }
+    }).then(() => {
+      res.send("Success");
+    }).catch((err) => {
+      res.send("Error");
+    })
   }
 };
 

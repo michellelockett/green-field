@@ -1,6 +1,11 @@
 <div class="detail top">
   <button
     class="button"
+    ng-click="$ctrl.delete($ctrl.book.bookUser.id)">
+    Remove from my bookshelf
+  </button>
+  <button
+    class="button"
     ng-show="!$ctrl.edit"
     ng-click="$ctrl.startEdit()">
     Edit details

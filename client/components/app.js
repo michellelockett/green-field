@@ -18,6 +18,18 @@ angular.module('BookApp').component('app', {
       this.edit = false;
       this.add = false;
 
+      this.fetchBooks = () => {
+        return conan.getAllBooksForUser(this.userId)
+        .then((books) => {
+          this.allBooks = books;
+          this.getBookshelf();
+          this.getWishlist();
+          this.currentBooks = this.bookshelf;
+          this.sortByDewey();
+         })
+       .catch(err => console.log(err));
+      };
+
       //on init, check to see if there is a stored session id, and if so retrieve books for the logged in user
 
       if (this.loggedIn) {
@@ -130,6 +142,17 @@ angular.module('BookApp').component('app', {
         })
         .catch(err => console.log(err));
       });
+    };
+
+    this.deleteBook = (recordId) => {
+      return conan.deleteBook(this.userId, recordId)
+      .then(() => {
+        return this.fetchBooks();
+      })
+      .then(() => {
+        this.view = 'list';
+      })
+      .catch((err) => {});
     };
 
     //allows user to view books by format (list vs. cover)
