@@ -53,7 +53,7 @@ const userController = {
   // with the filename of the current user's ID
 
   getUserBookList(req, res) {
-    res.download(`${__dirname}/../users/${req.params.id}.txt`, "my_books.txt");
+    res.download(`${__dirname}/../userFiles/${req.params.id}.txt`, "my_books.txt");
   },
 
   updateUserBook(req, res) {

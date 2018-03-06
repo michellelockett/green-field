@@ -1,2 +1,11 @@
 My Bookshelf
 
+Ceremony (DDC: 813.54) 
+[object SequelizeInstance:author]
+
+Galápagos (DDC: 813.54) 
+[object SequelizeInstance:author]
+
+The Fog of War (DDC: 327.7300904) 
+[object SequelizeInstance:author],[object SequelizeInstance:author]
+

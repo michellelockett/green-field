@@ -26,6 +26,7 @@
   </book-list>
   <book-cover-list type="$ctrl.currentBookType"
                    ng-show="$ctrl.view === 'cover' && $ctrl.loggedIn"
+                   set-view=$ctrl.setView
                    id="bookCovers"
                    books=$ctrl.currentBooks>
   </book-cover-list>
