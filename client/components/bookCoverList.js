@@ -3,5 +3,6 @@ angular.module('BookApp').component('bookCoverList', {
   bindings: {
     books: '<',
     type: '<',
+    setView: '<'
   }
 });

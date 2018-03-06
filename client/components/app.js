@@ -17,6 +17,7 @@ angular.module('BookApp').component('app', {
       this.postBook = conan.postBook;
       this.edit = false;
       this.add = false;
+      this.sort = dewey;
 
       this.fetchBooks = () => {
         return conan.getAllBooksForUser(this.userId)
@@ -210,6 +211,7 @@ angular.module('BookApp').component('app', {
     //sorts this.currentBooks to be ordered by DDN
 
     this.sortByDewey = () => {
+      this.sort = 'dewey';
       this.currentBooks = this.currentBooks.sort((a, b) => {
         if (a.dewey === null) {
           return 2;
@@ -227,6 +229,7 @@ angular.module('BookApp').component('app', {
     //sorts this.currentBooks to be ordered by title
 
     this.sortByTitle = () => {
+      this.sort = 'title';
       this.currentBooks = this.currentBooks.sort( (a, b) => {
         if (a.title === undefined) {
           return 2;

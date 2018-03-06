@@ -1,20 +1,50 @@
 <article>
-  <br>
-  <h1 ng-show="$ctrl.type === 'bookshelf'" class="header">MY BOOKSHELF <input placeholder= "Search books" ng-model="search" id="searchbar"></h1>
-  <h1 ng-show="$ctrl.type === 'wishlist'" class="header">MY WISHLIST <input placeholder= "Search books" ng-model="search" id="searchbar"></h1>
 
-  <br>
 
-  <table class="books" id="bookList">
-    <tr id="tableHeaders">
-      <th> TITLE </th>
-      <th> AUTHOR </th>
-      <th> DEWEY DECIMAL NUMBER </th>
-    </tr>
-    <tr ng-repeat="book in $ctrl.books | filter:search" >
-      <td ng-click="$ctrl.setView('detail', book)">{{book.title}}</td>
-      <td>{{book.authors[0].firstName + ' ' + book.authors[0].lastName}}</td>
-      <td>{{book.dewey}}</td>
-    </tr>
-  </table>
+  <div class="row">
+    <div class="col-100">
+      <br>
+      <h1 ng-show="$ctrl.type === 'bookshelf'" class="header">MY BOOKSHELF <input placeholder= "Search books" ng-model="search" id="searchbar"></h1>
+      <h1 ng-show="$ctrl.type === 'wishlist'" class="header">MY WISHLIST <input placeholder= "Search books" ng-model="search" id="searchbar"></h1>
+      <br>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-05">&nbsp;</div>
+
+    <div class="col-90">
+      <button class="button" ng-show="$ctrl.sort === 'dewey'">
+      <a ng-href="/users/{{$ctrl.user}}/books/list/dewey">
+        <i class="material-icons">file_download</i> Download (.txt)
+      </a>
+    </button>
+    <button class="button" ng-show="$ctrl.sort === 'title'">
+      <a ng-href="/users/{{$ctrl.user}}/books/list/title">
+        <i class="material-icons">file_download</i> Download (.txt)
+      </a>
+    </button>
+    </div>
+   <div class="col-05">&nbsp;</div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-100">
+      <table class="books" id="bookList">
+        <tr id="tableHeaders">
+          <th> TITLE </th>
+          <th> AUTHOR </th>
+          <th> DEWEY DECIMAL NUMBER </th>
+        </tr>
+        <tr ng-repeat="book in $ctrl.books | filter:search" >
+          <td ng-click="$ctrl.setView('detail', book)">{{book.title}}</td>
+          <td>{{book.authors[0].firstName + ' ' + book.authors[0].lastName}}</td>
+          <td>{{book.dewey}}</td>
+        </tr>
+      </table>
+     
+    </div>
+  </div>
+
 </article>

@@ -364,6 +364,22 @@ table tr:nth-child(even) {
   margin-top: 6px;
 }
 
+.col-05 {
+  float: left;
+  width: 5%;
+  margin-top: 6px;
+}
+.col-90 {
+  float: left;
+  width: 90%;
+  margin-top: 6px;
+}
+
+.col-100 {
+  float: left;
+  width: 100%;
+  margin-top: 6px;
+}
 .row:after {
   content: "";
   display: table;
@@ -375,4 +391,28 @@ table tr:nth-child(even) {
     width: 100%;
     margin-top: 0;
   }
+}
+
+#bookList .button {
+  font-family: 'Helvetica Neue Light', 'Lucida Grande', 'Arial', sans-serif;
+  font-size: 10px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-right: 2em;
+}
+
+#bookList .button i {
+  float: left;
+  font-size: 16px;
+}
+
+
+#bookList a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }

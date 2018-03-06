@@ -100,7 +100,7 @@ router.put('/users/:id/books/:isbn', (req, res) => {
 
 
 //GET THE BOOKLIST FOR EACH USER
-router.get('/users/:id/books/list', (req, res) => {
+router.get('/users/:id/books/list/:list_type', (req, res) => {
   userController.getUserBookList(req, res);
 });
 
