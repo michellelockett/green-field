@@ -33,18 +33,9 @@ angular.module('BookApp').component('app', {
       //on init, check to see if there is a stored session id, and if so retrieve books for the logged in user
 
       if (this.loggedIn) {
-
-        conan.getAllBooksForUser(this.userId)
-             .then((books) => {
-              this.allBooks = books;
-              this.getBookshelf();
-              this.getWishlist();
-              this.currentBooks = this.bookshelf;
-              this.sortByDewey();
-             })
-             .catch(err => console.log(err));
+        this.fetchBooks();
       }
-      //this.allBooks.forEach(book => conan.postBook(1, book.isbn, conan.getAllBooksForUser, true));
+      //this.allBooks.forEach(book => conan.postBook(this.userId, book.isbn, conan.getAllBooksForUser, true));
     };
 
     this.setUsernamePassword = (username, password) => {
@@ -67,7 +58,6 @@ angular.module('BookApp').component('app', {
     this.login = () => {
       conan.login(this.userData.username, this.userData.password)
       .then((response) => {
-        console.log(response, "IN APP.JS LOGIN");
         if (response.authenticated) {
           this.loggedIn = true;
 
@@ -77,15 +67,7 @@ angular.module('BookApp').component('app', {
           this.userId = localStorage.userId;
           this.sessionId = localStorage.sessionId;
 
-          conan.getAllBooksForUser(this.userId)
-          .then((books) => {
-            console.log("RETRIEVED BOOKS SUCCESSFULLY", books);
-            this.allBooks = books;
-            this.getBookshelf();
-            this.getWishlist();
-            this.currentBooks = this.bookshelf;
-            this.sortByDewey();
-          });
+          this.fetchBooks();
         } else {
           this.loggedIn = false;
           this.userId = null;
@@ -111,7 +93,6 @@ angular.module('BookApp').component('app', {
     };
 
     this.addBook = (book) => {
-      console.log("IN APP.JS", this.userData);
       conan.postBook(this.userId, book.isbn, conan.getAllBooksForUser, book.owned)
       .then((response) => {
         // do nothing with response
@@ -194,7 +175,7 @@ angular.module('BookApp').component('app', {
       this.sortBy = selected === 'Title' ? 'title' : 'dewey';
       if (this.sortBy === 'title') {
         this.sortByTitle();
-      } else {
+      } else if (this.sortBy === 'dewey') {
         this.sortByDewey();
       }
     };
@@ -284,7 +265,6 @@ angular.module('BookApp').component('app', {
       } else if (this.sortBy === 'dewey') {
         this.currentBooks = listType.filter(book => Math.floor(parseInt(book.dewey)/100)*100 === deweyOrAlpha);
         this.sortByDewey();
-
       } else if (this.sortBy === 'title' && deweyOrAlpha === "all") {
         this.currentBooks = listType;
         this.sortByTitle();
