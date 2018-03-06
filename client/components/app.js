@@ -17,7 +17,7 @@ angular.module('BookApp').component('app', {
       this.postBook = conan.postBook;
       this.edit = false;
       this.add = false;
-      this.sort = dewey;
+      this.sort = 'dewey';
 
       this.fetchBooks = () => {
         return conan.getAllBooksForUser(this.userId)
