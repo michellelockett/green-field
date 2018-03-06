@@ -19,8 +19,10 @@
   <login signup="$ctrl.signup" id="loginView" submit="$ctrl.setUsernamePassword" ng-show="!$ctrl.loggedIn"></login>
   <book-list type="$ctrl.currentBookType"
              id="bookList"
+             user="$ctrl.userId"
              set-view=$ctrl.setView
              ng-show="$ctrl.view === 'list' && $ctrl.loggedIn"
+             sort="$ctrl.sort"
              books=$ctrl.currentBooks>
 
   </book-list>

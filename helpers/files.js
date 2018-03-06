@@ -10,7 +10,6 @@ outputs: writes file to /users/{userId}.txt
 
 **/
 const buildBookList = (userId, books) => {
-  console.log('buildBookList called', userId, books);
 
   let booksDewey = books.slice().sort((a, b) => {
     if (a.dewey < b.dewey) {
@@ -48,7 +47,7 @@ const buildBookList = (userId, books) => {
   booksTitle.forEach((book, index) => {
     streamTitle.write(`\n${book.title} (DDC: ${book.dewey}) \n`);
     book.authors.forEach((author) => {
-      streamTitle.write(`${author.firstName} ${author.firstName} \n`);
+      streamTitle.write(`${author.firstName} ${author.lastName} \n`);
     });
   });
   streamTitle.write(` \n\n`);
@@ -57,7 +56,7 @@ const buildBookList = (userId, books) => {
   streamTitle.end();
 
   /** Create list sorted by dewey **/
-  let streamDewey = fs.createWriteStream(__dirname +  `/../userFiles/${userId}_ddc.txt`);
+  let streamDewey = fs.createWriteStream(__dirname +  `/../userFiles/${userId}_dewey.txt`);
 
   streamDewey.write('My Bookshelf\n\n');
 

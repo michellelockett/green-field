@@ -53,7 +53,7 @@ const userController = {
   // with the filename of the current user's ID
 
   getUserBookList(req, res) {
-    res.download(`${__dirname}/../userFiles/${req.params.id}.txt`, "my_books.txt");
+    res.download(`${__dirname}/../userFiles/${req.params.id}_${req.params.list_type}.txt`, "my_books.txt");
   },
 
   updateUserBook(req, res) {
@@ -66,7 +66,6 @@ const userController = {
         isbn: req.body.isbn
       }
     }).then(book => {
-      console.log('cats', req.body.bookUser);
       return BookUser.update({
         owned: req.body.bookUser.owned,
         notes: req.body.bookUser.notes,
@@ -79,7 +78,6 @@ const userController = {
       });
       })
       .then(bookUser => {
-        console.log(bookUser);
         res.send("Hello");
       })
       .catch(err => {
