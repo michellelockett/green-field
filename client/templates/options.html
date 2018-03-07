@@ -2,9 +2,26 @@
   <option value="">Sort By</option>
 </select>
 
-<span ng-click="$ctrl.toggle()" class="button" id="toggleView">Toggle View</span>
-<span ng-click="$ctrl.toggleAdd()" class="button" ng-show="$ctrl.view === 'add'">Cancel Add</span>
-<span ng-click="$ctrl.toggleAdd()" class="button" ng-show="$ctrl.view !== 'add'">Add Book</span>
+<span ng-click="$ctrl.toggle()" class="button-options">
+  <i class="material-icons">compare_arrows</i> Toggle View
+</span>
 
-<!-- <button class="button" id="addBook">Add Book</button>
- -->
+<span ng-click="$ctrl.toggleAdd()" class="button-options" ng-show="$ctrl.view === 'add'">
+  <i class="material-icons">cancel</i> Cancel Add
+</span>
+
+<span ng-click="$ctrl.toggleAdd()" class="button-options" ng-show="$ctrl.view !== 'add'">
+  <i class="material-icons">book</i> Add Book
+</span>
+
+<a ng-href="/users/{{$ctrl.user}}/books/list/dewey" ng-show="$ctrl.sort === 'dewey' && $ctrl.type === 'bookshelf'" target="_blank">
+  <span class="button-options" >
+    <i class="material-icons">file_download</i> Download Current Bookshelf
+  </span>
+</a>
+
+<a ng-href="/users/{{$ctrl.user}}/books/list/title" ng-show="$ctrl.sort === 'title' && $ctrl.type === 'bookshelf'" target="_blank">
+  <span class="button-options" >
+    <i class="material-icons">file_download</i> Download Current Bookshelf
+  </span>
+</a>

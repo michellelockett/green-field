@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Bangers|Merriweather:400,700,900i');
+/* Import styles for Login component */
 @import url('./Login.css');
+@import url('./Options.css');
+@import url('./Navbar.css');
 
 *,
 *::before,
@@ -434,8 +437,7 @@ button.button.danger {
 }
 
 .real-cover {
-  width: 128px;
-  height: 192px;
+  display: inline-block;
   box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, .3);
 }
 .fake-cover {

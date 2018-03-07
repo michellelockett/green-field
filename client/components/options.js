@@ -5,6 +5,9 @@ angular.module('BookApp').component('options', {
     change: '<',
     items: '<',
     view: '<',
-    toggleAdd: '<'
+    toggleAdd: '<',
+    sort: '<',
+    user: '<',
+    type: '<'
   }
 });
