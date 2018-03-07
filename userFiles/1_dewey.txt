@@ -1,15 +1,18 @@
 My Bookshelf
 
 
-Socratic Logic (DDC: null) 
-Trent Dougherty 
-Peter Kreeft 
+Unknown (DDC: null) 
+null null 
 
-The Slither Sisters (DDC: null) 
-Charles Gilman 
+Please Understand Me (DDC: null) 
+David Keirsey 
+Marilyn M. Bates 
 
 Foundations Book II: Understanding SQL Server 2005 Supporting Technology (XML, XSLT, XQuery, XPath, MS Schemas, DTD's, Namespaces). (DDC: null) 
 Rigoberto Garcia 
+
+Adolescents in the Search for Meaning (DDC: null) 
+Mary L. Warner 
 
 Hello, Mariner Moose! (DDC: null) 
 Aimee Aryal 
@@ -17,14 +20,14 @@ Aimee Aryal
 Cosmos (DDC: null) 
 Carl Sagan 
 
-Adolescents in the Search for Meaning (DDC: null) 
-Mary L. Warner 
+null (DDC: null) 
 
 The Pocket Bible (DDC: null) 
 Thomas Nelson 
 Thomas Nelson Publishers 
 
-null (DDC: null) 
+Encountering Enchantment (DDC: null) 
+Susan Fichtelberg 
 
 Encountering Enchantment (DDC: null) 
 Susan Fichtelberg 
@@ -32,11 +35,11 @@ Susan Fichtelberg
 The Elegant Universe (DDC: null) 
 Brian Greene 
 
-Encountering Enchantment (DDC: null) 
-Susan Fichtelberg 
-
 Storytimes for Children (DDC: null) 
 Stephanie G. Bauman 
+
+Unknown (DDC: null) 
+null null 
 
 The Authoritative Calvin And Hobbes (DDC: null) 
 Bill Watterson 
@@ -60,24 +63,65 @@ Bill Watterson
 The encyclopedia of ignorance (DDC: null) 
 Ronald Duncan 
 
+null (DDC: null) 
+
+Socratic Logic (DDC: null) 
+Trent Dougherty 
+Peter Kreeft 
+
+Billy and the Boingers Bootleg (DDC: null) 
+Berke Breathed 
+
+The Chronicles of Narnia (adult) (DDC: null) 
+C. S. Lewis 
+
+null (DDC: null) 
+
+Applied Science (DDC: null) 
+null null 
+
+null (DDC: null) 
+
+null (DDC: null) 
+
+Hiding from Love (DDC: null) 
+John Sims Townsend 
+
+Persevering (DDC: null) 
+Jeff Helms 
+
+Social Psychology (DDC: null) 
+David G. Myers 
+
 Java & XML (DDC: null) 
 Brett McLaughlin 
-
-Please Understand Me (DDC: null) 
-David Keirsey 
-Marilyn M. Bates 
 
 Foundation and Empire (DDC: null) 
 Isaac Asimov 
 
-The Lost Books of the Bible (DDC: null) 
-null null 
-
 Judaism (DDC: null) 
 null null 
 
-Applied Science (DDC: null) 
+null (DDC: null) 
+
+The Story of Philosophy (DDC: null) 
+Will Durant 
+
+null (DDC: null) 
+
+The Lost Books of the Bible (DDC: null) 
 null null 
+
+null (DDC: null) 
+
+[Book Title Missing!] (DDC: null) 
+Sue Monk Kidd 
+
+Fahrenheit 451 (DDC: null) 
+Ray Bradbury 
+
+The End of Strife (DDC: null) 
+Leland Johnson 
 
 Electronic Theses and Dissertations (DDC: null) 
 Edward A. Fox 
@@ -88,49 +132,31 @@ Christian R. Weisser
 Faith Reads: A Selective Guide to Christian Nonfiction (DDC: null) 
 David Rainey 
 
-Hiding from Love (DDC: null) 
-John Sims Townsend 
+The Slither Sisters (DDC: null) 
+Charles Gilman 
 
-Persevering (DDC: null) 
-Jeff Helms 
+null (DDC: null) 
+
+Diagnostic and Statistical Manual of Mental Disorders (DDC: null) 
+American Psychiatric Association. Committee on Nomenclature and Statistics 
 
 Fluent in Fantasy (DDC: null) 
 Diana Tixier Herald 
-
-Books for College Libraries: Humanities (DDC: null) 
-Association of College and Research Libraries 
 
 Tramp for the Lord (DDC: null) 
 Corrie Ten Boom 
 Jamie Buckingham 
 
-Diagnostic and Statistical Manual of Mental Disorders (DDC: null) 
-American Psychiatric Association. Committee on Nomenclature and Statistics 
-
-null (DDC: null) 
-
-The Story of Philosophy (DDC: null) 
-Will Durant 
-
-Social Psychology (DDC: null) 
-David G. Myers 
-
-The End of Strife (DDC: null) 
-Leland Johnson 
-
-The Chronicles of Narnia (adult) (DDC: null) 
-C. S. Lewis 
-
-Billy and the Boingers Bootleg (DDC: null) 
-Berke Breathed 
-
-Fahrenheit 451 (DDC: null) 
-Ray Bradbury 
+Books for College Libraries: Humanities (DDC: null) 
+Association of College and Research Libraries 
 
 The Craft of Research, 2nd Edition (DDC: 001.42) 
 Wayne C. Booth 
 Gregory G. Colomb 
 Joseph M. Williams 
+
+Data Structures & Algorithms in Java (DDC: 005.73) 
+Robert Lafore 
 
 The Developing Person (DDC: 155) 
 Kathleen Stassen Berger 
@@ -182,11 +208,11 @@ David Rainey
 The Heidelberg Catechism (DDC: 238.42) 
 Christian Reformed Church 
 
-Humble Apologetics (DDC: 239) 
-John Gordon Stackhouse 
-
 Islam (DDC: 239) 
 Christianity Today International 
+
+Humble Apologetics (DDC: 239) 
+John Gordon Stackhouse 
 
 Embraced by the Darkness (DDC: 239.9) 
 Brad Scott 
@@ -280,10 +306,10 @@ Stephen W. Hawking
 Theoretical Introduction to Programming (DDC: 530.11) 
 Bruce Ian Mills 
 
-Quantum Reality (DDC: 530.12) 
+Quantum reality (DDC: 530.12) 
 Nick Herbert 
 
-Quantum reality (DDC: 530.12) 
+Quantum Reality (DDC: 530.12) 
 Nick Herbert 
 
 QED (DDC: 539.756) 
@@ -311,10 +337,10 @@ Apostolos Doxiadis
 The Days Are Just Packed (DDC: 741.56973) 
 Bill Watterson 
 
-Scientific Progress Goes Boink (DDC: 741.56973) 
+There's Treasure Everywhere (DDC: 741.56973) 
 Bill Watterson 
 
-There's Treasure Everywhere (DDC: 741.56973) 
+Scientific Progress Goes Boink (DDC: 741.56973) 
 Bill Watterson 
 
 The Indispensable Calvin and Hobbes (DDC: 741.56973) 
@@ -332,51 +358,57 @@ Steven Brust
 Arthur Koestler's Darkness at Noon (DDC: 813.52) 
 Harold Bloom 
 
-Forward the Foundation (DDC: 813.54) 
-Isaac Asimov 
-
-The Cygnet and the Firebird (DDC: 813.54) 
-Patricia A. McKillip 
-
-Read On-- Fantasy Fiction (DDC: 813.54) 
-Neil Hollands 
-
-Tea with the Black Dragon (DDC: 813.54) 
-R. A. MacAvoy 
-
-Prelude to Foundation (DDC: 813.54) 
-Isaac Asimov 
-
-Foundation (DDC: 813.54) 
-Isaac Asimov 
-
-Ceremony (DDC: 813.54) 
-Leslie Marmon Silko 
+Wyrms (DDC: 813.54) 
+Orson Scott Card 
 
 Practical PostgreSQL (DDC: 813.54) 
 Joshua D. Drake 
 John C. Worsley 
 
-Wyrms (DDC: 813.54) 
-Orson Scott Card 
+Read On-- Fantasy Fiction (DDC: 813.54) 
+Neil Hollands 
+
+The Cygnet and the Firebird (DDC: 813.54) 
+Patricia A. McKillip 
 
 Galápagos (DDC: 813.54) 
 Kurt Vonnegut 
 
-Eye (DDC: 813.54) 
-Frank Herbert 
+Prelude to Foundation (DDC: 813.54) 
+Isaac Asimov 
 
-Five Hundred Years After (DDC: 813.54) 
-Steven Brust 
-
-The Princess Bride (DDC: 813.54) 
-William Goldman 
+Forward the Foundation (DDC: 813.54) 
+Isaac Asimov 
 
 Foundation's Edge (DDC: 813.54) 
 Isaac Asimov 
 
 Foundation (DDC: 813.54) 
 Isaac Asimov 
+
+Foundation (DDC: 813.54) 
+Isaac Asimov 
+
+The Princess Bride (DDC: 813.54) 
+William Goldman 
+
+[Book Title Missing!] (DDC: 813.54) 
+Sue Monk Kidd 
+
+Tea with the Black Dragon (DDC: 813.54) 
+R. A. MacAvoy 
+
+The Secret Life of Bees (DDC: 813.54) 
+Sue Monk Kidd 
+
+Five Hundred Years After (DDC: 813.54) 
+Steven Brust 
+
+Eye (DDC: 813.54) 
+Frank Herbert 
+
+Ceremony (DDC: 813.54) 
+Leslie Marmon Silko 
 
 The Globe Illustrated Shakespeare (DDC: 822.33) 
 William Shakespeare 
@@ -417,5 +449,8 @@ J. N. Westwood
 The Light and the Glory (DDC: 973) 
 Peter Marshall 
 David Manuel 
+
+The Dance of the Dissident Daughter (DDC: B) 
+Sue Monk Kidd 
  
 
