@@ -213,7 +213,7 @@ angular.module('BookApp').component('app', {
     this.sortByDewey = () => {
       this.sort = 'dewey';
       let deweys = this.currentBooks.filter(book => typeof book.dewey === 'string');
-      let nulls = this.currentBooks.filter(book => book.dewey === null);   
+      let nulls = this.currentBooks.filter(book => book.dewey === null);
 
       this.currentBooks = deweys.sort((a, b) => parseFloat(a.dewey) - parseFloat(b.dewey)).concat(nulls);
     };

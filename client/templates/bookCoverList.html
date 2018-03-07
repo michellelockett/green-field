@@ -2,10 +2,10 @@
   <h1 ng-show="$ctrl.type === 'bookshelf'" class="header"> MY BOOKSHELF <input placeholder= "Search books" ng-model="search" id="searchbar"></h1>
   <h1 ng-show="$ctrl.type === 'wishlist'" class="header"> MY WISHLIST <input placeholder= "Search books" ng-model="search" id="searchbar"></h1>
   <div class="wrapper scrollable">
-    <div ng-repeat="book in $ctrl.books">
+    <div ng-repeat="book in $ctrl.books | filter:search">
 
-      <img 
-        class="book" 
+      <img
+        class="book"
         ng-src="{{book.cover}}"
         ng-click="$ctrl.setView('detail', book)"
       >
