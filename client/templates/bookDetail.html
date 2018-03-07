@@ -28,18 +28,19 @@
 </div>
 <div class="detail header">
   <div class="detail title">
-    <h2>{{$ctrl.book.title}}</h2>
+    <h2>{{$ctrl.book.title || 'Untitled Book' }}</h2>
   </div>
   <div class="detail authors">
     <div ng-repeat="author in $ctrl.book.authors">
       {{ author.firstName}} {{author.lastName}}
     </div>
   </div>
-    {{$ctrl.book.pages}} pages ({{$ctrl.book.published}})
+    {{$ctrl.book.pages || '?'}} pages ({{$ctrl.book.published || 'Publication Date Unknown'}})
 
 </div>
 <div class="detail cover">
-  <img ng-src="{{$ctrl.book.cover}}">
+  <img ng-show="$ctrl.book.cover" ng-src="{{$ctrl.book.cover}}">
+  <div ng-show="!$ctrl.book.cover">Cover Missing</div>
 </div>
 <div class="detail dewey">
   <div ng-show="!$ctrl.edit">
