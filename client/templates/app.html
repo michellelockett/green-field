@@ -22,7 +22,7 @@
 
 
   <!--sidebar to display table of contents-->
-  <content-index category="$ctrl.sortByCategory" print="$ctrl.print" sort="$ctrl.sortBy" id="contents"></content-index>
+  <content-index category="$ctrl.sortByCategory" print="$ctrl.print" sort="$ctrl.sortBy" id="contents" ng-show="$ctrl.loggedIn"></content-index>
 
   <!--main view for bookshelf and wishlist, conditionally rendered based on user chosen view type-->
 
