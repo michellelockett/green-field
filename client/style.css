@@ -63,6 +63,10 @@ img.logo {
   margin-top: 1em;
 }
 
+#bookHeader {
+  align-items: left;
+}
+
 #bookCovers {
   grid-area: article;
   margin-right: 4em;

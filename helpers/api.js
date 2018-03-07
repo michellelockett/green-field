@@ -66,7 +66,7 @@ const extractDDC = result => {
 
 const getBookDetails = isbn => {
   return axios.get(
-    `https://www.googleapis.com/books/v1/volumes?q=isbn=${isbn}&key=${API_KEY}`
+    `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${API_KEY}`
   );
 };
 
@@ -80,6 +80,7 @@ const addDetailsToBook = (book, response) => {
   ) {
     bookData = response.data.items[0].volumeInfo;
     let formattedAuthors = null;
+    console.log(bookData.authors);
     if (bookData && bookData.authors) {
       formattedAuthors = bookData.authors.map((item, index) => {
         let splitName = item.split(' ');
