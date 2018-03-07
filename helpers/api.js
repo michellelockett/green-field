@@ -65,8 +65,9 @@ const extractDDC = result => {
 };
 
 const getBookDetails = isbn => {
+  console.log(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${API_KEY}`);
   return axios.get(
-    `https://www.googleapis.com/books/v1/volumes?q=isbn=${isbn}&key=${API_KEY}`
+    `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${API_KEY}`
   );
 };
 
