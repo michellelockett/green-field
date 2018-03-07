@@ -1,21 +1,29 @@
 <div class="detail top">
+
   <button
-    class="button"
+    class="button danger"
     ng-click="$ctrl.delete($ctrl.book.bookUser.id)">
-    Remove from my bookshelf
+      <i class="material-icons">delete</i> Delete
   </button>
+
   <button
     class="button"
     ng-show="!$ctrl.edit"
     ng-click="$ctrl.startEdit()">
-    Edit details
+      <i class="material-icons">mode_edit</i> Edit details
   </button>
-  <button class="button" ng-show="$ctrl.edit" ng-click="$ctrl.cancel()">Cancel</button>
+
+  <button
+    class="button"
+    ng-show="$ctrl.edit"
+    ng-click="$ctrl.cancel()">
+      <i class="material-icons">cancel</i> Cancel
+  </button>
   <button
     class="button"
     ng-show="$ctrl.edit"
     ng-click="$ctrl.saveEdits()">
-    Save Changes
+      <i class="material-icons">save</i> Save changes
   </button>
 </div>
 <div class="detail header">

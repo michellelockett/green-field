@@ -14,14 +14,14 @@
     <div class="col-05">&nbsp;</div>
 
     <div class="col-90">
-      <button class="button" ng-show="$ctrl.sort === 'dewey'">
+      <button class="button" ng-show="$ctrl.sort === 'dewey' && $ctrl.type === 'bookshelf'">
       <a ng-href="/users/{{$ctrl.user}}/books/list/dewey">
-        <i class="material-icons">file_download</i> Download (.txt)
+        <i class="material-icons">file_download</i> Download list (.txt)
       </a>
     </button>
-    <button class="button" ng-show="$ctrl.sort === 'title'">
+    <button class="button" ng-show="$ctrl.sort === 'title' && $ctrl.type === 'bookshelf'">
       <a ng-href="/users/{{$ctrl.user}}/books/list/title">
-        <i class="material-icons">file_download</i> Download (.txt)
+        <i class="material-icons">file_download</i> Download list (.txt)
       </a>
     </button>
     </div>
@@ -43,7 +43,7 @@
           <td>{{book.dewey}}</td>
         </tr>
       </table>
-     
+
     </div>
   </div>
 

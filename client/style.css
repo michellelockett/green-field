@@ -393,7 +393,9 @@ table tr:nth-child(even) {
   }
 }
 
-#bookList .button {
+/* Button styles */
+
+button.button {
   font-family: 'Helvetica Neue Light', 'Lucida Grande', 'Arial', sans-serif;
   font-size: 10px;
   background-color: #4CAF50;
@@ -404,15 +406,21 @@ table tr:nth-child(even) {
   cursor: pointer;
   float: right;
   margin-right: 2em;
+  display: flex;
+  align-items: center;
 }
 
-#bookList .button i {
+button.button i {
   float: left;
   font-size: 16px;
 }
 
-
 #bookList a {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
+}
+
+button.button.danger {
+  background-color: red;
+  color: white;
 }

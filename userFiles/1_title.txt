@@ -1,0 +1,421 @@
+My Bookshelf
+
+
+A Jewish conservative looks at pagan America (DDC: 301.0973) 
+Don Feder 
+
+A brief history of time (DDC: 523.1) 
+Stephen W. Hawking 
+
+Adolescents in the Search for Meaning (DDC: null) 
+Mary L. Warner 
+
+Anne Frank's Tales from the Secret Annex (DDC: 839.3186209) 
+Anne Frank 
+
+Answering Jewish Objections to Jesus (DDC: null) 
+Michael L. Brown 
+
+Applied Science (DDC: null) 
+null null 
+
+Arthur Koestler's Darkness at Noon (DDC: 813.52) 
+Harold Bloom 
+
+Back to Virtue (DDC: 241.4) 
+Peter Kreeft 
+
+Baffled to Fight Better (DDC: 223.107) 
+Oswald Chambers 
+
+Billy and the Boingers Bootleg (DDC: null) 
+Berke Breathed 
+
+Books for College Libraries: Humanities (DDC: null) 
+Association of College and Research Libraries 
+
+Bronchitis (DDC: 616.23400222) 
+Konrad Morgenroth 
+Michael T. Newhouse 
+
+Building Solutions in Child Protective Services (DDC: 362.70973) 
+Insoo Kim Berg 
+Susan Kelly 
+
+Ceremony (DDC: 813.54) 
+Leslie Marmon Silko 
+
+Challenges to New Testament Theology (DDC: 230.0415) 
+Peter Balla 
+
+Christianity (DDC: 270) 
+null null 
+
+Cosmos (DDC: null) 
+Carl Sagan 
+
+Critiques of God (DDC: 211) 
+Peter Adam Angeles 
+
+Dao de Jing (DDC: 299.51482) 
+Laozi  
+Burton Watson 
+Stanley Lombardo 
+Stephen Addiss 
+
+Diagnostic and Statistical Manual of Mental Disorders (DDC: null) 
+American Psychiatric Association. Committee on Nomenclature and Statistics 
+
+Dialogue with Death (DDC: 294.59218) 
+Eknath Easwaran 
+
+ELOHIM They Are God (DDC: null) 
+Ben Shlomo 
+Dr Al Garza 
+
+Electronic Theses and Dissertations (DDC: null) 
+Edward A. Fox 
+Shahrooz Feizabadi 
+Joseph M. Moxley 
+Christian R. Weisser 
+
+Embraced by the Darkness (DDC: 239.9) 
+Brad Scott 
+
+Emotion and the Psychodynamics of the Cerebellum (DDC: 291.9) 
+Fred M. Levin 
+
+Encountering Enchantment (DDC: null) 
+Susan Fichtelberg 
+
+Encountering Enchantment (DDC: null) 
+Susan Fichtelberg 
+
+Endurance and Endeavour (DDC: 947.08) 
+J. N. Westwood 
+
+Exploring the Philosophy of Religion (DDC: 210) 
+null null 
+
+Eye (DDC: 813.54) 
+Frank Herbert 
+
+Fahrenheit 451 (DDC: null) 
+Ray Bradbury 
+
+Faith Reads: A Selective Guide to Christian Nonfiction (DDC: 266.0092) 
+David Rainey 
+
+Faith Reads: A Selective Guide to Christian Nonfiction (DDC: null) 
+David Rainey 
+
+Faith Reads: A Selective Guide to Christian Nonfiction (DDC: 236.2) 
+David Rainey 
+
+Fathers and Sons (DDC: 891.733) 
+Ivan Sergeevich Turgenev 
+Richard Freeborn 
+
+Fermat's Last Theorem (DDC: 512.74) 
+Amir D. Aczel 
+
+Ficciones (DDC: 863) 
+Jorge Luis Borges 
+
+Five Hundred Years After (DDC: 813.54) 
+Steven Brust 
+
+Five great dialogues (DDC: 888.4) 
+Plato  
+Louise Ropes Loomis 
+
+Fluent in Fantasy (DDC: null) 
+Diana Tixier Herald 
+
+Forward the Foundation (DDC: 813.54) 
+Isaac Asimov 
+
+Foundation (DDC: 813.54) 
+Isaac Asimov 
+
+null (DDC: null) 
+
+null (DDC: null) 
+
+Foundation (DDC: 813.54) 
+Isaac Asimov 
+
+Foundation and Empire (DDC: null) 
+Isaac Asimov 
+
+Foundation's Edge (DDC: 813.54) 
+Isaac Asimov 
+
+Foundations Book II: Understanding SQL Server 2005 Supporting Technology (XML, XSLT, XQuery, XPath, MS Schemas, DTD's, Namespaces). (DDC: null) 
+Rigoberto Garcia 
+
+Galápagos (DDC: 813.54) 
+Kurt Vonnegut 
+
+Graduate Admissions Essays (DDC: 808.066378) 
+Donald Asher 
+
+Greek Philosophers (DDC: 182) 
+William K. Guthrie 
+
+Hello, Mariner Moose! (DDC: null) 
+Aimee Aryal 
+
+Hiding from Love (DDC: null) 
+John Sims Townsend 
+
+How to Cook Everything (DDC: 641.555) 
+Mark Bittman 
+
+Humble Apologetics (DDC: 239) 
+John Gordon Stackhouse 
+
+I Ching (DDC: 299.51282) 
+Edward A. Hacker 
+Steve Moore 
+Lorraine Patsco 
+
+Islam (DDC: 239) 
+Christianity Today International 
+
+Java & XML (DDC: null) 
+Brett McLaughlin 
+
+Judaism (DDC: null) 
+null null 
+
+Logicomix (DDC: 741.5) 
+Christos H. Papadimitriou 
+Apostolos Doxiadis 
+
+Lucy (DDC: 569.9) 
+Donald Johanson 
+Maitland Armstrong Edey 
+Maitland Edey 
+
+Memories Before and After the Sound of Music (DDC: 784.0924) 
+Agathe von Trapp 
+
+Momotaro (DDC: 398.220952) 
+Kirsten Whatley 
+Ruth Tabrah 
+
+Parables as Subversive Speech (DDC: 226.806) 
+William R. Herzog 
+
+Persevering (DDC: null) 
+Jeff Helms 
+
+Phoenix (DDC: 810) 
+Steven Brust 
+
+Please Understand Me (DDC: null) 
+David Keirsey 
+Marilyn M. Bates 
+
+Politics (DDC: 306.0973) 
+Christianity Today International 
+
+Practical PostgreSQL (DDC: 813.54) 
+Joshua D. Drake 
+John C. Worsley 
+
+Prelude to Foundation (DDC: 813.54) 
+Isaac Asimov 
+
+QED (DDC: 539.756) 
+Richard P. Feynman 
+
+Quantum Reality (DDC: 530.12) 
+Nick Herbert 
+
+Quantum reality (DDC: 530.12) 
+Nick Herbert 
+
+Read On-- Fantasy Fiction (DDC: 813.54) 
+Neil Hollands 
+
+Rekindling the Word (DDC: 226.06) 
+Carsten Peter Thiede 
+
+Revolution of Spirit (DDC: 261) 
+Nantawan Boonprasat-Lewis 
+
+Rich Christians in an Age of Hunger (DDC: 261.85) 
+Ronald J. Sider 
+
+Scientific Progress Goes Boink (DDC: 741.56973) 
+Bill Watterson 
+
+Social Psychology (DDC: null) 
+David G. Myers 
+
+Socratic Logic (DDC: null) 
+Trent Dougherty 
+Peter Kreeft 
+
+Storytimes for Children (DDC: null) 
+Stephanie G. Bauman 
+
+Tea with the Black Dragon (DDC: 813.54) 
+R. A. MacAvoy 
+
+The Abolition of Man (DDC: 370.1) 
+C. S. Lewis 
+
+The Authoritative Calvin And Hobbes (DDC: null) 
+Bill Watterson 
+
+The Book of the Dead (DDC: 299.31) 
+Sir Ernest Alfred Wallis Budge 
+
+The British National Bibliography (DDC: 193) 
+Arthur James Wells 
+
+The Celebration Hymnal (DDC: null) 
+Word Music 
+
+The Christian Librarian (DDC: 230.01) 
+null null 
+
+The Chronicles of Narnia (adult) (DDC: null) 
+C. S. Lewis 
+
+The Compact Guide To World Religions (DDC: 291) 
+Dean Halverson 
+
+The Count of Monte Cristo (DDC: 843.7) 
+Alexandre Dumas pere 
+
+The Craft of Research, 2nd Edition (DDC: 001.42) 
+Wayne C. Booth 
+Gregory G. Colomb 
+Joseph M. Williams 
+
+The Cygnet and the Firebird (DDC: 813.54) 
+Patricia A. McKillip 
+
+The Days Are Just Packed (DDC: 741.56973) 
+Bill Watterson 
+
+The Developing Person (DDC: 155) 
+Kathleen Stassen Berger 
+
+The Elegant Universe (DDC: null) 
+Brian Greene 
+
+The End of Strife (DDC: null) 
+Leland Johnson 
+
+The Essential Calvin And Hobbes (DDC: null) 
+Bill Watterson 
+
+The Fog of War (DDC: 327.7300904) 
+James G. Blight 
+Janet M. Lang 
+
+The Globe Illustrated Shakespeare (DDC: 822.33) 
+William Shakespeare 
+Howard Staunton 
+
+The Heart of Wisdom Teaching Approach (DDC: 940.53492) 
+Robin Sampson 
+
+The Heidelberg Catechism (DDC: 238.42) 
+Christian Reformed Church 
+
+The Indispensable Calvin and Hobbes (DDC: 741.56973) 
+Bill Watterson 
+
+The Interlinear Greek-English New Testament (DDC: null) 
+George Ricker Berry 
+
+The Letters to the Galatians and Ephesians (DDC: 227.4077) 
+William Barclay 
+
+The Light and the Glory (DDC: 209.73) 
+Peter Marshall 
+David Manuel 
+
+The Light and the Glory (DDC: 973) 
+Peter Marshall 
+David Manuel 
+
+The Lost Books of the Bible (DDC: null) 
+null null 
+
+The Mark Hayes Vocal Solo Collection -- 10 Folk Songs for Solo Voice: Medium High Voice, Book & CD (DDC: 930.1) 
+Mark Hayes 
+
+The Next American Spirituality (DDC: 200.97309051101) 
+George Gallup 
+Timothy K. Jones 
+
+The Origin of Species (DDC: 575.0162) 
+Charles Darwin 
+
+The Pocket Bible (DDC: null) 
+Thomas Nelson 
+Thomas Nelson Publishers 
+
+The Princess Bride (DDC: 813.54) 
+William Goldman 
+
+The Slither Sisters (DDC: null) 
+Charles Gilman 
+
+The Story of Philosophy (DDC: null) 
+Will Durant 
+
+The Three Musketeers (DDC: 843.7) 
+Alexandre Dumas 
+
+The Ultimate Hitchhiker's Guide to the Galaxy (DDC: 823.914) 
+Douglas Adams 
+
+The encyclopedia of ignorance (DDC: null) 
+Ronald Duncan 
+
+Theology, Music and Time (DDC: 261.578) 
+Jeremy Begbie 
+
+Theoretical Introduction to Programming (DDC: 530.11) 
+Bruce Ian Mills 
+
+There's Treasure Everywhere (DDC: 741.56973) 
+Bill Watterson 
+
+Tramp for the Lord (DDC: null) 
+Corrie Ten Boom 
+Jamie Buckingham 
+
+Wavelet Structure and Design (DDC: 501) 
+Daniel J. Greenhoe 
+
+What Color Is Your God? (DDC: 261.834800973) 
+James Breckenridge 
+Lillian Breckenridge 
+
+Wheelock's Latin, 6th Edition Revised (DDC: 478.2421) 
+Richard A. LaFleur 
+Frederic M. Wheelock 
+
+Why I Believe (DDC: 230) 
+D. James Kennedy 
+
+Working from Home (DDC: 248.4) 
+Paul Edwards 
+Sarah A. Edwards 
+
+World's Best Jewish Humor (DDC: 398.9089924) 
+Stanley Kramer 
+
+Wyrms (DDC: 813.54) 
+Orson Scott Card 
+ 
+
