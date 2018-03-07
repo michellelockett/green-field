@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700,900i');
+
 *,
 *::before,
 *::after {
@@ -423,4 +425,35 @@ button.button i {
 button.button.danger {
   background-color: red;
   color: white;
+}
+
+.real-cover {
+  width: 128px;
+  height: 192px;
+  box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, .3);
+}
+.fake-cover {
+  font-family: 'Merriweather', serif;
+  width: 128px;
+  height: 192px;
+  background-color: mistyrose;
+  border: 2px solid tomato;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, .3);
+}
+
+.fake-cover-title {
+  font-weight: 900;
+  font-style: italic;
+  max-width: 100%;
+  flex: 1;
+}
+
+.fake-cover-author {
+  width: 100%;
+  flex: 1;
 }

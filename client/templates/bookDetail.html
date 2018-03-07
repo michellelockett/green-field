@@ -39,8 +39,15 @@
 
 </div>
 <div class="detail cover">
-  <img ng-show="$ctrl.book.cover" ng-src="{{$ctrl.book.cover}}">
-  <div ng-show="!$ctrl.book.cover">Cover Missing</div>
+  <div class="real-cover">
+    <img ng-show="$ctrl.book.cover !== 'Unknown'" ng-src="{{$ctrl.book.cover}}">
+  </div>
+  <div ng-show="$ctrl.book.cover === 'Unknown' || !$ctrl.book.cover">
+    <div class="fake-cover">
+      <span class="fake-cover-title">My Missing Book</span>
+      <span class="fake-cover-author">by Hack Reactor</span>
+    </div>
+  </div>
 </div>
 <div class="detail dewey">
   <div ng-show="!$ctrl.edit">
@@ -97,7 +104,7 @@
 </div>
 <div class="detail alert" ng-show="!$ctrl.book.dewey">
   <h4>This book is missing a Dewey Decimal Number!</h4>
-  Conan works best when we know the Dewey Decimal Number for each book. Please help other book lovers by entering the Dewey Decimal Number for this book if you can find it. You can start by clicking <a ng-href="http://classify.oclc.org/classify2/ClassifyDemo?search-standnum-txt={{$ctrl.book.isbn}}&startRec=0">here</a> (note: you'll be taken to a third party website)!
+  Conan works best when we know the Dewey Decimal Number for each book. Please help other book lovers by entering the Dewey Decimal Number for this book if you can find it. You can start by clicking <a target="_blank" ng-href="http://classify.oclc.org/classify2/ClassifyDemo?search-standnum-txt={{$ctrl.book.isbn}}&startRec=0">here</a> (note: you'll be taken to a third party website)!
 </div>
 <div class="detail notes">
   <div ng-show="!$ctrl.edit">

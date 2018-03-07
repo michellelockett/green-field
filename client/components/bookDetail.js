@@ -1,6 +1,6 @@
 angular.module('BookApp').component('bookDetail', {
   templateUrl: './templates/bookDetail.html',
-  controller: function(conan) {
+  controller: function(conan, $window) {
 
     this.$onChanges = (changes) => {
       this.book = changes.book.currentValue;
@@ -9,10 +9,6 @@ angular.module('BookApp').component('bookDetail', {
         console.log('original', this.originalState);
       }
     };
-
-    this.$onInit = () => {
-    };
-
 
     this.saveEdits = () => {
       this.update(this.userId, this.book.isbn, this.book);
