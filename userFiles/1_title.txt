@@ -63,6 +63,9 @@ Burton Watson
 Stanley Lombardo 
 Stephen Addiss 
 
+Data Structures & Algorithms in Java (DDC: 005.73) 
+Robert Lafore 
+
 Diagnostic and Statistical Manual of Mental Disorders (DDC: null) 
 American Psychiatric Association. Committee on Nomenclature and Statistics 
 
@@ -103,10 +106,10 @@ Frank Herbert
 Fahrenheit 451 (DDC: null) 
 Ray Bradbury 
 
-Faith Reads: A Selective Guide to Christian Nonfiction (DDC: 266.0092) 
+Faith Reads: A Selective Guide to Christian Nonfiction (DDC: null) 
 David Rainey 
 
-Faith Reads: A Selective Guide to Christian Nonfiction (DDC: null) 
+Faith Reads: A Selective Guide to Christian Nonfiction (DDC: 266.0092) 
 David Rainey 
 
 Faith Reads: A Selective Guide to Christian Nonfiction (DDC: 236.2) 
@@ -137,10 +140,6 @@ Isaac Asimov
 
 Foundation (DDC: 813.54) 
 Isaac Asimov 
-
-null (DDC: null) 
-
-null (DDC: null) 
 
 Foundation (DDC: 813.54) 
 Isaac Asimov 
@@ -249,6 +248,24 @@ Nantawan Boonprasat-Lewis
 Rich Christians in an Age of Hunger (DDC: 261.85) 
 Ronald J. Sider 
 
+null (DDC: null) 
+
+null (DDC: null) 
+
+null (DDC: null) 
+
+null (DDC: null) 
+
+null (DDC: null) 
+
+null (DDC: null) 
+
+null (DDC: null) 
+
+null (DDC: null) 
+
+null (DDC: null) 
+
 Scientific Progress Goes Boink (DDC: 741.56973) 
 Bill Watterson 
 
@@ -299,6 +316,9 @@ Joseph M. Williams
 
 The Cygnet and the Firebird (DDC: 813.54) 
 Patricia A. McKillip 
+
+The Dance of the Dissident Daughter (DDC: B) 
+Sue Monk Kidd 
 
 The Days Are Just Packed (DDC: 741.56973) 
 Bill Watterson 
@@ -366,6 +386,9 @@ Thomas Nelson Publishers
 The Princess Bride (DDC: 813.54) 
 William Goldman 
 
+The Secret Life of Bees (DDC: 813.54) 
+Sue Monk Kidd 
+
 The Slither Sisters (DDC: null) 
 Charles Gilman 
 
@@ -394,6 +417,12 @@ Tramp for the Lord (DDC: null)
 Corrie Ten Boom 
 Jamie Buckingham 
 
+Unknown (DDC: null) 
+null null 
+
+Unknown (DDC: null) 
+null null 
+
 Wavelet Structure and Design (DDC: 501) 
 Daniel J. Greenhoe 
 
@@ -417,5 +446,11 @@ Stanley Kramer
 
 Wyrms (DDC: 813.54) 
 Orson Scott Card 
+
+[Book Title Missing!] (DDC: null) 
+Sue Monk Kidd 
+
+[Book Title Missing!] (DDC: 813.54) 
+Sue Monk Kidd 
  
 

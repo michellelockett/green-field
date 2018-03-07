@@ -1,0 +1,17 @@
+.mast {
+  font-family: 'Merriweather', serif;
+  font-size: 80px;
+  border-bottom: 2px solid lightgrey;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.barbaric {
+  font-family: 'Bangers', cursive;
+  color: tomato;
+}
+
+#loginView h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+}

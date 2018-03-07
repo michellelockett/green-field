@@ -1,11 +1,21 @@
 
   <!-- logo, stock image for now just for sizing -->
-  <header id="pageHeader">
+  <header
+    id="pageHeader"
+    ng-show="$ctrl.loggedIn"
+  >
     <img class="logo" src="https://static.pexels.com/photos/5834/nature-grass-leaf-green.jpg">
   </header>
 
   <!--main navbar-->
-  <navbar print="$ctrl.print" toggle="$ctrl.toggleBooks" logout="$ctrl.logout" id="mainNav" logged="$ctrl.loggedIn"></navbar>
+  <navbar
+    print="$ctrl.print"
+    toggle="$ctrl.toggleBooks"
+    logout="$ctrl.logout"
+    id="mainNav"
+    logged="$ctrl.loggedIn"
+    ng-show="$ctrl.loggedIn"
+  ></navbar>
 
   <!--options navbar for sorting view -->
   <options items="$ctrl.sortOptions" change="$ctrl.changeSort" toggle="$ctrl.toggleView" id="options" add="$ctrl.add" toggle-add="$ctrl.toggleAdd" view="$ctrl.view" ng-show="$ctrl.loggedIn"></options>

@@ -1,6 +1,7 @@
 // Require dependencies
 const axios = require('axios');
 const xml2js = require('xml2js');
+const _ = require('lodash');
 
 // Require API key(s)
 const API_KEY = require('../config/google');
@@ -95,7 +96,8 @@ const addDetailsToBook = (book, response) => {
     // attach properties to book
     book.found = true;
     book.authors = formattedAuthors;
-    book.title = bookData.title;
+    book.title = _.get(bookData, `title`, "[Book Title Missing!]")
+
     book.description = bookData.description;
     book.pages = bookData.pageCount;
 
@@ -104,11 +106,11 @@ const addDetailsToBook = (book, response) => {
     }
     book.format = bookData.printType;
 
-    if (bookData['imageLinks'] && bookData['imageLinks']['thumbnail']) {
-      book.cover = bookData.imageLinks.thumbnail;
-    }
+    // if (bookData['imageLinks'] && bookData['imageLinks']['thumbnail']) {
+    //   book.cover = bookData.imageLinks.thumbnail;
+    // }
 
-    book.categories = bookData.categories;
+    book.cover =  _.get(bookData, `imageLinks.thumbnail`, "[Book Cover Missing!]")
   } else {
     book.found = false;
   }
@@ -118,8 +120,15 @@ const addDetailsToBook = (book, response) => {
 
 const buildBook = isbn => {
   return new Promise((resolve, reject) => {
-    let book = {};
-    book.isbn = isbn;
+    let book = {
+      isbn: isbn || 'Unknown',
+      authors: 'Unknown',
+      title: 'Unknown',
+      pages: 'Unknown',
+      published: 'Unknown',
+      cover: 'Unknown',
+      dewey: 'Unknown'
+    };
 
     lookupByISBN(isbn)
       .then(response => {
