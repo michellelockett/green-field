@@ -13,9 +13,6 @@ angular.module('BookApp', [])
       }).join('&');
 
       const url = 'http://localhost:3000/login?' + encoded;
-      // username=cdog3&password=insecurepassword';
-      console.log(url);
-
       return $http({
         method: 'POST',
         url: url,
