@@ -1,34 +1,42 @@
-<div class="mast">
-  Conan the <br/>
-  <span class="barbaric">LIBRARIAN</span>
-  <br>
-  <span class="submast">Don't you know the Dewey Decimal System?</span>
+<div id="loginPage">
+  <div class="mast">
+    Conan the <br/>
+    <span class="barbaric">LIBRARIAN</span>
+    <br>
+    <span class="submast">Don't you know the Dewey Decimal System?</span>
+  </div>
+
+  <div id = "loginCol">
+    <article id = "signup">
+      <h1> New to Conan? Sign up here! </h1>
+      <br>
+      <form>
+        First Name
+        <div><input ng-model="newFirstName"></div>
+        <br>
+        Last Name
+        <div><input ng-model="newLastName"></div>
+        <br>
+        Username
+        <div><input ng-model="newUsername"></div>
+        <br>
+        Password
+        <div><input type="password" ng-model="newPassword"></div>
+        <button ng-click = "$ctrl.handleNewUser(newFirstName, newLastName, newUsername, newPassword)">SIGN UP</button>
+      </form>
+    </article>
+
+    <article id="login">
+      <h1>Log in to view your library</h1>
+      <br>
+      <form>
+        Username
+        <div><input ng-model="username"></div>
+        <br>
+        Password
+        <div><input type="password" ng-model="password"></div>
+        <button ng-click = "$ctrl.handleSubmit(username, password)">LOG IN</button>
+      </form>
+    </article>
+  </div>
 </div>
-
-<article>
-  <h1> New to Conan? Sign up here! </h1>
-  <form>
-    First Name
-    <div><input ng-model="newFirstName"></div>
-    <br>
-    Last Name
-    <div><input ng-model="newLastName"></div>
-    <br>
-    Username
-    <div><input ng-model="newUsername"></div>
-    <br>
-    Password
-    <div><input type="password" ng-model="newPassword"></div>
-    <button ng-click = "$ctrl.handleNewUser(newFirstName, newLastName, newUsername, newPassword)">SIGN UP</button>
-  </form>
-
-  <h1>Log in to view your library</h1>
-  <form>
-    Username
-    <div><input ng-model="username"></div>
-    <br>
-    Password
-    <div><input type="password" ng-model="password"></div>
-    <button ng-click = "$ctrl.handleSubmit(username, password)">LOG IN</button>
-  </form>
-</article>
