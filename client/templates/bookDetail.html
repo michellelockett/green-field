@@ -27,9 +27,17 @@
   </button>
 </div>
 <div class="detail header">
-  <div class="detail title">
+
+  <div ng-show="!$ctrl.edit">
     <h2>{{$ctrl.book.title || 'Untitled Book' }}</h2>
   </div>
+
+  <div ng-show="$ctrl.edit">
+    <div class="form-element" ng-show="$ctrl.edit">
+      <label> Title: <input type="text" ng-model="$ctrl.book.title"></label>
+    </div>
+  </div>
+
   <div class="detail authors">
     <div ng-repeat="author in $ctrl.book.authors">
       {{ author.firstName}} {{author.lastName}}
@@ -61,12 +69,11 @@
   </div>
 
   <div ng-show="$ctrl.edit">
-
       <div class="form-element" ng-show="$ctrl.edit">
           <label> DDC: <input type="text" ng-model="$ctrl.book.dewey"></label>
-        </div>
-
+      </div>
   </div>
+
 </div>
 
 <div class="detail owned">
