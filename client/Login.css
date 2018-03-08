@@ -5,6 +5,24 @@
   padding: 20px;
   margin-bottom: 40px;
   line-height: 78px;
+  text-shadow: 2px 2px white;
+}
+
+.submast {
+  font-family: 'Merriweather', serif;
+  font-size: 40px;
+  padding: 20px;
+  margin-bottom: 40px;
+  line-height: 78px;
+}
+
+.logo {
+  font-family: 'Merriweather', serif;
+  font-size: 30px;
+  padding: 10px;
+  margin-left: 2em;
+  margin-top: 3em;
+  text-align: center;
 }
 
 .barbaric {
@@ -12,7 +30,40 @@
   color: #7C3642;
 }
 
+.logobarbaric {
+  font-family: 'Bangers', cursive;
+  color: #7C3642;
+}
+
 #loginView h1 {
   font-family: 'Merriweather', serif;
   font-size: 24px;
+}
+
+#loginPage input {
+  margin-top: 1em;
+  height: 50px;
+  width: 500px;
+  font-size: 30px
+ 
+}
+
+#loginCol {
+  display: grid;
+  grid-template-areas:
+    "signup login";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  margin: 0;
+  grid-gap: 5px;
+  font-size: 20px;
+}
+
+#login {
+  grid-template-areas: login;
+}
+
+#signup {
+  grid-template-areas: signup;
 }
