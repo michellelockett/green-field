@@ -43,7 +43,10 @@
       {{ author.firstName}} {{author.lastName}}
     </div>
   </div>
-    {{$ctrl.book.pages || '?'}} pages ({{$ctrl.book.published || 'Publication Date Unknown'}})
+  <div class="detail pages publication">
+    <div ng-show="$ctrl.book.pages !== 'Unknown' && $ctrl.book.pages !== 0">{{$ctrl.book.pages}} pages</div>
+    <div ng-show="$ctrl.book.published !== 'Unknown' && $ctrl.book.published !== 0">({{$ctrl.book.published}})</div>
+  </div>
 
 </div>
 <div class="detail cover">
