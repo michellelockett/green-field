@@ -98,6 +98,7 @@ angular.module('BookApp', [])
     },
 
     updateBook(userId, isbn, book) {
+      console.log(userId);
       let url = `/users/${userId}/books/${isbn}`;
 
       return $http.put(url, book)
