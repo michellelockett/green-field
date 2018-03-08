@@ -17,5 +17,9 @@
 #options a {
   color: inherit;
   text-decoration: inherit;
+}
 
+#options select {
+  height: 40%;
+  width: 30%;
 }

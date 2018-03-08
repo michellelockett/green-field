@@ -26,10 +26,10 @@
  height: 30%;
 }
 
-#loginPage {
+/*#loginPage {
   background-image: url("./src/library2.jpg");
   background-repeat: no-repeat;
-}
+}*/
 
 img.book {
   height: 250px;
@@ -337,7 +337,6 @@ table tr:nth-child(even) {
 }
 
 #addBook {
-  grid-area: addBook;
   grid-column: 2 / span 3;
   padding: 20px;
   margin-right: 4em;
