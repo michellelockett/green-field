@@ -38,11 +38,22 @@
     </div>
   </div>
 
-  <div class="detail authors">
+  <div class="detail authors" ng-show="!$ctrl.edit">
     <div ng-repeat="author in $ctrl.book.authors">
       {{ author.firstName}} {{author.lastName}}
     </div>
   </div>
+
+    <div ng-show="$ctrl.book.authors !== 'Unknown'">
+      <div class="form-element" ng-show="$ctrl.edit">
+          <label> Author First Name: <input type="text" ng-model="$ctrl.book.authors[0].firstName"></label>
+      </div>
+      <div class="form-element" ng-show="$ctrl.edit">
+            <label> Author Last Name: <input type="text" ng-model="$ctrl.book.authors[0].lastName"></label>
+        </div>
+      </div>
+
+
   <div class="detail pages publication">
     <div ng-show="$ctrl.book.pages !== 'Unknown' && $ctrl.book.pages !== 0">{{$ctrl.book.pages}} pages</div>
     <div ng-show="$ctrl.book.published !== 'Unknown' && $ctrl.book.published !== 0">({{$ctrl.book.published}})</div>
