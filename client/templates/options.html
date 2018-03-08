@@ -3,25 +3,25 @@
 </select>
 
 <span ng-click="$ctrl.toggle()" class="button-options">
-  <i class="material-icons">compare_arrows</i> Toggle View
+  <i class="material-icons options-i">compare_arrows</i> <p>Toggle View</p>
 </span>
 
 <span ng-click="$ctrl.toggleAdd()" class="button-options" ng-show="$ctrl.view === 'add'">
-  <i class="material-icons">cancel</i> Cancel Add
+  <i class="material-icons options-i">cancel</i> Cancel Add
 </span>
 
 <span ng-click="$ctrl.toggleAdd()" class="button-options" ng-show="$ctrl.view !== 'add'">
-  <i class="material-icons">book</i> Add Book
+  <i class="material-icons options-i">book</i> Add Book
 </span>
 
 <a ng-href="/users/{{$ctrl.user}}/books/list/dewey" ng-show="$ctrl.sort === 'dewey' && $ctrl.type === 'bookshelf'" target="_blank">
   <span class="button-options" >
-    <i class="material-icons">file_download</i> Download Current Bookshelf
+    <i class="material-icons options-i">file_download</i> Download Current Bookshelf
   </span>
 </a>
 
 <a ng-href="/users/{{$ctrl.user}}/books/list/title" ng-show="$ctrl.sort === 'title' && $ctrl.type === 'bookshelf'" target="_blank">
   <span class="button-options" >
-    <i class="material-icons">file_download</i> Download Current Bookshelf
+    <i class="material-icons options-i">file_download</i> Download Current Bookshelf
   </span>
 </a>
