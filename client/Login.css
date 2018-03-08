@@ -7,7 +7,29 @@
   line-height: 78px;
 }
 
+.submast {
+  font-family: 'Merriweather', serif;
+  font-size: 40px;
+  padding: 20px;
+  margin-bottom: 40px;
+  line-height: 78px;
+}
+
+.logo {
+  font-family: 'Merriweather', serif;
+  font-size: 30px;
+  padding: 10px;
+  margin-left: 2em;
+  margin-top: 3em;
+  text-align: center;
+}
+
 .barbaric {
+  font-family: 'Bangers', cursive;
+  color: #7C3642;
+}
+
+.logobarbaric {
   font-family: 'Bangers', cursive;
   color: #7C3642;
 }
