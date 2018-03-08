@@ -43,10 +43,11 @@ img.logo {
   margin-bottom: 1em;
 }
 
-i {
+.options-i {
   color: #7C3642;
   background-color: white;
   border-radius: 30%;
+  padding: 2px;
 }
 
 .button {
@@ -149,8 +150,9 @@ i {
 }
 
 .alert {
-  color: tomato;
-}
+  color: #7C3642;
+  /*color: tomato;
+*/}
 
 .detail.alert {
   grid-column: span 6;
@@ -265,7 +267,6 @@ table tr:nth-child(even) {
 
 #contents {
   grid-area: contentTable;
-  /*background-color: lightgrey;*/
   background-color: #DCE1EA;
   margin-left: 4em;
   display: flex;
