@@ -96,7 +96,7 @@ const addDetailsToBook = (book, response) => {
     // attach properties to book
     book.found = true;
     book.authors = formattedAuthors;
-    book.title = _.get(bookData, `title`, "[Book Title Missing!]")
+    book.title = _.get(bookData, `title`, "Unknown")
 
     book.description = bookData.description;
     book.pages = bookData.pageCount;
@@ -110,7 +110,7 @@ const addDetailsToBook = (book, response) => {
     //   book.cover = bookData.imageLinks.thumbnail;
     // }
 
-    book.cover =  _.get(bookData, `imageLinks.thumbnail`, "[Book Cover Missing!]")
+    book.cover =  _.get(bookData, `imageLinks.thumbnail`, "Unknown")
   } else {
     book.found = false;
   }
