@@ -18,11 +18,24 @@
   ></navbar>
 
   <!--options navbar for sorting view -->
-  <options items="$ctrl.sortOptions" change="$ctrl.changeSort" toggle="$ctrl.toggleView" id="options" add="$ctrl.add" toggle-add="$ctrl.toggleAdd" view="$ctrl.view" ng-show="$ctrl.loggedIn"></options>
+  <options
+    items="$ctrl.sortOptions"
+    change="$ctrl.changeSort"
+    toggle="$ctrl.toggleView"
+    id="options"
+    add="$ctrl.add"
+    toggle-add="$ctrl.toggleAdd"
+    view="$ctrl.view"
+    user="$ctrl.userId"
+    sort="$ctrl.sort"
+    ng-show="$ctrl.loggedIn"
+    type="$ctrl.currentBookType"
+  >
+  </options>
 
 
   <!--sidebar to display table of contents-->
-  <content-index category="$ctrl.sortByCategory" print="$ctrl.print" sort="$ctrl.sortBy" id="contents"></content-index>
+  <content-index category="$ctrl.sortByCategory" print="$ctrl.print" sort="$ctrl.sortBy" id="contents" ng-show="$ctrl.loggedIn"></content-index>
 
   <!--main view for bookshelf and wishlist, conditionally rendered based on user chosen view type-->
 
