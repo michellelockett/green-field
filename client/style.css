@@ -95,8 +95,9 @@ img.book {
 /* BEGIN BookDetail styles */
 
 #bookDetail {
-  grid-column: 2 / span 3;
-  display: grid;
+  grid-area: article;
+/*  grid-column: 2 / span 3;
+*/  display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: min-content;
   grid-gap: 10px;
