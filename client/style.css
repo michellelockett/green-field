@@ -81,13 +81,13 @@ i {
 
 #bookCovers {
   grid-area: article;
-  margin-right: 4em;
+  /*margin-right: 4em;*/
   text-align: center;
 }
 
 #bookList {
   grid-area: article;
-  margin-right: 4em;
+  /*margin-right: 4em;*/
 }
 
 
@@ -216,8 +216,7 @@ i {
 
 table {
   width: 90%;
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 3em;
 }
 
 table, th, td {
@@ -227,7 +226,8 @@ table, th, td {
 }
 
 table tr:nth-child(odd) {
-  background-color: #f1f1f1;
+  /*background-color: #f1f1f1;*/
+  background-color: #F2F4F7;
 }
 table tr:nth-child(even) {
   background-color: #ffffff;
@@ -265,7 +265,8 @@ table tr:nth-child(even) {
 
 #contents {
   grid-area: contentTable;
-  background-color: lightgrey;
+  /*background-color: lightgrey;*/
+  background-color: #DCE1EA;
   margin-left: 4em;
   display: flex;
   flex-direction: column;
