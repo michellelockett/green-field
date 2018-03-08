@@ -3,11 +3,11 @@ angular.module('BookApp').component('bookDetail', {
   controller: function(conan, $window) {
 
     this.$onChanges = (changes) => {
-      this.book = changes.book.currentValue;
-      if (changes.book.previousValue === undefined) {
-        this.originalState = angular.copy(changes.book.currentValue);
-        console.log('original', this.originalState);
-      }
+      // this.book = changes.book.currentValue;
+      // if (changes.book.previousValue === undefined) {
+      //   this.originalState = angular.copy(changes.book.currentValue);
+      //   console.log('original', this.originalState);
+      // }
     };
 
     this.saveEdits = () => {

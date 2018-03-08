@@ -59,7 +59,8 @@ const userController = {
   updateUserBook(req, res) {
 
     Book.update({
-      dewey: req.body.dewey
+      dewey: req.body.dewey,
+      title: req.body.title
     },
     {
       where: {
