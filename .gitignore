@@ -2,6 +2,8 @@
 config/*
 client/config/*
 
+userFiles/*
+
 # hidden mac files
 .DS_Store
 .ds_store

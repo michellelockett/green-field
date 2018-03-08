@@ -21,6 +21,7 @@ angular.module('BookApp').component('addBook', {
 
   bindings: {
     add: '<',
-    view: '<'
+    view: '<',
+    message: '<'
   }
 });

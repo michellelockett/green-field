@@ -18,6 +18,7 @@ angular.module('BookApp').component('app', {
       this.edit = false;
       this.add = false;
       this.sort = 'dewey';
+      this.message = '';
 
       //on init, check to see if there is a stored session id, and if so retrieve books for the logged in user
 
@@ -91,6 +92,7 @@ angular.module('BookApp').component('app', {
     };
 
     this.addBook = (book) => {
+      this.message = `Please wait one moment while we look for that book...`;
       conan.postBook(this.userId, book.isbn, conan.getAllBooksForUser, book.owned)
       .then((response) => {
         // do nothing with response
@@ -104,8 +106,13 @@ angular.module('BookApp').component('app', {
         this.selectedBook = books[books.length - 1];
       })
       .then(() => {
+        this.message = "";
         this.view = 'detail';
-      });
+      })
+      .catch((err) => {
+        this.message = "";
+        console.log(err);
+      })
     };
 
     this.updateBook = (id, isbn, book) => {
