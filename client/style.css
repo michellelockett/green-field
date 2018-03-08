@@ -19,17 +19,17 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   height: 100vh;
   margin: 0;
-  grid-gap: 5px;
+  /**/
 }
 
 #login select {
  height: 30%;
 }
 
-#loginPage {
+/*#loginPage {
   background-image: url("./src/library2.jpg");
   background-repeat: no-repeat;
-}
+}*/
 
 img.book {
   height: 250px;
@@ -271,7 +271,7 @@ table tr:nth-child(even) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .wrapper {
@@ -337,7 +337,6 @@ table tr:nth-child(even) {
 }
 
 #addBook {
-  grid-area: addBook;
   grid-column: 2 / span 3;
   padding: 20px;
   margin-right: 4em;
@@ -354,6 +353,7 @@ table tr:nth-child(even) {
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
+  font-size: 20px;
 }
 
 #addBook label {
