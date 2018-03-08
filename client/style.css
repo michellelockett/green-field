@@ -19,7 +19,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   height: 100vh;
   margin: 0;
-  grid-gap: 5px;
+  /**/
 }
 
 #login select {
@@ -271,7 +271,7 @@ table tr:nth-child(even) {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .wrapper {
@@ -353,6 +353,7 @@ table tr:nth-child(even) {
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
+  font-size: 20px;
 }
 
 #addBook label {
