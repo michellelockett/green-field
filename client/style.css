@@ -43,6 +43,12 @@ img.logo {
   margin-bottom: 1em;
 }
 
+i {
+  color: #7C3642;
+  background-color: white;
+  border-radius: 30%;
+}
+
 .button {
 /*  background-color: #B8D4E3*/;
   background-color: #5E6572;
@@ -330,6 +336,7 @@ table tr:nth-child(even) {
 }
 
 #addBook {
+  grid-area: addBook;
   grid-column: 2 / span 3;
   padding: 20px;
   margin-right: 4em;
