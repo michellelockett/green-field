@@ -4,14 +4,14 @@
 
 .button-options {
   font-family: 'Merriweather', serif;
-  font-size: 14px;
+  font-size: 16px;
   display: flex;
   align-items: center;
 }
 
 .button-options i {
   font-size: 30px;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 #options a {
