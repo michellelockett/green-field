@@ -302,55 +302,61 @@ angular.module('BookApp').component('app', {
       );
     };
 
-    //optional - if we want to break the books into categores (000, 100) before passing them down?
-    //or maybe we do that logic in the contentIndex component
+    this.filterByAuthor = (alphaBlock, listType) => {
+      if (alphaBlock === 'all') {
+        this.currentBooks = listType;
+      } else if (alphaBlock === 'unknown') {
+        this.currentBooks = listType.filter(book => book.authors[0].lastName === null);
+      } else {
+        this.currentBooks = listType.filter(
+              book => 
+                book.authors[0].lastName && alphaBlock.includes(book.authors[0].lastName[0].toUpperCase())
+            );
+      }
+
+      this.sortByAuthor();
+    };
+
+    this.filterByTitle = (alphaBlock, listType) => {
+       if (alphaBlock === 'all') {
+        this.currentBooks = listType;
+      } else if (alphaBlock === 'unknown') {
+        this.currentBooks = listType.filter(book => book.title === 'Unknown');
+      } else {
+        this.currentBooks = listType.filter(
+              book => 
+                alphaBlock.includes(book.title[0].toUpperCase())
+            );
+      }
+
+      this.sortByTitle();
+    };
+
+    this.filterByDewey = (deweyBlock, listType) => {
+
+      if (deweyBlock === 'all') {
+        this.currentBooks = listType
+      } else if (deweyBlock === 'null') {
+        this.currentBooks = listType.filter(book => book.dewey === null);
+      } else {
+        this.currentBooks = listType.filter(book => Math.floor(parseInt(book.dewey) / 100) * 100 === deweyOrAlpha);
+      }
+      this.sortByDewey();
+    };
+
+    //further filter results with the sidebar using above helper funcitons
+    
     this.sortByCategory = deweyOrAlpha => {
       const alpha = ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQR', 'STU', 'VWXYZ'];
       const listType =
         this.currentBookType === 'bookshelf' ? this.bookshelf : this.wishlist;
 
-      if (this.sortBy === 'author' && deweyOrAlpha === 'all') {
-        this.currentBooks = listType;
-        this.sortByAuthor();
-      } else if (this.sortBy === 'author' && deweyOrAlpha === 'unknown') {
-        this.currentBooks = listType.filter(book => book.authors[0].lastName === null);
-        this.sortByAuthor();
-      } else if (this.sortBy === 'author') {
-        for (var i = 0; i < alpha.length; i++) {
-          if (alpha[i].includes(deweyOrAlpha)) {
-            this.currentBooks = listType.filter(
-              book => 
-                book.authors[0].lastName && alpha[i].includes(book.authors[0].lastName[0].toUpperCase())
-            );
-            this.sortByAuthor();
-          }
-        } 
-      } else if (this.sortBy === 'dewey' && deweyOrAlpha === 'all') {
-        this.currentBooks = listType;
-        this.sortByDewey();
-      } else if (this.sortBy === 'dewey' && deweyOrAlpha === 'null') {
-        this.currentBooks = listType.filter(book => book.dewey === null);
+      if (this.sortBy === 'author') {
+        this.filterByAuthor(deweyOrAlpha, listType);
+      } else if (this.sortBy === 'title') {
+        this.filterByTitle(deweyOrAlpha, listType);
       } else if (this.sortBy === 'dewey') {
-        this.currentBooks = listType.filter(
-          book => Math.floor(parseInt(book.dewey) / 100) * 100 === deweyOrAlpha
-        );
-        this.sortByDewey();
-      } else if (this.sortBy === 'title' && deweyOrAlpha === 'all') {
-        this.currentBooks = listType;
-        this.sortByTitle();
-      } else if (this.sortBy === 'title' && deweyOrAlpha === 'unknown') {
-        this.currentBooks = listType.filter(book => book.title === 'Unknown');
-      } else {
-        for (var i = 0; i < alpha.length; i++) {
-          if (alpha[i].includes(deweyOrAlpha)) {
-            this.currentBooks = listType.filter(
-              book =>
-                book.title && alpha[i].includes(book.title[0].toUpperCase())
-            );
-            this.sortByTitle();
-          }
-        }
+        this.filterByDewey(deweyOrAlpha, listType);
       }
-    };
-  }
+    }
 });
