@@ -16,7 +16,7 @@
           <th> DEWEY DECIMAL NUMBER </th>
         </tr>
         <tr ng-repeat="book in $ctrl.books | filter:search" >
-          <td ng-click="$ctrl.setView('detail', book)">{{book.title}}</td>
+          <td class="title-click" ng-click="$ctrl.setView('detail', book)">{{book.title}}</td>
           <td ng-show="book.authors[0].firstName && book.authors[0].lastName">{{book.authors[0].firstName + ' ' + book.authors[0].lastName}}</td>
           <td ng-show="!book.authors[0].firstName || !book.authors[0].lastName">Unknown author</td>
           <td>{{book.dewey}}</td>
