@@ -359,5 +359,6 @@ angular.module('BookApp').component('app', {
       } else if (this.sortBy === 'dewey') {
         this.filterByDewey(deweyOrAlpha, listType);
       }
-    }
+    };
+  }
 });
