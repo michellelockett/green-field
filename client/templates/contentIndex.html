@@ -2,6 +2,8 @@
 <div ng-show="$ctrl.sort === 'dewey'" id="contentsDewey">
       <h4 ng-click=$ctrl.category('all')>All Books</h4>
       <hr>
+      <h4 ng-click=$ctrl.category('null')>Unknown Dewey</h4>
+      <hr>
       <h4 ng-click=$ctrl.category(000)>000</h4>
       <h4 class="classification">Generalities</h4>
       <hr>
@@ -35,6 +37,8 @@
 
 <div ng-show="$ctrl.sort === 'title' || $ctrl.sort === 'author'" id="contentsTitle">
       <h4 ng-click=$ctrl.category('all')>All Books</h4>
+      <hr>
+      <h4 ng-click=$ctrl.category('unknown')>Unknown {{$ctrl.sort}}</h4>
       <hr>
       <h4 ng-click="$ctrl.category('A')">A-C</h4>
       <hr>
