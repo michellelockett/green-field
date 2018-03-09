@@ -339,7 +339,7 @@ angular.module('BookApp').component('app', {
       } else if (deweyBlock === 'null') {
         this.currentBooks = listType.filter(book => book.dewey === null);
       } else {
-        this.currentBooks = listType.filter(book => Math.floor(parseInt(book.dewey) / 100) * 100 === deweyOrAlpha);
+        this.currentBooks = listType.filter(book => Math.floor(parseInt(book.dewey) / 100) * 100 === deweyBlock);
       }
       
       this.sortByDewey();
