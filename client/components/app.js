@@ -312,15 +312,14 @@ angular.module('BookApp').component('app', {
         for (var i = 0; i < alpha.length; i++) {
           if (alpha[i].includes(deweyOrAlpha)) {
             this.currentBooks = listType.filter(
-              book =>
-                alpha[i].includes(book.authors[0].lastName[0].toUpperCase())
+              book => 
+                book.authors[0].lastName && alpha[i].includes(book.authors[0].lastName[0].toUpperCase())
             );
+            console.log(this.currentBooks);
             this.sortByAuthor();
           }
-        }
-      }
-
-      if (this.sortBy === 'dewey' && deweyOrAlpha === 'all') {
+        } 
+      } else if (this.sortBy === 'dewey' && deweyOrAlpha === 'all') {
         this.currentBooks = listType;
         this.sortByDewey();
       } else if (this.sortBy === 'dewey') {
