@@ -72,13 +72,11 @@ angular.module('BookApp', [])
     },
 
     getAllBooksForUser(id) {
-      console.log(id, "IN CONAN GET ALL BOOKS FOR USER");
       return $http({
         method: 'GET',
         url: `/users/${id}`
       })
       .then(function successCallback(response) {
-        console.log(response.data.books);
         return response.data.books;
       }, function errorCallback(response) {
         console.log(response);
@@ -92,8 +90,7 @@ angular.module('BookApp', [])
         url: `/users/${userId}/books/isbn/${ISBN}/${isOwned}`
       })
       .then(function successCallback(response) {
-        // console.log(response.data);
-        // callback(userId);
+        //do nothing with response
       });
     },
 

@@ -341,11 +341,12 @@ angular.module('BookApp').component('app', {
       } else {
         this.currentBooks = listType.filter(book => Math.floor(parseInt(book.dewey) / 100) * 100 === deweyOrAlpha);
       }
+      
       this.sortByDewey();
     };
 
     //further filter results with the sidebar using above helper funcitons
-    
+
     this.sortByCategory = deweyOrAlpha => {
       const alpha = ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQR', 'STU', 'VWXYZ'];
       const listType =
