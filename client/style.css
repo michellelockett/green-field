@@ -19,21 +19,16 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   height: 100vh;
   margin: 0;
-  /**/
 }
 
 #login select {
   height: 30%;
 }
-/*
-#loginPage {
-  background-image: url("./src/library2.jpg");
-  background-repeat: no-repeat;
-}*/
 
 img.book {
   height: 250px;
   width: 150px;
+  cursor: pointer;
 }
 
 .logo {
@@ -47,6 +42,11 @@ img.book {
   background-color: white;
   border-radius: 30%;
   padding: 2px;
+  cursor: pointer;
+}
+
+.title-click {
+  cursor: pointer;
 }
 
 .button {
@@ -60,11 +60,16 @@ img.book {
   display: inline-block;
   font-size: 16px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .classification {
   color: #7c3642;
   font-weight: bold;
+}
+
+h4 {
+  cursor: pointer;
 }
 
 #pageHeader {
