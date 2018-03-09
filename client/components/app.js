@@ -125,8 +125,12 @@ angular.module('BookApp').component('app', {
             this.getWishlist();
             this.currentBooks = this.bookshelf;
             this.view = 'list';
+            this.edit = false;
           })
-          .catch(err => console.log(err));
+          .catch(err => {
+            this.edit = false;
+            console.log(err);
+          });
       });
     };
 

@@ -12,9 +12,9 @@
 .main {
   display: grid;
   grid-template-areas:
-    "header nav nav nav"
-    "options options options options"
-    "contentTable article article article";
+    'header nav nav nav'
+    'options options options options'
+    'contentTable article article article';
   grid-template-rows: 100px 100px 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   height: 100vh;
@@ -23,7 +23,7 @@
 }
 
 #login select {
- height: 30%;
+  height: 30%;
 }
 /*
 #loginPage {
@@ -43,15 +43,15 @@ img.book {
 }
 
 .options-i {
-  color: #7C3642;
+  color: #7c3642;
   background-color: white;
   border-radius: 30%;
   padding: 2px;
 }
 
 .button {
-/*  background-color: #B8D4E3*/;
-  background-color: #5E6572;
+  /*  background-color: #B8D4E3*/
+  background-color: #5e6572;
   color: white;
   border: none;
   padding: 5px 10px;
@@ -63,7 +63,7 @@ img.book {
 }
 
 .classification {
-  color: #7C3642;
+  color: #7c3642;
   font-weight: bold;
 }
 
@@ -83,21 +83,21 @@ img.book {
   grid-area: article;
   /*margin-right: 4em;*/
   text-align: center;
-  margin-right: 2em;
+  margin-right: 4em;
 }
 
 #bookList {
   grid-area: article;
-  /*margin-right: 4em;*/
+  margin-right: 4em;
 }
-
 
 /* BEGIN BookDetail styles */
 
 #bookDetail {
   grid-area: article;
-/*  grid-column: 2 / span 3;
-*/  display: grid;
+  /*  grid-column: 2 / span 3;
+*/
+  display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: min-content;
   grid-gap: 10px;
@@ -151,9 +151,10 @@ img.book {
 }
 
 .alert {
-  color: #7C3642;
+  color: #7c3642;
   /*color: tomato;
-*/}
+*/
+}
 
 .detail.alert {
   grid-column: span 6;
@@ -176,21 +177,21 @@ img.book {
 
 #bookDetail input {
   -webkit-appearance: none;
-  -moz-appearance : none;
+  -moz-appearance: none;
   margin-top: 8px;
-  border:1px solid lightgrey;
-  border-radius:3px;
-  padding:5px 3px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  padding: 5px 3px;
   background-color: transparent;
 }
 
 #bookDetail select {
   margin-top: 8px;
   -webkit-appearance: none;
-  -moz-appearance : none;
-  border:1px solid lightgrey;
-  border-radius:3px;
-  padding:5px 3px;
+  -moz-appearance: none;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  padding: 5px 3px;
   background-color: transparent;
 }
 
@@ -205,10 +206,9 @@ img.book {
 #loginView {
   grid-area: header;
   grid-column: span 4;
- /* margin-top: 4em;*/
+  /* margin-top: 4em;*/
   text-align: center;
 }
-
 
 #searchbar {
   margin-left: 1em;
@@ -222,7 +222,9 @@ table {
   margin-left: 3em;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid grey;
   border-collapse: collapse;
   padding: 10px;
@@ -230,17 +232,16 @@ table, th, td {
 
 table tr:nth-child(odd) {
   /*background-color: #f1f1f1;*/
-  background-color: #F2F4F7;
+  background-color: #f2f4f7;
 }
 table tr:nth-child(even) {
   background-color: #ffffff;
 }
 
-
 #mainNav {
   grid-area: nav;
   display: flex;
-  background-color: #B8D4E3;
+  background-color: #b8d4e3;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-end;
@@ -250,7 +251,7 @@ table tr:nth-child(even) {
 
 #options {
   grid-area: options;
-  background-color: #5E6572;
+  background-color: #5e6572;
   color: white;
   display: flex;
   flex-direction: row;
@@ -263,12 +264,11 @@ table tr:nth-child(even) {
 
 #options button {
   border: 2px solid floralwhite;
-
 }
 
 #contents {
   grid-area: contentTable;
-  background-color: #DCE1EA;
+  background-color: #dce1ea;
   margin-left: 4em;
   display: flex;
   flex-direction: column;
@@ -284,7 +284,8 @@ table tr:nth-child(even) {
   grid-auto-rows: minmax(100px, auto);
 }
 
-#contentsDewey, #contentsTitle {
+#contentsDewey,
+#contentsTitle {
   margin-left: 10px;
 }
 
@@ -297,18 +298,18 @@ table tr:nth-child(even) {
 @media all and (max-width: 800px) {
   .main {
     grid-template-areas:
-      "header"
-      "nav"
-      "options"
-      "addBook"
-      "article"
-      "article"
-      "article"
-      "article";
+      'header'
+      'nav'
+      'options'
+      'addBook'
+      'article'
+      'article'
+      'article'
+      'article';
     grid-template-rows: 150px 100px 100px auto;
     grid-template-columns: 1fr;
     grid-gap: 0;
- }
+  }
   .button {
     border: none;
     text-align: center;
@@ -316,26 +317,26 @@ table tr:nth-child(even) {
     font-size: 14px;
     margin-left: 5px;
     margin-right: 5px;
- }
+  }
 
- #mainNav {
-  align-items: center;
-  border-radius: 0px;
-  margin: 0;
- }
+  #mainNav {
+    align-items: center;
+    border-radius: 0px;
+    margin: 0;
+  }
 
- #contents {
-   display: none;
- }
+  #contents {
+    display: none;
+  }
 
- #options {
-  margin: 0;
-  padding: 5px;
- }
+  #options {
+    margin: 0;
+    padding: 5px;
+  }
 
- .wrapper {
-  grid-template-columns: 1fr 1fr;
- }
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 #addBook {
@@ -345,7 +346,9 @@ table tr:nth-child(even) {
 }
 
 /* Style inputs, select elements and textareas */
-#addBook input[type=text], #addBook select, #addBook textarea{
+#addBook input[type='text'],
+#addBook select,
+#addBook textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -363,8 +366,8 @@ table tr:nth-child(even) {
   display: inline-block;
 }
 
-#addBook input[type=submit] {
-  background-color: #4CAF50;
+#addBook input[type='submit'] {
+  background-color: #4caf50;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -402,13 +405,15 @@ table tr:nth-child(even) {
   margin-top: 6px;
 }
 .row:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
 
 @media (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
+  .col-25,
+  .col-75,
+  input[type='submit'] {
     width: 100%;
     margin-top: 0;
   }
@@ -419,7 +424,7 @@ table tr:nth-child(even) {
 button.button {
   font-family: 'Helvetica Neue Light', 'Lucida Grande', 'Arial', sans-serif;
   font-size: 10px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 8px 8px;
   border: none;
@@ -448,7 +453,7 @@ button.button.danger {
 
 .real-cover {
   display: inline-block;
-  box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, .3);
+  box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.3);
 }
 .fake-cover {
   font-family: 'Merriweather', serif;
@@ -461,7 +466,7 @@ button.button.danger {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, .3);
+  box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
 .fake-cover-title {
