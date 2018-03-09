@@ -305,6 +305,21 @@ angular.module('BookApp').component('app', {
       const listType =
         this.currentBookType === 'bookshelf' ? this.bookshelf : this.wishlist;
 
+      if (this.sortBy === 'author' && deweyOrAlpha === 'all') {
+        this.currentBooks = listType;
+        this.sortByAuthor();
+      } else if (this.sortBy === 'author') {
+        for (var i = 0; i < alpha.length; i++) {
+          if (alpha[i].includes(deweyOrAlpha)) {
+            this.currentBooks = listType.filter(
+              book =>
+                alpha[i].includes(book.authors[0].lastName[0].toUpperCase())
+            );
+            this.sortByAuthor();
+          }
+        }
+      }
+
       if (this.sortBy === 'dewey' && deweyOrAlpha === 'all') {
         this.currentBooks = listType;
         this.sortByDewey();

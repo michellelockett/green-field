@@ -33,7 +33,7 @@
       <h4 class="classification">Geography and History</h4>
 </div>
 
-<div ng-show="$ctrl.sort === 'title'" id="contentsTitle">
+<div ng-show="$ctrl.sort === 'title' || $ctrl.sort === 'author" id="contentsTitle">
       <h4 ng-click=$ctrl.category('all')>All Books</h4>
       <hr>
       <h4 ng-click="$ctrl.category('A')">A-C</h4>
