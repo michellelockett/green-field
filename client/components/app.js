@@ -313,8 +313,6 @@ angular.module('BookApp').component('app', {
         this.currentBooks = listType;
         this.sortByAuthor();
       } else if (this.sortBy === 'author' && deweyOrAlpha === 'unknown') {
-        console.log("GOT THIS FAR")
-        this.currentBooks.forEach(book => console.log(book.authors));
         this.currentBooks = listType.filter(book => book.authors[0].lastName === null);
         this.sortByAuthor();
       } else if (this.sortBy === 'author') {
