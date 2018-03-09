@@ -308,6 +308,11 @@ angular.module('BookApp').component('app', {
       if (this.sortBy === 'author' && deweyOrAlpha === 'all') {
         this.currentBooks = listType;
         this.sortByAuthor();
+      } else if (this.sortBy === 'author' && deweyOrAlpha === 'unknown') {
+        console.log("GOT THIS FAR")
+        this.currentBooks.forEach(book => console.log(book.authors));
+        this.currentBooks = listType.filter(book => book.authors[0].lastName === null);
+        this.sortByAuthor();
       } else if (this.sortBy === 'author') {
         for (var i = 0; i < alpha.length; i++) {
           if (alpha[i].includes(deweyOrAlpha)) {
@@ -315,13 +320,14 @@ angular.module('BookApp').component('app', {
               book => 
                 book.authors[0].lastName && alpha[i].includes(book.authors[0].lastName[0].toUpperCase())
             );
-            console.log(this.currentBooks);
             this.sortByAuthor();
           }
         } 
       } else if (this.sortBy === 'dewey' && deweyOrAlpha === 'all') {
         this.currentBooks = listType;
         this.sortByDewey();
+      } else if (this.sortBy === 'dewey' && deweyOrAlpha === 'null') {
+        this.currentBooks = listType.filter(book => book.dewey === null);
       } else if (this.sortBy === 'dewey') {
         this.currentBooks = listType.filter(
           book => Math.floor(parseInt(book.dewey) / 100) * 100 === deweyOrAlpha
@@ -330,6 +336,8 @@ angular.module('BookApp').component('app', {
       } else if (this.sortBy === 'title' && deweyOrAlpha === 'all') {
         this.currentBooks = listType;
         this.sortByTitle();
+      } else if (this.sortBy === 'title' && deweyOrAlpha === 'unknown') {
+        this.currentBooks = listType.filter(book => book.title === 'Unknown');
       } else {
         for (var i = 0; i < alpha.length; i++) {
           if (alpha[i].includes(deweyOrAlpha)) {
