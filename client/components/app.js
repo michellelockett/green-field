@@ -83,6 +83,7 @@ angular.module('BookApp').component('app', {
         localStorage.clear();
         this.loggedIn = null;
         this.userData = {};
+        this.setView('list');
       });
     };
 
