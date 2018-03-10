@@ -20,9 +20,14 @@
   </span>
 </a>
 
-<a ng-href="/users/{{$ctrl.user}}/books/list/title" ng-show="$ctrl.sort === 'title' || $ctrl.sort === 'author'" target="_blank">
+<a ng-href="/users/{{$ctrl.user}}/books/list/title" ng-show="$ctrl.sort === 'title'" target="_blank">
   <span class="button-options" >
     <i class="material-icons options-i">file_download</i> Download Current Bookshelf
   </span>
 </a>
 
+<a ng-href="/users/{{$ctrl.user}}/books/list/author" ng-show="$ctrl.sort === 'author'" target="_blank">
+  <span class="button-options" >
+    <i class="material-icons options-i">file_download</i> Download Current Bookshelf
+  </span>
+</a>
