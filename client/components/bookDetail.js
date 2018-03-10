@@ -22,6 +22,7 @@ angular.module('BookApp').component('bookDetail', {
     startEdit: '<',
     delete: '<',
     edit: '<',
-    back: '<'
+    back: '<',
+    from: '<'
   }
 });
