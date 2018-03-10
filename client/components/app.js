@@ -18,6 +18,7 @@ angular.module('BookApp').component('app', {
       this.add = false;
       this.sort = 'dewey';
       this.message = '';
+      this.back = '';
 
       //on init, check to see if there is a stored session id, and if so retrieve books for the logged in user
 
@@ -154,6 +155,9 @@ angular.module('BookApp').component('app', {
     };
 
     this.setView = (view, book) => {
+      if (view === 'detail') {
+        this.back = this.view;
+      }
       this.view = view;
       this.selectedBook = book ? book : null;
 
