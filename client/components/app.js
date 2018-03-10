@@ -79,11 +79,13 @@ angular.module('BookApp').component('app', {
     };
 
     this.logout = () => {
+
       conan.logout().then(() => {
+        this.currentBookType = 'bookshelf';
+        this.setView('list');
         localStorage.clear();
         this.loggedIn = null;
-        this.userData = {};
-        this.setView('list');
+        this.userData = {};       
       });
     };
 
