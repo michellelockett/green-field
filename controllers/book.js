@@ -13,6 +13,7 @@ const bookController = {
       include: Author
     })
       .then((book) => {
+        console.log("Found book: ", book);
 
         if (book) {
           // If book already exists in database,
