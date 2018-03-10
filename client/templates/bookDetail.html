@@ -13,6 +13,14 @@
       <i class="material-icons">mode_edit</i> Edit details
   </button>
 
+    <button
+    id="back"
+    class="button"
+    ng-show="!$ctrl.edit"
+    ng-click="$ctrl.saveEdits()">
+      <i class="material-icons">navigate_before</i> Back
+  </button>
+
   <button
     class="button"
     ng-show="$ctrl.edit"
