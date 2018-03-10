@@ -104,7 +104,7 @@ angular.module('BookApp').component('app', {
           this.getBookshelf();
           this.getWishlist();
           this.currentBooks = this.bookshelf;
-          this.selectedBook = books[books.length - 1];
+          this.selectedBook = books.filter(b => book.isbn === b.isbn)[0];
         })
         .then(() => {
           this.message = '';
